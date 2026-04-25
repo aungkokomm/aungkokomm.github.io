@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineLibrary — Movie catalog for Windows</title>
+<meta name="description" content="Native Windows movie catalog for MediaElch-scraped collections. Browse, search, and play across multiple external drives.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><a href="../" style="color:inherit"><span class="dot"></span> aungkokomm</a></div>
+    <nav class="site">
+      <a href="../">← Projects</a>
+      <a href="https://github.com/aungkokomm/CineLibraryCS" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="container">
+    <div class="icon">🎬</div>
+    <h1>CineLibrary</h1>
+    <p class="tagline">
+      Native Windows catalog for your <strong>MediaElch-scraped</strong> movie collection.
+      Browse, search, filter, and play across any number of external drives — fast, offline, portable.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
+        ⬇ Download v1.6.0
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryCS" target="_blank" rel="noopener">
+        View source
+      </a>
+    </div>
+    <div class="meta-row">
+      <span>WinUI 3 · .NET 8 · x64</span>
+      <span>·</span>
+      <span>Portable installer (~45 MB)</span>
+      <span>·</span>
+      <span>MIT licensed</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="shot">
+      <div class="shot-placeholder">Library page screenshot — drop image at <code>assets/img/cinelibrary-library.png</code></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Why CineLibrary</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h4>🚀 Native, fast</h4>
+        <p>WinUI 3 + C#. Cold start under a second. Scrolling through 1,000+ posters stays smooth thanks to an LRU image cache.</p>
+      </div>
+      <div class="feature">
+        <h4>💾 Multi-drive aware</h4>
+        <p>Index a USB drive, unplug it — its movies fade to "offline" instead of vanishing. Plug it back in and they wake up via WM_DEVICECHANGE.</p>
+      </div>
+      <div class="feature">
+        <h4>📦 MediaElch-friendly</h4>
+        <p>Reads .nfo + poster/fanart files alongside your videos. No re-scraping, no duplicate metadata.</p>
+      </div>
+      <div class="feature">
+        <h4>🔌 Portable, offline</h4>
+        <p>Install anywhere — external drive, USB stick, Documents. Library data lives next to the exe. No telemetry.</p>
+      </div>
+      <div class="feature">
+        <h4>🎨 Light + dark</h4>
+        <p>Theme-aware design, follows system theme by default. Mica backdrop on Windows 11.</p>
+      </div>
+      <div class="feature">
+        <h4>🔄 Auto update notifier</h4>
+        <p>Checks GitHub for new releases on startup. Shows a quiet toast — never installs silently, never nags.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Features</h2>
+    <ul class="checklist">
+      <li>Library, Favorites, Watchlist, Statistics</li>
+      <li>Filter by collection, genre, decade, watched status</li>
+      <li>Search title, actor, director, plot</li>
+      <li>Grid + list views with S/M/L/XL density</li>
+      <li>Movie details: cast, crew, ratings, runtime, file path</li>
+      <li>Toggle watched / favorite / watchlist with one click</li>
+      <li>Export catalog as CSV or HTML</li>
+      <li>Keyboard shortcuts: Ctrl+F search, Ctrl+B sidebar, Ctrl+Q quit, Ctrl+Shift+/ help</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div>© 2026 Aung Ko Ko · MIT licensed</div>
+    <div><a href="https://github.com/aungkokomm/CineLibraryCS" target="_blank" rel="noopener">github.com/aungkokomm/CineLibraryCS</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
