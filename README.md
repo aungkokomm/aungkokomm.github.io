@@ -7,7 +7,7 @@ Live: https://aungkokomm.github.io/
 ## Structure
 
 - `index.html` — portfolio landing
-- `cinelibrary/`, `netmon/`, `dictionary/` — per-project pages
+- `cinelibrary/`, `cinelibraryessentials/`, `netmon/`, `dictionary/` — per-project pages
 - `assets/css/style.css` — shared styles
 - `assets/img/` — drop screenshots here (referenced from project pages)
 
