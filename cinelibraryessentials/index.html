@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineLibrary Essentials — Movie file organizer for Windows</title>
+<meta name="description" content="Clean up messy movie downloads. Rename, organize into Plex/Kodi Title (Year) folders, and prep for scraping. The recommended preparation step before MediaElch and CineLibrary.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><a href="../" style="color:inherit"><span class="dot"></span> aungkokomm</a></div>
+    <nav class="site">
+      <a href="../">← Projects</a>
+      <a href="https://github.com/aungkokomm/CineLibraryEssentials" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="container">
+    <div class="icon">🧹</div>
+    <h1>CineLibrary Essentials</h1>
+    <p class="tagline">
+      Clean up messy movie downloads. <strong>Rename</strong> and <strong>organize</strong> into the
+      <em>Title (Year)/</em> folder layout that Plex, Kodi, Jellyfin, and MediaElch expect — fast,
+      offline, no admin required.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/aungkokomm/CineLibraryEssentials/releases/latest" target="_blank" rel="noopener">
+        ⬇ Download v1.0.0
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryEssentials#user-guide" target="_blank" rel="noopener">
+        📖 User Guide
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryEssentials" target="_blank" rel="noopener">
+        View source
+      </a>
+    </div>
+    <div class="meta-row">
+      <span>WinUI 3 · .NET 10 · x64</span>
+      <span>·</span>
+      <span>Portable installer (~58 MB)</span>
+      <span>·</span>
+      <span>MIT licensed</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>The 3-stage workflow</h2>
+    <p>
+      CineLibrary Essentials is the first step in a clean, hand-off pipeline that takes a
+      chaotic <code>Downloads</code> folder and turns it into a polished movie library.
+    </p>
+    <div class="feature-grid" style="margin-top:1rem">
+      <div class="feature">
+        <h4>1️⃣ Essentials <em>(this app)</em></h4>
+        <p>Rename messy filenames, organize files into <code>Title (Year)/</code> folders. Optional casual TMDb scraper for basic metadata.</p>
+      </div>
+      <div class="feature">
+        <h4>2️⃣ <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> <em>(recommended)</em></h4>
+        <p>Full-fledged scraping with multiple sources, edition support, trailers, and deeper metadata. Runs against the folders Essentials prepared.</p>
+      </div>
+      <div class="feature">
+        <h4>3️⃣ <a href="../cinelibrary/">CineLibrary</a></h4>
+        <p>Scan and browse the finished library across multiple external drives. Reads the .nfo + poster + fanart that MediaElch wrote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What it does for you</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h4>🧠 Smart filename parser</h4>
+        <p>Strips release-group prefixes, codecs (x265, HEVC, AV1), audio (DDP5.1, Atmos), HDR, source tags, and tracker URLs. Extracts the real title and year.</p>
+      </div>
+      <div class="feature">
+        <h4>🟥 Word-level diff</h4>
+        <p>Each row shows the original filename with kept tokens grey and removed tokens in <span style="color:#c42b1c;text-decoration:line-through">red strikethrough</span> — see exactly what was cleaned.</p>
+      </div>
+      <div class="feature">
+        <h4>🪄 Inline TMDb search</h4>
+        <p>Per-row 🔍 button opens a TMDb search dialog — pick the right match, app uses that exact ID for metadata download.</p>
+      </div>
+      <div class="feature">
+        <h4>📁 Drag-and-drop</h4>
+        <p>Drop a folder onto the window. Recursive scan toggle for whole libraries. Subtitle files (.srt, .sub) follow the rename automatically.</p>
+      </div>
+      <div class="feature">
+        <h4>🛠 Bulk power tools</h4>
+        <p>Find &amp; Replace, Smart Title Case, output template picker (<code>Title (Year)</code> or <code>Year - Title</code>), Reset, Select All / None.</p>
+      </div>
+      <div class="feature">
+        <h4>⚠️ Safety first</h4>
+        <p>Confirms before destructive ops. Detects duplicates, invalid characters, missing year, TV episodes, and path-too-long issues per row.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Wizard at a glance</h2>
+    <ul class="checklist">
+      <li><strong>Step 1 · Clean Names</strong> — pick a folder, review/edit cleaned names, click <em>Rename Selected</em></li>
+      <li><strong>Step 2 · Organize</strong> — files auto-carry over, picks Title (Year)/ destination, click <em>Run File to Folder</em></li>
+      <li><strong>Step 3 · Scrape</strong> — auto-list of organized movies, per-row TMDb search, downloads NFO + poster + fanart + actor photos</li>
+      <li>Output is fully <strong>Plex / Kodi / Jellyfin / MediaElch compatible</strong></li>
+      <li>Skip Step 3 entirely and use MediaElch — the folders are already in the format it expects</li>
+      <li>TMDb API key embedded — works out of the box, no setup</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div>© 2026 Aung Ko Ko · MIT licensed</div>
+    <div><a href="https://github.com/aungkokomm/CineLibraryEssentials" target="_blank" rel="noopener">github.com/aungkokomm/CineLibraryEssentials</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
