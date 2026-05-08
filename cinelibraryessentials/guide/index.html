@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Guide — CineLibrary Essentials</title>
+<meta name="description" content="Full user guide for CineLibrary Essentials — every feature, edge case, and troubleshooting tip for the 3-step movie file rename / organize / scrape wizard.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+  /* ── Page-specific layout ────────────────────────────────── */
+  .guide-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    margin-top: 32px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 900px) {
+    .guide-layout { grid-template-columns: 1fr; gap: 24px; }
+    .guide-toc { position: static !important; max-height: none !important; }
+  }
+
+  /* ── Table of contents ───────────────────────────────────── */
+  .guide-toc {
+    position: sticky; top: 24px;
+    align-self: start;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    font-size: 13px;
+    border-right: 1px solid var(--border);
+    padding-right: 16px;
+  }
+  .guide-toc h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .guide-toc ol { list-style: none; padding-left: 0; }
+  .guide-toc ol ol { padding-left: 14px; margin-top: 4px; }
+  .guide-toc li { margin: 4px 0; }
+  .guide-toc a {
+    color: var(--muted);
+    text-decoration: none;
+    line-height: 1.4;
+    display: block;
+    padding: 2px 0;
+  }
+  .guide-toc a:hover { color: var(--accent); }
+
+  /* ── Article body ────────────────────────────────────────── */
+  .guide-body { min-width: 0; }
+  .guide-body h2 {
+    font-size: 26px;
+    margin: 48px 0 12px;
+    letter-spacing: -0.01em;
+    scroll-margin-top: 24px;
+  }
+  .guide-body h2:first-child { margin-top: 0; }
+  .guide-body h3 {
+    font-size: 18px;
+    margin: 28px 0 8px;
+    color: var(--text);
+    scroll-margin-top: 24px;
+  }
+  .guide-body p, .guide-body li { color: var(--text); font-size: 15px; line-height: 1.7; }
+  .guide-body p { margin-bottom: 14px; }
+  .guide-body ul, .guide-body ol {
+    margin: 0 0 14px 22px;
+    color: var(--text);
+  }
+  .guide-body ul li, .guide-body ol li { font-size: 15px; margin: 6px 0; }
+  .guide-body strong { color: var(--text); }
+
+  .guide-body blockquote {
+    border-left: 3px solid var(--accent);
+    background: rgba(124, 95, 232, 0.06);
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .guide-body code {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font: 13px/1.4 "Consolas", "Cascadia Mono", monospace;
+    color: var(--accent-dim);
+  }
+
+  .guide-body pre {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    overflow-x: auto;
+    margin: 14px 0;
+    font: 13px/1.55 "Consolas", "Cascadia Mono", monospace;
+    color: var(--text);
+  }
+  .guide-body pre code {
+    background: none; border: 0; padding: 0; color: inherit;
+  }
+
+  .guide-body table {
+    border-collapse: collapse;
+    margin: 14px 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  .guide-body th, .guide-body td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .guide-body th {
+    background: var(--bg-card);
+    font-weight: 600;
+  }
+  .guide-body tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
+
+  .guide-body img {
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+
+  /* ── Status pill demo (used inline in Step 3 section) ──── */
+  .pill {
+    display: inline-block;
+    padding: 1px 9px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    vertical-align: middle;
+  }
+  .pill-ready { background: #828282; }
+  .pill-scraping { background: #0078d7; }
+  .pill-complete { background: #10893e; }
+  .pill-failed { background: #c42b1c; }
+
+  .guide-hero {
+    padding: 32px 0 12px;
+  }
+  .guide-hero h1 {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+  }
+  .guide-hero p { color: var(--muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><a href="../../" style="color:inherit"><span class="dot"></span> aungkokomm</a></div>
+    <nav class="site">
+      <a href="../">← CineLibrary Essentials</a>
+      <a href="https://github.com/aungkokomm/CineLibraryEssentials" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/aungkokomm/CineLibraryEssentials/releases/latest" target="_blank" rel="noopener">Download</a>
+    </nav>
+  </div>
+</header>
+
+<section class="guide-hero">
+  <div class="container">
+    <h1>📖 User Guide</h1>
+    <p>Full walkthrough of every feature in the 3-step rename / organize / scrape wizard.</p>
+  </div>
+</section>
+
+<div class="container">
+<div class="guide-layout">
+
+  <!-- ============ Sticky TOC ============ -->
+  <aside class="guide-toc">
+    <h4>Contents</h4>
+    <ol>
+      <li><a href="#install">1. Install &amp; first launch</a></li>
+      <li><a href="#workflow">2. The 3-stage workflow</a></li>
+      <li><a href="#step1">3. Step 1 — Clean Names</a>
+        <ol>
+          <li><a href="#loading">Loading files</a></li>
+          <li><a href="#columns">Each row explained</a></li>
+          <li><a href="#editing">Editing &amp; bulk tools</a></li>
+          <li><a href="#filters">Filters &amp; search</a></li>
+          <li><a href="#sorting">Sorting</a></li>
+          <li><a href="#tmdb-row">TMDb search per row</a></li>
+          <li><a href="#toggles">Top-row toggles</a></li>
+          <li><a href="#rename">The Rename button</a></li>
+          <li><a href="#undo">Undo</a></li>
+        </ol>
+      </li>
+      <li><a href="#step2">4. Step 2 — Organize</a></li>
+      <li><a href="#step3">5. Step 3 — Scrape</a></li>
+      <li><a href="#settings">6. Settings &amp; persistence</a></li>
+      <li><a href="#tips">7. Tips &amp; tricks</a></li>
+      <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+      <li><a href="#faq">9. FAQ</a></li>
+    </ol>
+  </aside>
+
+  <!-- ============ Article body ============ -->
+  <article class="guide-body">
+
+    <blockquote><strong>In a nutshell:</strong> drop a folder of messy movie downloads, the app cleans the filenames, organises them into <code>Title (Year)/</code> folders, and (optionally) downloads metadata. Designed as the prep step before <a href="../../cinelibrary/">CineLibrary</a>.</blockquote>
+
+    <!-- ===================== Install ===================== -->
+    <h2 id="install">1. Install &amp; first launch</h2>
+    <ol>
+      <li>Download the latest <code>CineLibraryEssentials_Setup_&lt;version&gt;.exe</code> from the <a href="https://github.com/aungkokomm/CineLibraryEssentials/releases/latest" target="_blank" rel="noopener">Releases page</a>.</li>
+      <li>Run it. The installer is <strong>per-user</strong> (no admin required), self-contained (no .NET / WindowsAppSDK to install separately), and roughly 58 MB.</li>
+      <li>Pick an install location, optionally tick desktop / Start Menu shortcut, and finish.</li>
+    </ol>
+    <p>When the app launches you'll see three step pills at the top — <code>① Clean Names › ② Organize › ③ Scrape</code>. Click any pill to jump to that step. The active pill is filled with the accent colour.</p>
+    <p>There's no setup screen — the TMDb API key is embedded, so the app is <strong>ready to use immediately</strong>.</p>
+
+    <!-- ===================== Workflow ===================== -->
+    <h2 id="workflow">2. The 3-stage workflow</h2>
+    <p>CineLibrary Essentials sits <strong>between</strong> your downloads and your final media library. The complete pipeline:</p>
+    <pre>Downloads/             Step 1: Clean Names      Step 2: Organize        Step 3: Scrape (or use MediaElch)        CineLibrary
+──────────             ────────────────────     ─────────────────       ──────────────────────────────────       ───────────
+movie.1080p.mkv  →     "Movie (Year).mkv"  →    Movie (Year)/      →    Movie (Year).nfo + posters         →    Browse + play
+another.mkv            "Another (2020).mkv"     Another (2020)/         …</pre>
+    <p>You don't have to do all three steps. The app supports several workflows:</p>
+    <table>
+      <tr><th>Goal</th><th>Steps you actually need</th></tr>
+      <tr><td>Just rename files</td><td>Step 1 → click <strong>Rename Selected</strong> → done</td></tr>
+      <tr><td>Rename + organize into folders</td><td>Step 1 → Step 2</td></tr>
+      <tr><td>Already-clean files, just need them organized</td><td>Step 2 (use <strong>+ Add Files</strong> / <strong>+ Add Folder</strong>)</td></tr>
+      <tr><td>Full pipeline including metadata</td><td>Step 1 → Step 2 → Step 3</td></tr>
+      <tr><td>Already-organized library, just need metadata</td><td>Step 3 (use <strong>Add Folder</strong>)</td></tr>
+    </table>
+    <p>You can skip steps in either direction at any time.</p>
+
+    <!-- ===================== Step 1 ===================== -->
+    <h2 id="step1">3. Step 1 — Clean Names</h2>
+    <img src="https://github.com/user-attachments/assets/e5cdd96c-c8f6-42bc-a279-a48f3c24811d" alt="Step 1 — Clean Names">
+    <p>This is where messy filenames become clean ones. The app shows you a side-by-side preview of every video file and what it'll be renamed to — you review, edit if needed, then commit.</p>
+
+    <h3 id="loading">Loading files</h3>
+    <p>Three ways:</p>
+    <ol>
+      <li><strong>Click the folder icon</strong> next to the Source box. Pick a folder. Done.</li>
+      <li><strong>Click the ▾ on the folder button</strong> for a dropdown of recent folders.</li>
+      <li><strong>Drag a folder</strong> from File Explorer onto the window. A dimmed overlay confirms the drop is accepted.</li>
+    </ol>
+    <p>If you drop a <em>file</em> instead of a folder, the app uses the file's parent folder.</p>
+
+    <h3 id="columns">Each row explained</h3>
+    <table>
+      <tr><th>Column</th><th>What it shows</th></tr>
+      <tr><td>☑</td><td>Whether this row will be processed when you click Rename Selected. Defaults to checked.</td></tr>
+      <tr><td><strong>Original</strong></td><td>The filename on disk now. <strong style="color:#c42b1c;text-decoration:line-through">Red strikethrough</strong> marks tokens the parser is removing (<code>1080p</code>, <code>BluRay</code>, <code>x265</code>, release groups). Grey tokens survive into the cleaned name.</td></tr>
+      <tr><td>File size</td><td>Right under the original, dimmed. Spot tiny "sample" files at a glance.</td></tr>
+      <tr><td><strong>Cleaned</strong></td><td>The proposed new filename. <strong>Editable</strong> — type to override the parser.</td></tr>
+      <tr><td><strong>Confidence</strong></td><td>A coloured pill — <em>High</em> (green), <em>Medium</em> (amber), <em>Low</em> (red).</td></tr>
+      <tr><td>⚠</td><td>Warning icon. Hover for details (missing year, duplicate, invalid chars, TV-episode pattern, too long, etc.)</td></tr>
+      <tr><td>🔍</td><td>Inline TMDb search button.</td></tr>
+    </table>
+
+    <h3 id="editing">Editing &amp; bulk tools</h3>
+    <p>You can fix names three ways:</p>
+    <ul>
+      <li><strong>Type directly</strong> into the Cleaned field. Updates apply when you click out of the field.</li>
+      <li><strong>Bulk Find &amp; Replace</strong> — type something in <em>Find</em>, something in <em>Replace</em>, click <strong>Replace</strong>. Affects every checked row.</li>
+      <li><strong>More menu</strong> (top-right <code>⋯</code>) — Select All / None, Apply Smart Title Case, Reset Auto-Cleaning.</li>
+    </ul>
+    <p><strong>Right-click any row</strong> for the same actions on just that one row, plus <em>Open Containing Folder</em> and <em>Remove from List</em>.</p>
+
+    <h3 id="filters">Filters &amp; search</h3>
+    <ul>
+      <li><strong>🔍 Search box</strong> — live-filters by both original and cleaned name.</li>
+      <li><strong>Confidence dropdown</strong> — All / High / Medium / Low / Warnings only / Needs renaming.</li>
+      <li><strong>Modified only toggle</strong> — quick way to hide rows where the cleaned name already matches the original.</li>
+    </ul>
+
+    <h3 id="sorting">Sorting</h3>
+    <p>Click any of the three column headers — <strong>Original</strong>, <strong>Cleaned</strong>, <strong>Confidence</strong> — to sort by that column. Click again to reverse direction. The arrow next to the column name shows current state. Your sort choice is <strong>remembered between sessions</strong>.</p>
+
+    <h3 id="tmdb-row">TMDb search per row</h3>
+    <p>When the parser isn't sure (or you just want to verify), click the 🔍 button on any row. A search dialog opens with the cleaned title and year pre-filled, a list of matches showing poster + plot + year — pick one, click <strong>Use Selected</strong>.</p>
+    <p>The cleaned name updates to the canonical TMDb title + year, the row is marked <strong>reviewed</strong>, and confidence jumps to 100%. The original on disk hasn't changed yet — that only happens when you hit Rename Selected.</p>
+
+    <h3 id="toggles">Top-row toggles</h3>
+    <div class="feature-grid">
+      <div class="feature">
+        <h4>Subfolders</h4>
+        <p>When on, the file scan recurses into every subfolder. Useful for processing an entire downloads tree at once.</p>
+      </div>
+      <div class="feature">
+        <h4>Rename folder</h4>
+        <p>If a movie sits in its <em>own subfolder</em> (single-video folder, not the source root), the folder is renamed to match the cleaned filename. Skips the source root, multi-video folders, and name collisions.</p>
+      </div>
+      <div class="feature">
+        <h4>Clean metadata</h4>
+        <p>After the file rename, also rewrites the <strong>embedded title tag</strong> inside the video file (and clears Comment / Description / Encoder / Copyright). This is what kills the website link in <strong>VLC's titlebar</strong> that scene releases often have. Powered by TagLib#. No re-encoding — fast and safe.</p>
+      </div>
+    </div>
+
+    <h3>Output template</h3>
+    <p>Choose between two formats for the cleaned filename:</p>
+    <ul>
+      <li><code>{Title} ({Year})</code> — the Plex / Kodi / Jellyfin / MediaElch standard</li>
+      <li><code>{Year} - {Title}</code> — sortable chronologically</li>
+    </ul>
+    <p>Switching the template re-applies it to all <strong>non-reviewed</strong> rows. Reviewed rows (your edits, TMDb confirmations) are left alone so you don't lose your work.</p>
+
+    <h3 id="rename">The Rename button</h3>
+    <p>When you're happy with the list, click <strong>Rename Selected</strong>:</p>
+    <ul>
+      <li>A confirmation dialog tells you how many files will be touched.</li>
+      <li>Companion subtitles (<code>.srt</code>, <code>.sub</code>, <code>.ass</code>, <code>.ssa</code>, <code>.vtt</code>, <code>.idx</code>) are renamed alongside their video.</li>
+      <li>If <strong>Rename folder</strong> is on, the parent folder is renamed <em>after</em> the file (so paths stay valid).</li>
+      <li>If <strong>Clean metadata</strong> is on, the file's embedded tags are scrubbed.</li>
+    </ul>
+    <p>When the rename finishes, you'll see a toast notification at the bottom-right.</p>
+
+    <h3 id="undo">Undo</h3>
+    <p>The success toast has an <strong>Undo</strong> button. You have <strong>30 seconds</strong> to click it — after that the toast dismisses and the rename is final.</p>
+    <p>Undo reverses every rename in the batch (files first, folders last) so you're back to where you started.</p>
+    <blockquote><strong>Tip:</strong> even though we have undo, you should still review carefully before committing. If you close the toast or wait too long, you'll have to fix any mistakes manually.</blockquote>
+
+    <!-- ===================== Step 2 ===================== -->
+    <h2 id="step2">4. Step 2 — Organize</h2>
+    <img src="https://github.com/user-attachments/assets/7f262903-9bba-4182-8acf-08f6fd257b66" alt="Step 2 — Organize">
+    <p>Step 2 takes the (renamed) files and moves each one into a <code>Title (Year)/</code> folder — the layout Plex, Kodi, Jellyfin, and MediaElch all expect.</p>
+
+    <h3>How files arrive in Step 2</h3>
+    <ol>
+      <li><strong>From Step 1</strong> — automatic. Files carry over, all checked, the moment you click into Step 2.</li>
+      <li><strong>+ Add Files</strong> — multi-select file picker. Use this when filenames are already clean.</li>
+      <li><strong>+ Add Folder</strong> — recursively pulls every video out of a folder. Good for processing a whole drive of pre-named files.</li>
+      <li><strong>Drag-drop</strong> — drop a folder or files onto the page.</li>
+    </ol>
+    <p>Each row shows the source file → arrow → destination folder + new filename.</p>
+
+    <h3>Output folder</h3>
+    <p>The output folder defaults to the <strong>source folder</strong> so the moves happen "in place" (creating subfolders inside the source). Click the folder button to pick a different output, or use ▾ for recents. If you change the output folder, every destination preview updates automatically.</p>
+
+    <h3>Running the move</h3>
+    <p>Tick / untick rows you want to skip, then click <strong>Run File to Folder</strong>. The app:</p>
+    <ol>
+      <li>Creates a <code>Title (Year)/</code> folder under the output for each movie.</li>
+      <li>Moves the video into it.</li>
+      <li>Moves any matching subtitle files alongside.</li>
+      <li>Advances to Step 3 automatically on success.</li>
+    </ol>
+    <p>If a destination already exists or there's a collision, that row is skipped and reported. The rest of the batch still processes.</p>
+
+    <!-- ===================== Step 3 ===================== -->
+    <h2 id="step3">5. Step 3 — Scrape</h2>
+    <p>Step 3 downloads metadata, posters, fanart, and actor photos from TMDb and writes them into each movie folder in the <strong>Plex / Kodi NFO standard</strong> layout:</p>
+    <pre>Bawarchi (1972)/
+├── Bawarchi (1972).mkv
+├── Bawarchi (1972)-poster.jpg
+├── Bawarchi (1972)-fanart.jpg
+├── Bawarchi (1972).nfo
+└── .actors/
+    ├── Rajesh-Khanna.jpg
+    └── …</pre>
+
+    <h3>Card view</h3>
+    <p>The default view is a <strong>grid of cards</strong> — each card shows the poster (or a placeholder), the title, the folder path, a status pill, and three buttons (Scrape / Open / Remove).</p>
+    <p>Status pills are colour-coded:</p>
+    <table>
+      <tr><th>Pill</th><th>Meaning</th></tr>
+      <tr><td><span class="pill pill-ready">Ready</span></td><td>Never scraped</td></tr>
+      <tr><td><span class="pill pill-scraping">Scraping…</span></td><td>In progress</td></tr>
+      <tr><td><span class="pill pill-complete">Complete</span> / <span class="pill pill-complete">Already scraped</span></td><td>Just scraped, OR folder already had .nfo + poster when loaded</td></tr>
+      <tr><td><span class="pill pill-failed">Failed</span></td><td>Hover the warning, error is in the row</td></tr>
+    </table>
+    <p>If a folder was already scraped (it has both an <code>.nfo</code> and a <code>-poster.jpg</code>), the app <strong>detects this on load</strong> and pre-unchecks it so a bulk <em>Scrape Selected</em> won't redo it.</p>
+
+    <h3>Per-movie scrape</h3>
+    <p>Click <strong>Scrape</strong> on any card → the same TMDb search dialog as Step 1 opens, pre-filled with the title and year. Pick a result → app downloads everything. The card flips to green and the poster appears.</p>
+
+    <h3>Bulk auto-scrape</h3>
+    <p>Click <strong>Scrape Selected (auto)</strong> at the top → every checked card is processed sequentially using the <strong>first TMDb match</strong> for each one. Fast for batch processing, less precise than per-movie. Use it after you've eyeballed the list and trust the auto-match.</p>
+
+    <h3>Other things you can do</h3>
+    <ul>
+      <li><strong>+ Add Folder</strong> — add a movie folder that wasn't part of Steps 1 or 2. Accepts both single movie folders and parent folders containing many movie folders.</li>
+      <li><strong>Drag-drop</strong> — same as above.</li>
+      <li><strong>Right-click a card</strong> → Search TMDb / Open Folder / Remove from List.</li>
+      <li><strong>List view toggle</strong> (icon in toolbar) — for libraries with hundreds of movies, the dense list view is faster. Preference is remembered.</li>
+      <li><strong>Done</strong> button — closes out the workflow. Files are already on disk, so this is more of a "finished" indicator.</li>
+    </ul>
+
+    <!-- ===================== Settings ===================== -->
+    <h2 id="settings">6. Settings &amp; persistence</h2>
+    <p>The app saves settings into <code>appsettings.json</code> next to the .exe. You shouldn't need to touch this file, but if you ever want to reset everything, just delete it.</p>
+    <p>What's remembered between sessions:</p>
+    <ul>
+      <li>TMDb API key (embedded by default)</li>
+      <li>Recent source / output folders (last 10 each)</li>
+      <li>Window size + position</li>
+      <li>Which warnings you've dismissed</li>
+      <li>Step 3 view preference (Grid / List)</li>
+      <li>Last output template (<code>{Title} ({Year})</code> or <code>{Year} - {Title}</code>)</li>
+      <li>"Clean metadata" checkbox state</li>
+      <li>Step 1 sort column + direction</li>
+    </ul>
+
+    <!-- ===================== Tips ===================== -->
+    <h2 id="tips">7. Tips &amp; tricks</h2>
+    <ul class="checklist">
+      <li>Drag-drop works on every step. Step 1 = load source. Step 2 = add to organize queue. Step 3 = add to scrape queue.</li>
+      <li>Right-click is your friend. Every list / card has a context menu with the most useful actions.</li>
+      <li>Use <strong>Modified only</strong> + <strong>Low</strong> filter to focus on the rows that actually need attention in big folders.</li>
+      <li>The TMDb dialog accepts year in the search box — type <code>Movie 2024</code>, the year is parsed out and used as a release-year filter.</li>
+      <li>The 30-second Undo applies to the whole batch. If you regret part of the rename, undo, fix that one row, and re-rename.</li>
+      <li>Step 3 detects already-scraped folders. Re-load the same folder a hundred times — it won't re-scrape what's already done unless you tick the row.</li>
+      <li>Clean metadata is a one-shot fix for the website-in-VLC-titlebar problem. Once it's done for a file, the file is clean forever.</li>
+    </ul>
+
+    <!-- ===================== Troubleshooting ===================== -->
+    <h2 id="troubleshooting">8. Troubleshooting</h2>
+    <table>
+      <tr><th>Problem</th><th>Try this</th></tr>
+      <tr><td>App doesn't launch</td><td>Make sure you're on <strong>Windows 10 build 17763 (1809) or newer</strong>, x64. The installer is self-contained — no other prerequisites.</td></tr>
+      <tr><td>"Folder no longer exists" toast on a recent</td><td>The folder was moved or deleted. Pick a new one — the recent list will refresh.</td></tr>
+      <tr><td>TMDb search returns nothing</td><td>Check spelling, drop the year temporarily, or look the movie up on themoviedb.org first to confirm it exists.</td></tr>
+      <tr><td>Rename failed: "target already exists"</td><td>Two files would have ended up with the same cleaned name. Edit one of them and try again.</td></tr>
+      <tr><td>Folder rename failed</td><td>Likely a file inside is open in another app (e.g. VLC playing it). Close other apps and try again.</td></tr>
+      <tr><td>Undo did nothing</td><td>The undo window is <strong>30 seconds</strong>. After that, the toast dismisses and the operation is final.</td></tr>
+      <tr><td>Wrong year extracted from filename</td><td>Click the 🔍 TMDb button on that row and pick the right match — overrides both title and year.</td></tr>
+    </table>
+
+    <!-- ===================== FAQ ===================== -->
+    <h2 id="faq">9. FAQ</h2>
+
+    <h3>Will this app re-encode my videos?</h3>
+    <p>No. It only renames files (a metadata-level operation) and moves them between folders. Even <strong>Clean metadata</strong> only rewrites tags in the file container — no audio or video data is touched. Operations are near-instant regardless of file size.</p>
+
+    <h3>Does it work with TV shows?</h3>
+    <p>Movies are the primary target. The app <em>detects</em> TV episode patterns (<code>S01E03</code>, <code>1x03</code>, etc.) and shows a warning, but it doesn't have show/season-aware naming. Use <a href="https://www.filebot.net/" target="_blank" rel="noopener">FileBot</a> or <a href="https://www.tinymediamanager.org/" target="_blank" rel="noopener">tinyMediaManager</a> for TV.</p>
+
+    <h3>What about my movie's existing subtitles?</h3>
+    <p>Companion files with the same base name (<code>.srt</code>, <code>.sub</code>, <code>.ass</code>, <code>.ssa</code>, <code>.vtt</code>, <code>.idx</code>) are renamed alongside the video automatically. They get moved into the <code>Title (Year)/</code> folder along with the video in Step 2.</p>
+
+    <h3>My TMDb API key — is it the app's or mine?</h3>
+    <p>The app ships with an embedded API key, so it works out of the box. If you want to use your own (e.g. for higher rate limits), edit the <code>TmdbApiKey</code> field in <code>appsettings.json</code>.</p>
+
+    <h3>Can I trust this with my library?</h3>
+    <p>Step 1's renames are reversible via the 30-second Undo toast. Steps 2 and 3 are more conservative — they create new folders and move files but don't delete anything. As always, <strong>try it on a small folder first</strong> before unleashing it on your whole collection.</p>
+
+    <h3>Where do I report bugs / request features?</h3>
+    <p>Open an issue at <a href="https://github.com/aungkokomm/CineLibraryEssentials/issues" target="_blank" rel="noopener">github.com/aungkokomm/CineLibraryEssentials/issues</a>.</p>
+
+    <h3>Why use this over MediaElch directly?</h3>
+    <p>MediaElch is fantastic for full-fledged scraping but it stumbles on messy filenames and unstructured folders. CineLibrary Essentials does the cleanup work first so MediaElch (or the built-in scraper) starts from a clean slate. Use them together.</p>
+
+    <h2>Next steps</h2>
+    <p>When your library is clean and scraped:</p>
+    <ol>
+      <li><strong>For deeper scraping</strong> → open <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> and point it at your output folder.</li>
+      <li><strong>For browsing + management</strong> → grab <a href="../../cinelibrary/">CineLibrary</a>, the companion app that catalogs your prepared library across multiple drives.</li>
+    </ol>
+    <p>Enjoy your tidy movie collection! 🎬</p>
+
+  </article>
+</div>
+</div>
+
+<footer class="site">
+  <div class="container">
+    <div>© 2026 Aung Ko Ko · MIT licensed</div>
+    <div><a href="https://github.com/aungkokomm/CineLibraryEssentials" target="_blank" rel="noopener">github.com/aungkokomm/CineLibraryEssentials</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
