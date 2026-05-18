@@ -3,77 +3,203 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aung Ko Ko — Open-source projects</title>
-<meta name="description" content="Native Windows tools and utilities by Aung Ko Ko: CineLibrary, CineLibrary Essentials, NetMon, AKK Dictionary.">
+<title>Aung Ko Ko — Native Windows tools, crafted with care</title>
+<meta name="description" content="Native Windows apps and utilities by Aung Ko Ko: CineLibrary, CineLibrary Essentials, NetMon, AKK Dictionary. Open-source, portable, no telemetry.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/style.css">
+<meta property="og:title" content="Aung Ko Ko — Native Windows tools">
+<meta property="og:description" content="Small, fast, single-purpose desktop apps. C#, TypeScript, MIT-licensed.">
+<meta property="og:type" content="website">
 </head>
-<body>
+<body class="landing">
+
+<!-- ─── Aurora background mesh (decorative, behind everything) ─── -->
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-blob aurora-1"></div>
+  <div class="aurora-blob aurora-2"></div>
+  <div class="aurora-blob aurora-3"></div>
+</div>
 
 <header class="site">
   <div class="container">
     <div class="brand"><span class="dot"></span> aungkokomm</div>
     <nav class="site">
       <a href="#projects">Projects</a>
-      <a href="https://github.com/aungkokomm" target="_blank" rel="noopener">GitHub</a>
+      <a href="#latest">Latest</a>
+      <a href="https://github.com/aungkokomm" target="_blank" rel="noopener">GitHub →</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="hero hero-rich">
   <div class="container">
-    <h1>Native Windows tools,<br><span class="accent">crafted with care.</span></h1>
+    <span class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Currently shipping CineLibrary Essentials v1.1.10
+    </span>
+    <h1>
+      Native Windows tools,<br>
+      <span class="accent-gradient">crafted with care.</span>
+    </h1>
     <p class="tagline">
-      Small, fast, single-purpose desktop apps — built in C# and TypeScript,
-      portable installers, no telemetry, MIT-licensed.
+      Small, fast, single-purpose desktop apps. Built in C# and TypeScript,
+      portable installers, no telemetry, MIT-licensed — the kind of software
+      I'd want to use myself.
     </p>
-    <a class="btn btn-primary" href="#projects">See projects ↓</a>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">Browse projects ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/aungkokomm" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>4</strong><span>shipping apps</span></div>
+      <div class="hero-stat"><strong>C# · TS</strong><span>built natively</span></div>
+      <div class="hero-stat"><strong>MIT</strong><span>open source</span></div>
+      <div class="hero-stat"><strong>0</strong><span>telemetry</span></div>
+    </div>
   </div>
 </section>
 
-<section id="projects" class="container">
-  <div class="projects">
+<!-- ─── LATEST RELEASE BANNER ─────────────────────────────── -->
+<section id="latest" class="container">
+  <div class="latest-card">
+    <div class="latest-card-tag">⚡ Latest release</div>
+    <div class="latest-card-body">
+      <h3>CineLibrary Essentials v1.1.10</h3>
+      <p>
+        Full Kodi-standard NFO output — director, writers, country, studios, certification,
+        trailer, ratings — plus a probed <code>&lt;fileinfo&gt;</code> block (codec, duration,
+        per-track audio &amp; subtitle languages). Auto-update toast at startup.
+      </p>
+      <div class="latest-card-actions">
+        <a class="btn btn-primary btn-sm" href="https://github.com/aungkokomm/CineLibraryEssentials/releases/latest" target="_blank" rel="noopener">⬇ Download</a>
+        <a class="btn btn-ghost btn-sm" href="cinelibraryessentials/">Details →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <a class="card" href="cinelibrary/">
-      <span class="icon">🎬</span>
-      <h3>CineLibrary</h3>
-      <p>Catalog and browse your movie collection across multiple external drives. Native WinUI 3.</p>
-      <div class="meta">
-        <span class="tag">C# / WinUI 3</span>
-        <span>v2.7.0</span>
+<!-- ─── PROJECTS ──────────────────────────────────────────── -->
+<section id="projects" class="container projects-section">
+  <header class="section-header">
+    <h2>Projects</h2>
+    <p>Four shipping apps. Each one solves a small thing well.</p>
+  </header>
+
+  <div class="projects projects-rich">
+
+    <a class="card card-rich" href="cinelibrary/">
+      <div class="card-preview">
+        <img src="assets/img/cinelibrary-library.png" alt="CineLibrary library view"
+             loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <div class="card-head">
+          <span class="card-icon">🎬</span>
+          <h3>CineLibrary</h3>
+        </div>
+        <p>Catalog and browse your movie collection across multiple external drives. Reads NFO + poster + fanart, indexes once, browses fast.</p>
+        <div class="meta">
+          <span class="tag">C# · WinUI 3</span>
+          <span class="version-pill">v2.7.0</span>
+        </div>
       </div>
     </a>
 
-    <a class="card" href="cinelibraryessentials/">
-      <span class="icon">🧹</span>
-      <h3>CineLibrary Essentials</h3>
-      <p>Clean up messy movie downloads — rename + organize into Plex/Kodi folders. Prep step before MediaElch &amp; CineLibrary.</p>
-      <div class="meta">
-        <span class="tag">C# / WinUI 3</span>
-        <span>v1.1.6</span>
+    <a class="card card-rich card-featured" href="cinelibraryessentials/">
+      <div class="card-preview card-preview-illustration">
+        <!-- No screenshot yet — render a tasteful SVG illustration -->
+        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#7c5fe8"/>
+              <stop offset="100%" stop-color="#b5a3f5"/>
+            </linearGradient>
+          </defs>
+          <rect width="320" height="180" fill="url(#g1)" opacity="0.15"/>
+          <rect x="30" y="40" width="80" height="100" rx="6" fill="#7c5fe8" opacity="0.55"/>
+          <rect x="120" y="40" width="80" height="100" rx="6" fill="#7c5fe8" opacity="0.75"/>
+          <rect x="210" y="40" width="80" height="100" rx="6" fill="#7c5fe8"/>
+          <line x1="30" y1="155" x2="290" y2="155" stroke="#7c5fe8" stroke-width="2" opacity="0.4"/>
+          <text x="160" y="170" font-family="Segoe UI, sans-serif" font-size="10" fill="#5a3fc0" text-anchor="middle" opacity="0.7">Title (Year)/</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-head">
+          <span class="card-icon">🧹</span>
+          <h3>CineLibrary Essentials</h3>
+          <span class="badge-new">New</span>
+        </div>
+        <p>Rename messy downloads, organize into Plex/Kodi folders, scrape rich Kodi-standard NFOs. The fast preparation step for any library.</p>
+        <div class="meta">
+          <span class="tag">C# · WinUI 3</span>
+          <span class="version-pill">v1.1.10</span>
+        </div>
       </div>
     </a>
 
-    <a class="card" href="netmon/">
-      <span class="icon">📊</span>
-      <h3>NetMon</h3>
-      <p>Lightweight network bandwidth widget — DU Meter style. Sits in the corner, gets out of the way.</p>
-      <div class="meta">
-        <span class="tag">C# / WinForms</span>
-        <span>v1.4</span>
+    <a class="card card-rich" href="netmon/">
+      <div class="card-preview">
+        <img src="assets/img/netmon.png" alt="NetMon bandwidth widget"
+             loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <div class="card-head">
+          <span class="card-icon">📊</span>
+          <h3>NetMon</h3>
+        </div>
+        <p>Lightweight network bandwidth widget — DU Meter style. Sits in the corner, gets out of the way.</p>
+        <div class="meta">
+          <span class="tag">C# · WinForms</span>
+          <span class="version-pill">v1.4</span>
+        </div>
       </div>
     </a>
 
-    <a class="card" href="dictionary/">
-      <span class="icon">📖</span>
-      <h3>AKK Dictionary</h3>
-      <p>Simple offline English-to-Myanmar dictionary for Windows. Fast lookup, clean reader.</p>
-      <div class="meta">
-        <span class="tag">English → မြန်မာ</span>
-        <span>v1.1.0</span>
+    <a class="card card-rich" href="dictionary/">
+      <div class="card-preview">
+        <img src="assets/img/dictionary.png" alt="AKK Dictionary"
+             loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <div class="card-head">
+          <span class="card-icon">📖</span>
+          <h3>AKK Dictionary</h3>
+        </div>
+        <p>Offline English-to-Myanmar dictionary for Windows. Fast lookup, clean reader, no internet required.</p>
+        <div class="meta">
+          <span class="tag">English → မြန်မာ</span>
+          <span class="version-pill">v1.1.0</span>
+        </div>
       </div>
     </a>
 
+  </div>
+</section>
+
+<!-- ─── VALUES / WHY ──────────────────────────────────────── -->
+<section class="container why-section">
+  <div class="why-grid">
+    <div class="why-tile">
+      <div class="why-tile-icon">⚡</div>
+      <h4>Native, not Electron</h4>
+      <p>Real Windows apps that start instantly, sit in tens of MB, and feel like part of the OS.</p>
+    </div>
+    <div class="why-tile">
+      <div class="why-tile-icon">🔒</div>
+      <h4>No telemetry, ever</h4>
+      <p>Nothing phones home. No analytics, no error reporting, no "anonymous usage data". Just the app.</p>
+    </div>
+    <div class="why-tile">
+      <div class="why-tile-icon">📦</div>
+      <h4>Portable installers</h4>
+      <p>No admin rights required. Single .exe. Uninstall cleanly. Move it to a USB stick if you want.</p>
+    </div>
+    <div class="why-tile">
+      <div class="why-tile-icon">🪪</div>
+      <h4>MIT-licensed source</h4>
+      <p>Every project is on GitHub. Read it, fork it, build it yourself. No tricks.</p>
+    </div>
   </div>
 </section>
 
