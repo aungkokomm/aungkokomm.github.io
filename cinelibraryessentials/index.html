@@ -54,21 +54,22 @@
   <div class="container">
     <h2>The 3-stage workflow</h2>
     <p>
-      CineLibrary Essentials is the first step in a clean, hand-off pipeline that takes a
-      chaotic <code>Downloads</code> folder and turns it into a polished movie library.
+      CineLibrary Essentials takes a chaotic <code>Downloads</code> folder and turns it
+      into a polished, library-ready movie collection in a single pass — no other tool
+      required.
     </p>
     <div class="feature-grid" style="margin-top:1rem">
       <div class="feature">
         <h4>1️⃣ Essentials <em>(this app)</em></h4>
-        <p>Rename messy filenames, organize files into <code>Title (Year)/</code> folders. Optional casual TMDb scraper for basic metadata.</p>
+        <p>Rename, organize into <code>Title (Year)/</code> folders, then scrape a full Kodi-standard NFO with director, writers, country, studios, certification, trailer, complete cast with photos, and probed file info (codec, duration, audio &amp; subtitle languages).</p>
       </div>
       <div class="feature">
-        <h4>2️⃣ <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> <em>(recommended)</em></h4>
-        <p>Full-fledged scraping with multiple sources, edition support, trailers, and deeper metadata. Runs against the folders Essentials prepared.</p>
+        <h4>2️⃣ <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> <em>(optional)</em></h4>
+        <p>If you want to layer in extra sources or edition-specific data, MediaElch reads the folders Essentials prepared. Not required — Essentials now produces equivalent NFO output on its own.</p>
       </div>
       <div class="feature">
         <h4>3️⃣ <a href="../cinelibrary/">CineLibrary</a></h4>
-        <p>Scan and browse the finished library across multiple external drives. Reads the .nfo + poster + fanart that MediaElch wrote.</p>
+        <p>Scan and browse the finished library across multiple external drives. Reads the full .nfo, poster, fanart, and actor photos Essentials produced.</p>
       </div>
     </div>
   </div>
@@ -102,6 +103,22 @@
         <h4>⚠️ Safety first</h4>
         <p>Confirms before destructive ops. Detects duplicates, invalid characters, missing year, TV episodes, and path-too-long issues per row.</p>
       </div>
+      <div class="feature">
+        <h4>📜 Full Kodi-standard NFO</h4>
+        <p>Director, writers, country, studios, certification, tagline, collection/set, trailer URL, IMDb &amp; TMDb ids, structured ratings, and a probed <code>&lt;fileinfo&gt;</code> block with video codec, duration, and per-track audio &amp; subtitle languages.</p>
+      </div>
+      <div class="feature">
+        <h4>🖼 Complete cast with photos</h4>
+        <p>Up to 50 cast members per movie, each with a high-resolution headshot from TMDb saved into <code>.actors/</code>. Downloaded in parallel, idempotent on re-scrape.</p>
+      </div>
+      <div class="feature">
+        <h4>🧹 MKV metadata cleanup</h4>
+        <p>Optional in-place scrub of pirate site branding (HDHub4u titles, embedded logos, junk tags) using the bundled mkvpropedit. Only the metadata block is rewritten — the video, audio and subtitles are never re-encoded.</p>
+      </div>
+      <div class="feature">
+        <h4>🔔 Auto-update notifier</h4>
+        <p>Silent once-per-24h check against GitHub. If a newer release is published, a one-click <em>Download</em> toast appears on startup — never blocks, never nags.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -110,11 +127,10 @@
   <div class="container">
     <h2>Wizard at a glance</h2>
     <ul class="checklist">
-      <li><strong>Step 1 · Clean Names</strong> — pick a folder, review/edit cleaned names, click <em>Rename Selected</em></li>
+      <li><strong>Step 1 · Clean Names</strong> — pick a folder, review/edit cleaned names, click <em>Rename Selected</em>. Optional MKV metadata scrub kills embedded pirate branding in place.</li>
       <li><strong>Step 2 · Organize</strong> — files auto-carry over, picks Title (Year)/ destination, click <em>Run File to Folder</em></li>
-      <li><strong>Step 3 · Scrape</strong> — auto-list of organized movies, per-row TMDb search, downloads NFO + poster + fanart + actor photos</li>
-      <li>Output is fully <strong>Plex / Kodi / Jellyfin / MediaElch compatible</strong></li>
-      <li>Skip Step 3 entirely and use MediaElch — the folders are already in the format it expects</li>
+      <li><strong>Step 3 · Scrape</strong> — auto-list of organized movies, per-row TMDb search, downloads a full Kodi-standard NFO (director, writers, country, studios, certification, trailer, ratings, file info) plus original-resolution poster, fanart, and complete cast photos.</li>
+      <li>Output is fully <strong>Plex / Kodi / Jellyfin / MediaElch / CineLibrary compatible</strong></li>
       <li>TMDb API key embedded — works out of the box, no setup</li>
     </ul>
   </div>
