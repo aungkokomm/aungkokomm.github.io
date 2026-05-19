@@ -201,7 +201,7 @@
       </li>
       <li><a href="#step2">4. Step 2 — Organize</a></li>
       <li><a href="#step3">5. Step 3 — Scrape</a></li>
-      <li><a href="#settings">6. Settings &amp; persistence</a></li>
+      <li><a href="#settings">6. Settings page</a></li>
       <li><a href="#tips">7. Tips &amp; tricks</a></li>
       <li><a href="#troubleshooting">8. Troubleshooting</a></li>
       <li><a href="#faq">9. FAQ</a></li>
@@ -261,7 +261,7 @@ another.mkv            "Another (2020).mkv"     Another (2020)/         …</pre
       <tr><td>☑</td><td>Whether this row will be processed when you click Rename Selected. Defaults to checked.</td></tr>
       <tr><td><strong>Original</strong></td><td>The filename on disk now. <strong style="color:#c42b1c;text-decoration:line-through">Red strikethrough</strong> marks tokens the parser is removing (<code>1080p</code>, <code>BluRay</code>, <code>x265</code>, release groups). Grey tokens survive into the cleaned name.</td></tr>
       <tr><td>File size</td><td>Right under the original, dimmed. Spot tiny "sample" files at a glance.</td></tr>
-      <tr><td><strong>Cleaned</strong></td><td>The proposed new filename. <strong>Editable</strong> — type to override the parser.</td></tr>
+      <tr><td><strong>Cleaned</strong></td><td>The proposed new filename. <strong>Editable</strong> — type to override the parser. If an edition is detected (Director's Cut, Extended, IMAX, 4K Remaster, Theatrical, Unrated, Criterion, etc.) a small <strong>chip</strong> appears under the cleaned name. The edition isn't added to the filename itself, but it <em>is</em> written to the NFO so Plex / Kodi can group multiple cuts of the same movie.</td></tr>
       <tr><td><strong>Confidence</strong></td><td>A coloured pill — <em>High</em> (green), <em>Medium</em> (amber), <em>Low</em> (red).</td></tr>
       <tr><td>⚠</td><td>Warning icon. Hover for details (missing year, duplicate, invalid chars, TV-episode pattern, too long, etc.)</td></tr>
       <tr><td>🔍</td><td>Inline TMDb search button.</td></tr>
@@ -390,24 +390,47 @@ another.mkv            "Another (2020).mkv"     Another (2020)/         …</pre
     <ul>
       <li><strong>+ Add Folder</strong> — add a movie folder that wasn't part of Steps 1 or 2. Accepts both single movie folders and parent folders containing many movie folders.</li>
       <li><strong>Drag-drop</strong> — same as above.</li>
-      <li><strong>Right-click a card</strong> → Search TMDb / Open Folder / Remove from List.</li>
+      <li><strong>Double-tap a scraped card</strong> — opens the <strong>Movie Details</strong> window (hero fanart, floating poster, plot, color-coded crew / studio / country / genres / IDs / file info, scrollable cast strip with photos, plus Play / Open Folder / Trailer buttons). ESC closes it. Resizable and maximizable.</li>
+      <li><strong>Double-tap an unscraped card</strong> — opens the resizable TMDb search dialog so you can pick the right match.</li>
+      <li><strong>Right-click a card</strong> → View details / Search TMDb / Open Folder / Remove from List.</li>
       <li><strong>List view toggle</strong> (icon in toolbar) — for libraries with hundreds of movies, the dense list view is faster. Preference is remembered.</li>
+      <li>Each card shows an inline spinner next to its status pill <strong>while it's being scraped</strong>, so you always know which one is in flight.</li>
       <li><strong>Done</strong> button — closes out the workflow. Files are already on disk, so this is more of a "finished" indicator.</li>
     </ul>
 
     <!-- ===================== Settings ===================== -->
-    <h2 id="settings">6. Settings &amp; persistence</h2>
+    <h2 id="settings">6. Settings page</h2>
+    <p>A <strong>gear icon</strong> lives in the title bar next to the About icon. Clicking it opens a single Settings dialog with everything you can persist.</p>
+
+    <h3>General</h3>
+    <ul>
+      <li><strong>Default output template</strong> — <code>{Title} ({Year})</code> or <code>{Year} - {Title}</code>.</li>
+      <li><strong>Recursively scan subfolders by default</strong> — Step 1 starts with the Subfolders toggle on.</li>
+      <li><strong>Clean embedded MKV metadata by default</strong> — Step 1's "Clean metadata" checkbox starts on.</li>
+    </ul>
+
+    <h3>Scraping</h3>
+    <ul>
+      <li><strong>TMDb language</strong> — 16 languages including English, Burmese, Hindi, Tamil, Telugu, Thai, Chinese, Japanese, Korean, French, German, Spanish, Italian, Portuguese, Russian, Arabic. TMDb returns titles, plots and posters in the chosen language where available, and falls back to English when it doesn't.</li>
+    </ul>
+
+    <h3>Updates</h3>
+    <ul>
+      <li><strong>Check for updates on startup</strong> — silent once-per-24h check against GitHub. When a newer version is published, a toast appears with a <strong>Download</strong> button that fetches the installer directly inside the app (with a live progress percentage) and launches it for you.</li>
+    </ul>
+
+    <h3>Persistence</h3>
     <p>The app saves settings into <code>appsettings.json</code> next to the .exe. You shouldn't need to touch this file, but if you ever want to reset everything, just delete it.</p>
     <p>What's remembered between sessions:</p>
     <ul>
       <li>TMDb API key (embedded by default)</li>
+      <li>Everything from the Settings page above</li>
       <li>Recent source / output folders (last 10 each)</li>
       <li>Window size + position</li>
       <li>Which warnings you've dismissed</li>
       <li>Step 3 view preference (Grid / List)</li>
-      <li>Last output template (<code>{Title} ({Year})</code> or <code>{Year} - {Title}</code>)</li>
-      <li>"Clean metadata" checkbox state</li>
       <li>Step 1 sort column + direction</li>
+      <li>Last successful update-check timestamp</li>
     </ul>
 
     <!-- ===================== Tips ===================== -->
