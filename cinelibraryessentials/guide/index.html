@@ -486,7 +486,7 @@ Show.S01E01.mkv        "Show - S01E01 - ….mkv"     Show/Season 01/          tv
     <p>No. It only renames files (a metadata-level operation) and moves them between folders. Even <strong>Clean metadata</strong> only rewrites tags in the file container — no audio or video data is touched. Operations are near-instant regardless of file size.</p>
 
     <h3>Does it work with TV shows?</h3>
-    <p>Movies are the primary target. The app <em>detects</em> TV episode patterns (<code>S01E03</code>, <code>1x03</code>, etc.) and shows a warning, but it doesn't have show/season-aware naming. Use <a href="https://www.filebot.net/" target="_blank" rel="noopener">FileBot</a> or <a href="https://www.tinymediamanager.org/" target="_blank" rel="noopener">tinyMediaManager</a> for TV.</p>
+    <p>Yes — fully. As of v1.2.0 TV shows are a first-class workflow alongside movies. The app detects episode patterns (<code>S01E03</code>, <code>1x03</code>, <code>Season 1 Episode 3</code>), renames them to the Kodi convention <code>Show - S01E01 - Title</code>, organizes them into <code>Show/Season XX/</code> folders, and scrapes a <code>tvshow.nfo</code> + show poster/fanart/cast plus a per-episode <code>.nfo</code> and thumbnail for every episode. A <strong>Mode</strong> selector (Auto / Movies / TV Shows) lets you force or filter the type, and flat <em>"Season Complete"</em> folders are recognized too.</p>
 
     <h3>What about my movie's existing subtitles?</h3>
     <p>Companion files with the same base name (<code>.srt</code>, <code>.sub</code>, <code>.ass</code>, <code>.ssa</code>, <code>.vtt</code>, <code>.idx</code>) are renamed alongside the video automatically. They get moved into the <code>Title (Year)/</code> folder along with the video in Step 2.</p>
