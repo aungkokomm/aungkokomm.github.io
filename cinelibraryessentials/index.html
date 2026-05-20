@@ -25,13 +25,13 @@
     <div class="icon">🧹</div>
     <h1>CineLibrary Essentials</h1>
     <p class="tagline">
-      Clean up messy movie downloads. <strong>Rename</strong> and <strong>organize</strong> into the
-      <em>Title (Year)/</em> folder layout that Plex, Kodi, Jellyfin, and MediaElch expect — fast,
-      offline, no admin required.
+      Clean up messy <strong>movie and TV-show</strong> downloads. <strong>Rename</strong>,
+      <strong>organize</strong>, and <strong>scrape</strong> full metadata into the folder layout
+      Plex, Kodi, Jellyfin and MediaElch expect — fast, offline, no admin required.
     </p>
     <div class="actions">
       <a class="btn btn-primary" href="https://github.com/aungkokomm/CineLibraryEssentials/releases"_blank" rel="noopener">
-        ⬇ Download v1.1.11
+        ⬇ Download v1.2.0
       </a>
       <a class="btn btn-ghost" href="guide/">
         📖 User Guide
@@ -61,7 +61,7 @@
     <div class="feature-grid" style="margin-top:1rem">
       <div class="feature">
         <h4>1️⃣ Essentials <em>(this app)</em></h4>
-        <p>Rename, organize into <code>Title (Year)/</code> folders, then scrape a full Kodi-standard NFO with director, writers, country, studios, certification, trailer, complete cast with photos, and probed file info (codec, duration, audio &amp; subtitle languages).</p>
+        <p>Rename, organize and scrape <strong>movies and TV shows</strong> into the standard <code>Title (Year)/</code> and <code>Show/Season XX/</code> layouts — full Kodi NFO with director, writers, country, studios, certification, trailer, complete cast with photos, probed file info, and per-episode metadata for TV.</p>
       </div>
       <div class="feature">
         <h4>2️⃣ <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> <em>(optional)</em></h4>
@@ -135,6 +135,14 @@
         <h4>🔎 Rich Movie Details view</h4>
         <p>Double-tap a scraped movie in Step 3 to open a polished, resizable details window — hero fanart, floating poster, full plot, color-coded director / writer / studio / country / genres / IDs / file info, scrollable cast strip with photos, plus one-click Play and Open Folder.</p>
       </div>
+      <div class="feature">
+        <h4>📺 TV show support</h4>
+        <p>Full pipeline for TV: cleans episodes to <code>Show - S01E01 - Title</code>, organizes into <code>Show/Season XX/</code>, and scrapes <code>tvshow.nfo</code> + show artwork + per-episode NFO and thumbnails. Recognizes flat <em>"Season Complete"</em> folders too.</p>
+      </div>
+      <div class="feature">
+        <h4>✅ Verify your library</h4>
+        <p><strong>Fill gaps only</strong> sweeps an existing library and scrapes just the folders missing an NFO, poster, fanart, or actor photos — skipping the ones already complete.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -143,11 +151,12 @@
   <div class="container">
     <h2>Wizard at a glance</h2>
     <ul class="checklist">
-      <li><strong>Step 1 · Clean Names</strong> — pick a folder, review/edit cleaned names, click <em>Rename Selected</em>. Optional MKV metadata scrub kills embedded pirate branding in place.</li>
-      <li><strong>Step 2 · Organize</strong> — files auto-carry over, picks Title (Year)/ destination, click <em>Run File to Folder</em></li>
-      <li><strong>Step 3 · Scrape</strong> — auto-list of organized movies, per-row TMDb search, downloads a full Kodi-standard NFO (director, writers, country, studios, certification, trailer, ratings, file info) plus original-resolution poster, fanart, and complete cast photos.</li>
+      <li><strong>Mode selector</strong> — Auto · Movies · TV Shows, so the app always knows what you're processing</li>
+      <li><strong>Step 1 · Clean Names</strong> — review/edit cleaned names (movies → <em>Title (Year)</em>, TV → <em>Show - S01E01 - Title</em>), click <em>Rename Selected</em>. Optional MKV metadata scrub kills embedded pirate branding in place.</li>
+      <li><strong>Step 2 · Organize</strong> — files auto-carry over into <em>Title (Year)/</em> or <em>Show/Season XX/</em>, with folder merging and subtitle handling, then <em>Run File to Folder</em></li>
+      <li><strong>Step 3 · Scrape</strong> — full Kodi-standard NFO + original-resolution poster, fanart, and complete cast photos for movies; <em>tvshow.nfo</em> + per-episode NFO and thumbnails for TV. <em>Fill gaps only</em> verifies an existing library.</li>
       <li>Output is fully <strong>Plex / Kodi / Jellyfin / MediaElch / CineLibrary compatible</strong></li>
-      <li>TMDb API key embedded — works out of the box, no setup</li>
+      <li>TMDb API key embedded — works out of the box, no setup · 16 scrape languages</li>
     </ul>
   </div>
 </section>

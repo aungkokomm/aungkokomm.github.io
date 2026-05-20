@@ -241,6 +241,21 @@ another.mkv            "Another (2020).mkv"     Another (2020)/         …</pre
     </table>
     <p>You can skip steps in either direction at any time.</p>
 
+    <h3>Movies and TV shows</h3>
+    <p>CineLibrary Essentials handles <strong>both</strong> in the same wizard. A <strong>Mode</strong> selector at the top of Step 1 (and Step 3) decides how files are treated:</p>
+    <table>
+      <tr><th>Mode</th><th>Behavior</th></tr>
+      <tr><td><strong>Auto</strong> <em>(default)</em></td><td>Each file is detected individually — anything matching <code>S01E01</code>, <code>1x01</code>, or <code>Season 1 Episode 1</code> is treated as a TV episode; everything else as a movie.</td></tr>
+      <tr><td><strong>Movies</strong></td><td>TV detection off — every file is a movie (so "Star Wars Episode IV" isn't mistaken for TV).</td></tr>
+      <tr><td><strong>TV Shows</strong></td><td>Every file is treated as an episode; files without an S/E pattern are flagged. In Step 3 this dropdown also filters the view — movies only, TV only, or all.</td></tr>
+    </table>
+    <p>Organization differs by type:</p>
+    <ul>
+      <li><strong>Movies</strong> → <code>Output/Title (Year)/Title (Year).ext</code></li>
+      <li><strong>TV episodes</strong> → <code>Output/Show Name/Season 01/Show Name - S01E01 - Episode Title.ext</code></li>
+    </ul>
+    <p>Scraping differs too: movies get <code>Title (Year).nfo</code> + poster + fanart + <code>.actors/</code>; TV shows get <code>tvshow.nfo</code> + show artwork + cast at the root, plus a per-episode <code>.nfo</code> and thumbnail for each episode. Flat single-season folders (like <code>Breaking Bad Season 1 Complete/</code>) are recognized — the show name is read from the episode filenames, not the folder name.</p>
+
     <!-- ===================== Step 1 ===================== -->
     <h2 id="step1">3. Step 1 — Clean Names</h2>
     <img src="https://github.com/user-attachments/assets/e5cdd96c-c8f6-42bc-a279-a48f3c24811d" alt="Step 1 — Clean Names">
@@ -384,7 +399,13 @@ another.mkv            "Another (2020).mkv"     Another (2020)/         …</pre
     <p>Click <strong>Scrape</strong> on any card → the same TMDb search dialog as Step 1 opens, pre-filled with the title and year. Pick a result → app downloads everything. The card flips to green and the poster appears.</p>
 
     <h3>Bulk auto-scrape</h3>
-    <p>Click <strong>Scrape Selected (auto)</strong> at the top → every checked card is processed sequentially using the <strong>first TMDb match</strong> for each one. Fast for batch processing, less precise than per-movie. Use it after you've eyeballed the list and trust the auto-match.</p>
+    <p>Click <strong>Scrape Selected (auto)</strong> at the top → every checked card is processed sequentially using the <strong>first TMDb match</strong> (movie or TV show, depending on the card). Fast for batch processing, less precise than per-card.</p>
+
+    <h3>Fill gaps only (verify a library)</h3>
+    <p>Click <strong>Fill gaps only</strong> → the app sweeps <strong>every</strong> folder and scrapes only the ones missing something (NFO, poster, fanart, or actor photos). Complete folders are skipped, so it's safe to re-run on an existing library — it just patches the holes. Each card's status shows exactly what's missing, e.g. <em>"Missing: poster · fanart"</em> or <em>"Complete"</em>.</p>
+
+    <h3>TV shows in Step 3</h3>
+    <p>TV folders appear as one card per show with a status like <em>"TV · 3 seasons · Complete"</em>. Scraping a TV card writes <code>tvshow.nfo</code> + show artwork at the root and a per-episode <code>.nfo</code> + thumbnail for every episode. Right-click → <strong>Search TMDb</strong> searches the TV database (not movies) for TV cards.</p>
 
     <h3>Other things you can do</h3>
     <ul>
