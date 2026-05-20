@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>User Guide — CineLibrary Essentials</title>
-<meta name="description" content="Full user guide for CineLibrary Essentials — every feature, edge case, and troubleshooting tip for the 3-step movie file rename / organize / scrape wizard.">
+<meta name="description" content="Full user guide for CineLibrary Essentials — every feature, edge case, and troubleshooting tip for the 3-step movie & TV-show rename / organize / scrape wizard.">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/css/style.css">
 <style>
@@ -211,7 +211,7 @@
   <!-- ============ Article body ============ -->
   <article class="guide-body">
 
-    <blockquote><strong>In a nutshell:</strong> drop a folder of messy movie downloads, the app cleans the filenames, organises them into <code>Title (Year)/</code> folders, and (optionally) downloads metadata. Designed as the prep step before <a href="../../cinelibrary/">CineLibrary</a>.</blockquote>
+    <blockquote><strong>In a nutshell:</strong> drop a folder of messy <strong>movie or TV-show</strong> downloads — the app cleans the filenames, organises them into the standard <code>Title (Year)/</code> or <code>Show/Season XX/</code> layout, and scrapes full metadata (NFO, posters, fanart, cast photos, per-episode data for TV). A complete, library-ready result on its own; <a href="../../cinelibrary/">CineLibrary</a> then browses it.</blockquote>
 
     <!-- ===================== Install ===================== -->
     <h2 id="install">1. Install &amp; first launch</h2>
@@ -226,10 +226,10 @@
     <!-- ===================== Workflow ===================== -->
     <h2 id="workflow">2. The 3-stage workflow</h2>
     <p>CineLibrary Essentials sits <strong>between</strong> your downloads and your final media library. The complete pipeline:</p>
-    <pre>Downloads/             Step 1: Clean Names      Step 2: Organize        Step 3: Scrape (or use MediaElch)        CineLibrary
-──────────             ────────────────────     ─────────────────       ──────────────────────────────────       ───────────
-movie.1080p.mkv  →     "Movie (Year).mkv"  →    Movie (Year)/      →    Movie (Year).nfo + posters         →    Browse + play
-another.mkv            "Another (2020).mkv"     Another (2020)/         …</pre>
+    <pre>Downloads/             Step 1: Clean Names         Step 2: Organize         Step 3: Scrape                  CineLibrary
+──────────             ────────────────────        ─────────────────        ──────────────────────          ───────────
+movie.1080p.mkv  →     "Movie (Year).mkv"     →    Movie (Year)/       →    Movie (Year).nfo + art    →     Browse + play
+Show.S01E01.mkv        "Show - S01E01 - ….mkv"     Show/Season 01/          tvshow.nfo + episode NFOs       …</pre>
     <p>You don't have to do all three steps. The app supports several workflows:</p>
     <table>
       <tr><th>Goal</th><th>Steps you actually need</th></tr>
@@ -500,16 +500,16 @@ another.mkv            "Another (2020).mkv"     Another (2020)/         …</pre
     <h3>Where do I report bugs / request features?</h3>
     <p>Open an issue at <a href="https://github.com/aungkokomm/CineLibraryEssentials/issues" target="_blank" rel="noopener">github.com/aungkokomm/CineLibraryEssentials/issues</a>.</p>
 
-    <h3>Why use this over MediaElch directly?</h3>
-    <p>MediaElch is fantastic for full-fledged scraping but it stumbles on messy filenames and unstructured folders. CineLibrary Essentials does the cleanup work first so MediaElch (or the built-in scraper) starts from a clean slate. Use them together.</p>
+    <h3>Do I still need MediaElch?</h3>
+    <p>Not for most libraries. CineLibrary Essentials now writes the same Kodi-standard NFO, posters, fanart, cast photos and (for TV) per-episode metadata that MediaElch does. MediaElch is still a great option if you want extra image sources or edition-specific artwork — it reads the exact folders Essentials produces, so you can layer it on whenever you like.</p>
 
     <h2>Next steps</h2>
     <p>When your library is clean and scraped:</p>
     <ol>
-      <li><strong>For deeper scraping</strong> → open <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> and point it at your output folder.</li>
       <li><strong>For browsing + management</strong> → grab <a href="../../cinelibrary/">CineLibrary</a>, the companion app that catalogs your prepared library across multiple drives.</li>
+      <li><strong>Optional: deeper artwork</strong> → point <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> at your output folder to layer in extra sources.</li>
     </ol>
-    <p>Enjoy your tidy movie collection! 🎬</p>
+    <p>Enjoy your tidy movie &amp; TV collection! 🎬📺</p>
 
   </article>
 </div>
