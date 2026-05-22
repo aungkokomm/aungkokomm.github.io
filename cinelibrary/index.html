@@ -25,12 +25,12 @@
     <div class="icon">🎬</div>
     <h1>CineLibrary</h1>
     <p class="tagline">
-      Native Windows catalog for your <strong>MediaElch-scraped</strong> movie collection.
+      Native Windows catalog for your <strong>MediaElch-scraped</strong> movies <strong>and TV shows</strong>.
       Browse, search, filter, and play across any number of external drives — fast, offline, portable.
     </p>
     <div class="actions">
       <a class="btn btn-primary" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v2.7.0
+        ⬇ Download v2.8.0
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryCS/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener">
         📖 User Guide
@@ -62,16 +62,16 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v2.7.0 — Personal state travels with your drives</h2>
+    <h2>What's new in v2.8.0 — TV Shows 📺</h2>
     <ul class="checklist">
-      <li><strong>Watched, favorites, watchlist, lists and notes now ride along with your drive</strong>. Every movie folder gets a tiny <code>cinelibrary-state.json</code> next to the <code>.nfo</code> capturing its personal state.</li>
-      <li><strong>Remove a drive → re-add it later → everything's back.</strong> On the next scan, CineLibrary reads each movie's sidecar and merges the values back in.</li>
-      <li><strong>Safer Remove Drive dialog</strong> — shows how many movies on the drive carry personal data and offers a checkbox (default ON) to save that state to the drive first. If the drive is offline, a clear warning recommends cancelling until you reconnect.</li>
-      <li><strong>New per-drive "Sync state" button</strong> — push everything to disk on demand (handy before handing the drive to a friend or after restoring a backup).</li>
-      <li><strong>Live mirroring</strong> — every Mark Watched / Favorite / Watchlist / Play / Add to list / Note save writes the sidecar immediately. A quiet startup sweep catches anything edited while a drive was offline.</li>
-      <li>Conflict rule: <strong>DB wins where it already has a value</strong>; lists are additive — joined when missing, never silently removed.</li>
-      <li><strong>Your <code>.nfo</code> files are never touched.</strong> The only file CineLibrary writes inside a movie folder is <code>cinelibrary-state.json</code>. Posters, fanart, videos — all untouched.</li>
-      <li>Everything from v2.6 (brand wordmark, modernised drives page, motion, active filter chips, multi-select, light-theme polish) carries forward unchanged.</li>
+      <li><strong>TV shows, alongside your movies.</strong> Any folder with a <code>tvshow.nfo</code> is detected as a show; episodes are read from the <code>SxxExx</code> in each filename. A single drive can hold both — movies are unaffected.</li>
+      <li><strong>One show page, no drilling.</strong> Poster, plot, year · rating · status, a watched roll-up, genre chips and a cast strip up top; below it, each season is a horizontal row of episode cards (Netflix-style).</li>
+      <li><strong>▶ Play next unwatched</strong> — jumps straight to the first unwatched episode; reads "✓ All watched" when you're done.</li>
+      <li><strong>Per-episode watched, show-level favorite / watchlist.</strong> Toggle watched right on each episode card; the progress roll-up updates instantly. Double-click or ▶ Play opens it in your default player (and marks it watched).</li>
+      <li><strong>Travels with the drive</strong>, just like movies — a per-show <code>cinelibrary-state.json</code> mirrors favorite / watchlist / note + per-episode watched, so removing and re-adding a drive brings your progress back.</li>
+      <li><strong>Drives page</strong> shows a purple <em>SHOWS</em> count pill beside the gold <em>MOVIES</em> pill.</li>
+      <li><strong>Browse back button</strong> — drilling into By Genre / Decade / Rating / Studio / Collections now gives you a "‹ Back" to that page.</li>
+      <li>Everything from earlier versions (drive-portable personal state, multi-select, brand polish, motion, active filter chips, light-theme tightening) carries forward unchanged.</li>
     </ul>
   </div>
 </section>
