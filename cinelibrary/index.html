@@ -30,7 +30,7 @@
     </p>
     <div class="actions">
       <a class="btn btn-primary" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v2.8.1
+        ⬇ Download v2.9.1
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryCS/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener">
         📖 User Guide
@@ -62,20 +62,31 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v2.8.1 — TV Shows 📺</h2>
+    <h2>What's new in v2.9 — Discovery, Memory, Polish ✨</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">A big drop spanning three themes — plus a small v2.9.1 follow-up that makes <em>Recently Added</em> actually mean recent.</p>
+
+    <h3 style="margin-top:1.5rem">🎬 Discovery — new ways to find what to watch</h3>
     <ul class="checklist">
-      <li><strong>Lists hold movies and shows together.</strong> My Lists are independent buckets — add a show with <strong>📑 Add to list</strong>; opening a list shows its TV shows in a row above the movie grid.</li>
-      <li><strong>Per-episode details.</strong> Single-click an episode for full plot, air date, rating, runtime, and tech info (resolution, HDR, codecs, audio languages, subtitles, container, file size).</li>
-      <li><strong>TV in Statistics.</strong> A new TV Shows panel shows total shows, episodes, combined runtime, average rating, and episodes-watched progress.</li>
-      <li><strong>Richer season headers</strong> — Play season + Mark all watched/unwatched, with episode/watched/runtime counts.</li>
-      <li><strong>TV shows, alongside your movies.</strong> Any folder with a <code>tvshow.nfo</code> is detected as a show; episodes are read from the <code>SxxExx</code> in each filename. A single drive can hold both — movies are unaffected.</li>
-      <li><strong>One show page, no drilling.</strong> Poster, plot, year · rating · status, a watched roll-up, genre chips and a cast strip up top; below it, each season is a horizontal row of episode cards (Netflix-style).</li>
-      <li><strong>▶ Play next unwatched</strong> — jumps straight to the first unwatched episode; reads "✓ All watched" when you're done.</li>
-      <li><strong>Per-episode watched, show-level favorite / watchlist.</strong> Toggle watched right on each episode card; the progress roll-up updates instantly. Double-click or ▶ Play opens it in your default player (and marks it watched).</li>
-      <li><strong>Travels with the drive</strong>, just like movies — a per-show <code>cinelibrary-state.json</code> mirrors favorite / watchlist / note + per-episode watched, so removing and re-adding a drive brings your progress back.</li>
-      <li><strong>Drives page</strong> shows a purple <em>SHOWS</em> count pill beside the gold <em>MOVIES</em> pill.</li>
-      <li><strong>Browse back button</strong> — drilling into By Genre / Decade / Rating / Studio / Collections now gives you a "‹ Back" to that page.</li>
-      <li>Everything from earlier versions (drive-portable personal state, multi-select, brand polish, motion, active filter chips, light-theme tightening) carries forward unchanged.</li>
+      <li><strong>🟣 Continue Watching for TV</strong> — a row at the top of the TV Shows page showing the next unwatched episode for every show you've started. One click jumps straight back in.</li>
+      <li><strong>🕓 Recently Watched</strong> — new sidebar entry that lists everything you've played, freshest first.</li>
+      <li><strong>📅 On This Day</strong> — surfaces movies you watched on this calendar date in past years, <em>plus</em> movies released on this date in past years. Even on a fresh install you'll get cinema anniversaries most days.</li>
+      <li><strong>🎲 Filter-aware Surprise Me</strong> — new dice button on the Library toolbar picks a random movie from the <em>current</em> filtered view.</li>
+      <li><strong>🔍 TV in global search</strong> — the search box now matches TV shows alongside movies.</li>
+      <li><strong>🆕 Recently Added, capped at 50 (v2.9.1)</strong> — the section now stops at the 50 most recently added titles, so the count is honest and the view actually means what it says. A removable filter chip lets you drop the cap.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">🧠 Memory — your watching, remembered</h3>
+    <ul class="checklist">
+      <li><strong>Watch history with dates</strong> — every play / mark-watched is logged with a timestamp. A new "Last Watched ↓" sort and the Recently Watched + On This Day surfaces above are built on top.</li>
+      <li><strong>🏷 Free-form tags</strong> — tag movies and shows with anything ("rewatched", "comfort", "Christmas", "long-haul flight"). Tags appear in the sidebar with counts and filter the library with one click. Travels with the drive like favorites and notes.</li>
+      <li><strong>★ Per-episode favorite &amp; note</strong> — mark individual episodes as favorites and jot a note. Episode cards show a ★ badge when favorited.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">✨ Polish — the little but lovely things</h3>
+    <ul class="checklist">
+      <li><strong>⌨️ More keyboard shortcuts</strong> — <code>/</code> focuses search, <code>F</code> toggles favorite, <code>W</code> toggles watchlist, <code>Delete</code> removes from current list.</li>
+      <li><strong>💾 Backup / restore</strong> — one-click JSON export of everything personal: favorites, watchlist, notes, lists, tags, watched flags, last-played times, per-episode state, and watch history. Importable on another PC with additive merge — re-importing is a safe no-op.</li>
+      <li>Everything from v2.8.x (TV-show support, per-episode details, multi-drive portable state, brand polish) carries forward unchanged.</li>
     </ul>
   </div>
 </section>
