@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Picasa Portable for Win 11 — Sandboxed Picasa 3.9, JauntePE-style</title>
+<meta name="description" content="A portable, fully sandboxed Picasa 3.9 for Windows 11. Runs from any folder, scans only its own Pictures subfolder, leaves zero trace on the host. Built with Sandboxie-Plus — a humble revival of the old JauntePE workflow.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><a href="../" style="color:inherit"><span class="dot"></span> aungkokomm</a></div>
+    <nav class="site">
+      <a href="../">← Projects</a>
+      <a href="https://github.com/aungkokomm/picasa-portable-win11" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="container">
+    <div class="icon">📷</div>
+    <h1>Picasa Portable for Win 11</h1>
+    <p class="tagline">
+      A <strong>portable, fully sandboxed Picasa 3.9</strong> for Windows 11.
+      Runs from any folder, scans only its own <code>Pictures\</code> subfolder,
+      and leaves zero trace on the host. A humble revival of the old
+      <strong>JauntePE</strong> workflow, this time using
+      <strong>Sandboxie-Plus</strong> as the virtualization layer.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/aungkokomm/picasa-portable-win11/releases/latest" target="_blank" rel="noopener">
+        ⬇ Download v1.0
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/aungkokomm/picasa-portable-win11" target="_blank" rel="noopener">
+        View source
+      </a>
+    </div>
+    <div class="meta-row">
+      <span>Windows 11 · 64-bit</span>
+      <span>·</span>
+      <span>Portable installer (~47 MB)</span>
+      <span>·</span>
+      <span>MIT licensed</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Why this exists</h2>
+    <p>
+      Back in the Windows 7 days, I used <strong>JauntePE</strong> to make Picasa portable.
+      It worked beautifully — you could have a dozen separate <em>Picasa Portable</em> folders,
+      each holding a different project's photo library, completely isolated from each other
+      and from the host system.
+    </p>
+    <p>
+      That stopped working on Windows 11 — JauntePE's runtime hooks don't survive on modern
+      Windows. This project is a humble attempt to bring the same workflow back, with a
+      different approach: instead of API hooking, it uses <strong>Sandboxie-Plus</strong> to
+      virtualize Picasa's file and registry writes into a portable folder.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What it does</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h4>🗂 Truly portable</h4>
+        <p>One self-extracting installer drops everything into a folder of your choice — USB drive, external SSD, or local disk. Drive letters auto-detect.</p>
+      </div>
+      <div class="feature">
+        <h4>🪟 Double-click to launch</h4>
+        <p>One click on <code>Picasa.exe</code>. UAC once on first run, Sandboxie wizard once, then Picasa opens. Subsequent launches are instant.</p>
+      </div>
+      <div class="feature">
+        <h4>🔒 Real isolation</h4>
+        <p>Picasa scans <strong>only</strong> the <code>Pictures\</code> subfolder inside the portable folder. The host's My Pictures, Desktop, Documents, Downloads, OneDrive, and other drives are hidden.</p>
+      </div>
+      <div class="feature">
+        <h4>💾 Self-contained data</h4>
+        <p>All of Picasa's database, face-tags, edits, and settings stay inside the portable folder's <code>data\</code> subfolder. Nothing touches the host's <code>%LocalAppData%</code>.</p>
+      </div>
+      <div class="feature">
+        <h4>🧹 Zero residue</h4>
+        <p>Delete the folder and Picasa is gone. No registry leftovers, no orphan files in Program Files, no Start Menu entries pointing into the void.</p>
+      </div>
+      <div class="feature">
+        <h4>🛡 Sandboxie-Plus under the hood</h4>
+        <p>File and registry virtualization powered by Sandboxie-Plus v1.17.6 — battle-tested kernel-mode isolation, GPLv3, open source.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>The multi-library workflow</h2>
+    <p>
+      After installing the first copy, just <strong>copy the entire installed folder</strong>
+      to make a new isolated library. Each copy is fully independent — its own albums, its own
+      face-tags, its own watched folder.
+    </p>
+<pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:1rem;overflow-x:auto;font-size:0.95em">C:\PicasaPortable_Wedding2014\
+C:\PicasaPortable_FamilyArchive\
+C:\PicasaPortable_ClientJob_Acme\
+C:\PicasaPortable_Travel_Japan\</pre>
+    <p style="margin-top:1rem">
+      Launch whichever you need; the others stay untouched. The original JauntePE idea,
+      finally back on Windows 11.
+    </p>
+    <p style="opacity:0.75;font-size:0.95em">
+      <em>Note:</em> Sandboxie's service is shared across all copies, so they all share the
+      same <code>Picasa</code> sandbox name. Don't run two copies at the same time — close
+      one before launching another.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>How the isolation works</h2>
+    <ul class="checklist">
+      <li><strong><code>FileRootPath</code></strong> — sandbox stores everything in the portable folder's <code>data\</code>, never <code>C:\Sandbox\…</code></li>
+      <li><strong><code>ReadFilePath</code></strong> — only the portable <code>Pictures\</code> subfolder is readable; rest of the host is invisible</li>
+      <li><strong><code>WriteFilePath</code></strong> on <code>%LocalAppData%\Google</code> — host's existing Picasa data is hidden, but the sandbox can still create its own database (the trick that fixes the <code>err=11</code> save errors)</li>
+      <li><strong><code>ClosedFilePath</code></strong> on host Pictures / Documents / Desktop / Downloads / Music / Videos / OneDrive / Public — fully blocked</li>
+      <li><strong><code>BlockNetworkFiles=y</code></strong> — no network share access</li>
+      <li><strong><code>ConfigLevel=9</code></strong> — strict mode</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>First-run, what to expect</h2>
+    <ul class="checklist">
+      <li>Download <code>PicasaPortable-Setup-v1.0.exe</code> from <a href="https://github.com/aungkokomm/picasa-portable-win11/releases/latest" target="_blank" rel="noopener">Releases</a>, run it, pick a folder.</li>
+      <li>Double-click <code>Picasa.exe</code> — <strong>UAC prompt</strong> appears (only once per PC; registers the Sandboxie kernel service).</li>
+      <li><strong>Sandboxie Setup Wizard</strong> opens — pick <em>"Personally, for private non-commercial use"</em>, click Next → Finish.</li>
+      <li>Picasa launches inside the sandbox. Drop photos into <code>Pictures\</code> and Picasa picks them up automatically (the launcher pre-configures the watched-folder list with the current drive letter on every run).</li>
+      <li>That's it. Every launch after this is instant — no prompts, no UAC.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Known limitations</h2>
+    <ul class="checklist">
+      <li><strong>Windows 11 64-bit only.</strong> Tested there; older Windows untested.</li>
+      <li><strong>Best on clean PCs.</strong> If the host already has Picasa installed, some of its existing database may leak through paths Sandboxie's default templates allow — uncommon in 2026, but worth knowing.</li>
+      <li><strong>Picasa 3.9 itself is abandonware.</strong> Google retired it in 2016. No updates, no Picasa Web Albums. This project just makes the local features usable again on Windows 11.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div>© 2026 Aung Ko Ko · MIT licensed</div>
+    <div><a href="https://github.com/aungkokomm/picasa-portable-win11" target="_blank" rel="noopener">github.com/aungkokomm/picasa-portable-win11</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
