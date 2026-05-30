@@ -33,7 +33,7 @@
     </p>
     <div class="actions">
       <a class="btn btn-primary" href="https://github.com/aungkokomm/picasa-portable-win11/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v1.0.2
+        ⬇ Download v1.0.3
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/picasa-portable-win11" target="_blank" rel="noopener">
         View source
@@ -141,12 +141,13 @@ C:\PicasaPortable_Travel_Japan\</pre>
   <div class="container">
     <h2>First-run, what to expect</h2>
     <ul class="checklist">
-      <li>Download <code>PicasaPortable-Setup-v1.0.2.exe</code> from <a href="https://github.com/aungkokomm/picasa-portable-win11/releases/latest" target="_blank" rel="noopener">Releases</a>, run it, pick a folder.</li>
+      <li>Download <code>PicasaPortable-Setup-v1.0.3.exe</code> from <a href="https://github.com/aungkokomm/picasa-portable-win11/releases/latest" target="_blank" rel="noopener">Releases</a>, run it, pick a folder.</li>
       <li>Double-click <code>Picasa.exe</code> — <strong>UAC prompt</strong> appears (only once per PC; registers the Sandboxie kernel service).</li>
       <li><strong>Sandboxie Setup Wizard</strong> opens — pick <em>"Personally, for private non-commercial use"</em>, click Next → Finish.</li>
-      <li>Picasa launches inside the sandbox. Drop photos into <code>Pictures\</code> and Picasa picks them up automatically (the launcher pre-configures the watched-folder list with the current drive letter on every run).</li>
+      <li>Picasa launches inside the sandbox — straight to the main UI with your library. Drop photos into <code>Pictures\</code> and Picasa picks them up automatically (the launcher pre-configures the watched-folder list with the current drive letter on every run).</li>
       <li><strong>If your photos are PNGs (e.g. screenshots), enable them once:</strong> <strong>Tools → Options → File Types → check <code>.png</code></strong> (and any others you want — <code>.tif</code>, <code>.gif</code>, etc.) → OK. Picasa ships with <code>.png</code> <em>off</em> by default and will silently skip them otherwise. The setting persists in the portable folder.</li>
       <li>That's it. Every launch after this is instant — no prompts, no UAC.</li>
+      <li><strong>No Photo Viewer Configuration popup (v1.0.3+).</strong> Picasa 3's built-in <em>"Use Picasa Photo Viewer as the default viewer for these file types?"</em> dialog (which hung under Sandboxie) is suppressed — the registration tool isn't bundled. Double-clicking a photo from inside Picasa opens it in your <strong>Windows default</strong> (Photos / whatever you have), which is what a portable workflow wants anyway.</li>
       <li><strong>Auto-update toast (v1.0.2+).</strong> Once every 6 hours, the launcher quietly checks GitHub for a newer release. If there is one, a small dark toast pops up at the bottom-right corner — click it to open the release page, or wait 12 seconds and it self-dismisses. Picasa launches at full speed regardless. Opt out by creating <code>&lt;install&gt;\data\update-config.txt</code> with the single line <code>enabled=false</code>.</li>
     </ul>
   </div>
