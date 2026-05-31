@@ -139,6 +139,18 @@
   </div>
 </section>
 
+<!-- Hidden until at least one testimonial renders, so a failed/empty load
+     never leaves a bare heading. Filled from testimonials.json below. -->
+<section class="section" id="testimonials-section" style="display:none">
+  <div class="container">
+    <h2>What users say</h2>
+    <div class="feature-grid" id="testimonials"></div>
+    <p style="opacity:0.55;font-size:0.85rem;margin-top:1rem">
+      Real messages from users, shared anonymously and edited only for typos.
+    </p>
+  </div>
+</section>
+
 <footer class="site">
   <div class="container">
     <div>© 2026 Aung Ko Ko · MIT licensed</div>
@@ -148,6 +160,38 @@
 
 <!-- Version + download auto-refresh from GitHub Releases — see assets/release.js -->
 <script src="../assets/release.js"></script>
+
+<!-- Testimonials: rendered from testimonials.json so adding one is a 3-line paste. -->
+<script>
+  fetch("testimonials.json")
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (items) {
+      var host = document.getElementById("testimonials");
+      if (!host || !Array.isArray(items) || items.length === 0) return;
+      items.forEach(function (t) {
+        if (!t || !t.quote) return;
+        var card = document.createElement("div");
+        card.className = "feature";
+        var q = document.createElement("p");
+        q.style.fontStyle = "italic";
+        q.textContent = "“" + t.quote + "”";
+        card.appendChild(q);
+        if (t.by) {
+          var by = document.createElement("p");
+          by.style.opacity = "0.65";
+          by.style.marginTop = "0.6rem";
+          by.textContent = "— " + t.by;
+          card.appendChild(by);
+        }
+        host.appendChild(card);
+      });
+      if (host.children.length > 0) {
+        var sec = document.getElementById("testimonials-section");
+        if (sec) sec.style.display = "";
+      }
+    })
+    .catch(function () { /* leave the section hidden on any failure */ });
+</script>
 
 </body>
 </html>
