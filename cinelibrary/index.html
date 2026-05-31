@@ -29,7 +29,7 @@
       Browse, search, filter, and play across any number of external drives — fast, offline, portable.
     </p>
     <div class="actions">
-      <a id="dl-btn" class="btn btn-primary" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
+      <a class="btn btn-primary" data-dl data-repo="aungkokomm/CineLibraryCS" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
         ⬇ Download v2.9.3
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryCS/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener">
@@ -45,7 +45,7 @@
     <div class="meta-row">
       <span>WinUI 3 · .NET 8 · x64</span>
       <span>·</span>
-      <span id="dl-size">Portable installer (~45 MB)</span>
+      <span data-dl-size>Portable installer (~45 MB)</span>
       <span>·</span>
       <span>MIT licensed</span>
     </div>
@@ -146,37 +146,8 @@
   </div>
 </footer>
 
-<!-- Auto-refresh the download button + size from the latest GitHub release.
-     Runs in the visitor's browser on load — no build step, no Actions. If the
-     GitHub API is unreachable (offline / rate-limited), the hard-coded values
-     above are left untouched, so the page never shows anything broken. -->
-<script>
-  (async function () {
-    try {
-      var res = await fetch(
-        "https://api.github.com/repos/aungkokomm/CineLibraryCS/releases/latest",
-        { headers: { "Accept": "application/vnd.github+json" } });
-      if (!res.ok) return;                       // rate-limited / offline → keep fallback
-      var rel = await res.json();
-      var tag = rel.tag_name || "";
-
-      var btn = document.getElementById("dl-btn");
-      if (btn && tag) btn.textContent = "⬇ Download " + tag;
-
-      // Prefer the .exe asset for a one-click download; else the release page.
-      var exe = (rel.assets || []).find(function (a) {
-        return a.name && a.name.toLowerCase().endsWith(".exe");
-      });
-      if (btn && exe && exe.browser_download_url) btn.href = exe.browser_download_url;
-
-      var sizeEl = document.getElementById("dl-size");
-      if (sizeEl && exe && exe.size) {
-        var mb = Math.round(exe.size / (1024 * 1024));
-        sizeEl.textContent = "Portable installer (~" + mb + " MB)";
-      }
-    } catch (e) { /* keep the hard-coded fallback */ }
-  })();
-</script>
+<!-- Version + download auto-refresh from GitHub Releases — see assets/release.js -->
+<script src="../assets/release.js"></script>
 
 </body>
 </html>
