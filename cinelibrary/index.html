@@ -43,7 +43,7 @@
       </a>
     </div>
     <div class="meta-row">
-      <span>WinUI 3 · .NET 8 · x64</span>
+      <span>WinUI 3 · .NET 10 · x64</span>
       <span>·</span>
       <span data-dl-size>Portable installer (~45 MB)</span>
       <span>·</span>
@@ -62,10 +62,24 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v3.4.4: Dupes 🧹</h2>
-    <p style="opacity:0.8;margin-bottom:1rem">We've been adding the features that matter most, one solid step at a time, while keeping CineLibrary fast and fully offline. The latest one is <strong>Dupes</strong>: it finds the movies you have more than once and helps you reclaim the space, without ever touching the copies you keep on purpose.</p>
+    <h2>What's new in v3.5.0: a fresh foundation 🔧</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">Some releases add features. This one keeps CineLibrary on solid, supported ground for the years ahead, and fixes a few things we found along the way.</p>
 
-    <h3 style="margin-top:1.5rem">🧹 Dupes: find the movies you have twice</h3>
+    <h3 style="margin-top:1.5rem">🔧 Under the hood: .NET 10 and Windows App SDK 2.5</h3>
+    <ul class="checklist">
+      <li><strong>Supported for years ahead.</strong> CineLibrary now runs on .NET 10 (supported until November 2028) and the latest Windows App SDK, well before .NET 8 reaches end of support on 10 November 2026.</li>
+      <li><strong>Same app, same speed.</strong> Nothing new to learn: it still opens in about a second and uses a little less memory. Everything stays bundled in the portable folder, so there's nothing extra to install.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">🩹 Fixes</h3>
+    <ul class="checklist">
+      <li><strong>Uninstalling keeps your library.</strong> The uninstaller now removes only the app itself. Your database, posters and art in <code>CineLibrary-Data</code> stay put for a reinstall.</li>
+      <li><strong>A rare start-up error is gone.</strong> Saving your watched and favorite marks in the background no longer collides with the library loading, and Backup &amp; restore now take turns the same way.</li>
+      <li><strong>Deeply nested install folders work.</strong> CineLibrary now starts even when installed very deep in a folder tree.</li>
+      <li><strong>Clearer Dupes description.</strong> Copies in a different audio language or edition are kept on purpose, while copies that differ only in quality or codec are flagged.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">🧹 Also recent: Dupes, find the movies you have twice (v3.4.4)</h3>
     <ul class="checklist">
       <li><strong>Real duplicates, not false alarms.</strong> Matched by TMDb / IMDb id (then title + year), so two different films that share a name (<em>Solaris</em> 1972 vs 2002) are never merged.</li>
       <li><strong>Protects your dubbed &amp; edition copies.</strong> Keep the same film in different audio languages (Hindi plus the original, or Tamil / Telugu / Hindi) or different editions (Director's Cut vs Theatrical) and Dupes marks them <em>kept on purpose</em>, never flagged. Only genuine same-version copies are surfaced.</li>
