@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started with Aryan eBook Library</title>
+<meta name="description" content="A friendly guide to your first hour with Aryan eBook Library: install it, bring in the books you already have, read them, look up words, highlight, and keep your library tidy.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+  /* ── Page layout, the same as the CineLibrary Essentials guide ── */
+  .guide-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    margin-top: 32px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 900px) {
+    .guide-layout { grid-template-columns: 1fr; gap: 24px; }
+    .guide-toc { position: static !important; max-height: none !important; border-right: 0 !important; }
+  }
+
+  .guide-toc {
+    position: sticky; top: 24px;
+    align-self: start;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    font-size: 13px;
+    border-right: 1px solid var(--border);
+    padding-right: 16px;
+  }
+  .guide-toc h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .guide-toc ol { list-style: none; padding-left: 0; }
+  .guide-toc li { margin: 4px 0; }
+  .guide-toc a {
+    color: var(--muted);
+    text-decoration: none;
+    line-height: 1.4;
+    display: block;
+    padding: 2px 0;
+  }
+  .guide-toc a:hover { color: var(--accent); }
+
+  .guide-body { min-width: 0; }
+  .guide-body h2 {
+    font-size: 26px;
+    margin: 48px 0 12px;
+    letter-spacing: -0.01em;
+    scroll-margin-top: 24px;
+  }
+  .guide-body h3 {
+    font-size: 18px;
+    margin: 28px 0 8px;
+    color: var(--text);
+    scroll-margin-top: 24px;
+  }
+  .guide-body p, .guide-body li { color: var(--text); font-size: 15px; line-height: 1.7; }
+  .guide-body p { margin-bottom: 14px; }
+  .guide-body ul, .guide-body ol { margin: 0 0 14px 22px; color: var(--text); }
+  .guide-body ul li, .guide-body ol li { font-size: 15px; margin: 6px 0; }
+  .guide-body strong { color: var(--text); }
+
+  .guide-body blockquote {
+    border-left: 3px solid var(--accent);
+    background: rgba(124, 95, 232, 0.06);
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .guide-body code, .guide-body kbd {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font: 13px/1.4 "Consolas", "Cascadia Mono", monospace;
+    color: var(--accent-dim);
+    white-space: nowrap;
+  }
+  .guide-body kbd { color: var(--text); border-bottom-width: 2px; }
+
+  .guide-body table {
+    border-collapse: collapse;
+    margin: 14px 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  .guide-body th, .guide-body td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .guide-body th { background: var(--bg-card); font-weight: 600; }
+
+  .guide-body figure { margin: 18px 0 22px; }
+  .guide-body figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .guide-body figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+  .guide-hero { padding: 32px 0 12px; }
+  .guide-hero h1 { font-size: 36px; letter-spacing: -0.02em; }
+  .guide-hero p { color: var(--muted); margin-top: 8px; max-width: 720px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><a href="../../" style="color:inherit"><span class="dot"></span> aungkokomm</a></div>
+    <nav class="site">
+      <a href="../">← Aryan eBook Library</a>
+      <a href="https://github.com/aungkokomm/AryanEbookLibrary" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/aungkokomm/AryanEbookLibrary/releases/latest" target="_blank" rel="noopener">Download</a>
+    </nav>
+  </div>
+</header>
+
+<section class="guide-hero">
+  <div class="container">
+    <h1>📖 Getting started with Aryan</h1>
+    <p>Your first hour with Aryan: install it, bring in the books you already have, and start reading. Every step is short, and nothing you do here can harm your books.</p>
+  </div>
+</section>
+
+<div class="container">
+<div class="guide-layout">
+
+  <aside class="guide-toc">
+    <h4>Contents</h4>
+    <ol>
+      <li><a href="#install">1. Install Aryan</a></li>
+      <li><a href="#books">2. Bring in your books</a></li>
+      <li><a href="#library">3. Find your way around</a></li>
+      <li><a href="#open">4. Open a book</a></li>
+      <li><a href="#reading">5. Read comfortably</a></li>
+      <li><a href="#define">6. Look up a word</a></li>
+      <li><a href="#highlights">7. Highlights, clips and notes</a></li>
+      <li><a href="#progress">8. Keep track of your reading</a></li>
+      <li><a href="#details">9. Better book details</a></li>
+      <li><a href="#organise">10. Lists, tags and a tidy library</a></li>
+      <li><a href="#data">11. Your data, backups and a new PC</a></li>
+      <li><a href="#keys">12. Handy keys</a></li>
+      <li><a href="#faq">13. Questions</a></li>
+    </ol>
+  </aside>
+
+  <article class="guide-body">
+
+    <blockquote><strong>In a nutshell:</strong> Aryan builds one library from the folders where your books already are, on any drive, and reads every book in its own reader. It never moves, renames or changes a book file, and it works without the internet.</blockquote>
+
+    <!-- ===================== Install ===================== -->
+    <h2 id="install">1. Install Aryan</h2>
+    <ol>
+      <li>Download <code>AryanEbookLibrary-Setup-&lt;version&gt;.exe</code> from the <a href="https://github.com/aungkokomm/AryanEbookLibrary/releases/latest" target="_blank" rel="noopener">latest release</a>.</li>
+      <li>Run it. Aryan isn't code-signed yet, so Windows SmartScreen may say it doesn't recognise the app. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+      <li>Choose how you want to use Aryan, then click <strong>Next</strong> until it's done.</li>
+    </ol>
+    <figure style="max-width:620px">
+      <img src="setup-choice.png" width="1016" height="776" alt="Setup asks: How do you want to use Aryan? Install for me, or Portable" loading="lazy">
+      <figcaption>Install for me, or Portable. Either way, your library lives in one folder beside the app.</figcaption>
+    </figure>
+    <table>
+      <tr><th>Choice</th><th>What you get</th></tr>
+      <tr><td><strong>Install for me</strong></td><td>Aryan is installed for your Windows account only, so no administrator rights are needed. It gets a Start menu entry and can be removed from Windows Settings &gt; Apps.</td></tr>
+      <tr><td><strong>Portable</strong></td><td>Aryan is copied into any folder you pick, a USB drive included, and nothing is written to Windows. Copy the folder to another drive or PC and your whole library goes with it.</td></tr>
+    </table>
+    <p>Aryan runs on Windows 10 (version 1809 or later) and Windows 11, on 64-bit PCs. It carries everything it needs, so there is nothing else to install.</p>
+    <p><strong>Updating later:</strong> download the newer Setup and run it on the same folder. Your library is kept, and before a new version changes its database, a copy is saved in <code>AryanLibrary-Data\Backups</code>.</p>
+
+    <!-- ===================== Books ===================== -->
+    <h2 id="books">2. Bring in your books</h2>
+    <figure>
+      <img src="first-start.png" width="1600" height="1000" alt="Aryan on its first start: an empty library with an Add a folder with books button" loading="lazy">
+      <figcaption>The first start: one button to press.</figcaption>
+    </figure>
+    <ol>
+      <li>Click <strong>Add a folder with books</strong> and pick the folder where your eBooks are. Its subfolders come too.</li>
+      <li>Aryan scans the folder. It reads each book's title, author, series and cover, and your books appear as they are found.</li>
+    </ol>
+    <p>Aryan reads <strong>EPUB, PDF, MOBI, AZW3, CBZ and CBR</strong>. A big collection takes a few minutes the first time; after that, a scan only looks at what changed.</p>
+
+    <h3>More folders and more drives</h3>
+    <p>Open <strong>Drives &amp; Folders</strong> at the bottom of the sidebar. Each drive that holds books is a card:</p>
+    <ul>
+      <li><strong>Add folder</strong> on a card adds another folder from that drive, and <strong>Add Drive</strong> brings in a folder from a drive that isn't there yet.</li>
+      <li><strong>Update</strong> scans one drive again, and <strong>Refresh changes</strong> scans every connected drive.</li>
+      <li><strong>Remove folder</strong> takes a folder's books out of the library. The files themselves stay where they are.</li>
+    </ul>
+    <p>Aryan knows each drive by its hardware ID, so a changed drive letter breaks nothing. When you unplug a drive, its books stay in your library with a small grey dot on the cover, and they open again as soon as the drive is back.</p>
+    <p>Aryan scans your folders each time it starts, so new, changed and missing books are found by themselves. You can turn that off in <strong>Settings &gt; Library</strong>. Aryan never watches your folders in the background.</p>
+
+    <!-- ===================== Library ===================== -->
+    <h2 id="library">3. Find your way around</h2>
+    <figure>
+      <img src="https://raw.githubusercontent.com/aungkokomm/AryanEbookLibrary/main/docs/screenshots/library-light.jpg" width="1440" height="900" alt="The library: book covers, a Now reading card, a Continue reading row and the sidebar" loading="lazy">
+      <figcaption>The library, with the book you're reading at the top of the sidebar.</figcaption>
+    </figure>
+    <h3>The sidebar</h3>
+    <table>
+      <tr><th>Section</th><th>What's in it</th></tr>
+      <tr><td><strong>Library</strong></td><td>All Books, Continue Reading, Recently Added and Favorites, plus any shelves you save.</td></tr>
+      <tr><td><strong>Reading</strong></td><td>Unread and Finished books, and your Reading log.</td></tr>
+      <tr><td><strong>Your notes</strong></td><td>Highlights, My Notes, and My lists.</td></tr>
+      <tr><td><strong>Browse</strong></td><td>Your books by Authors, Series and Tags.</td></tr>
+      <tr><td><strong>Tidy up</strong></td><td>Duplicates, Missing books and books that Need Details.</td></tr>
+    </table>
+    <p>The number beside each item is how many books it holds. At the very top, the <strong>Now reading</strong> card takes you straight back to your book.</p>
+
+    <h3>Finding a book</h3>
+    <ul>
+      <li><strong>Search</strong> with the box at the top of the window, or press <kbd>Ctrl</kbd>+<kbd>F</kbd>. It looks through titles, authors, series and tags. <kbd>Esc</kbd> clears it.</li>
+      <li><strong>All, EPUB, PDF, Kindle and Comics</strong> show one kind of book at a time.</li>
+      <li><strong>Filters</strong> narrow the page by language, year, publisher, your rating, or only the books on connected drives. <strong>Save as shelf</strong> keeps that view in the sidebar, and it fills itself as books come and go.</li>
+      <li>The buttons on the right sort the page, pick a book at random with <strong>Surprise me</strong>, and change the cover size or switch to a list.</li>
+    </ul>
+
+    <!-- ===================== Open ===================== -->
+    <h2 id="open">4. Open a book</h2>
+    <ul>
+      <li><strong>Double-click</strong> a book to read it. It opens in its own window, at the page where you left off.</li>
+      <li><strong>Click once</strong> to see its details: cover, description, your rating, notes and more.</li>
+      <li><strong>Right-click</strong> for everything else: Open, Open with default app, View details, Show in folder, Add to list, and marking it Favorite, Reading or Finished.</li>
+    </ul>
+    <p>Each kind of book has its own reader: PDFs are drawn sharp at any zoom, EPUB, MOBI and AZW3 books flow like a web page, and comics (CBZ, CBR, and EPUBs made only of pictures) run as one long column. If you'd rather use another app for a kind of book, turn it off in <strong>Settings &gt; Reading &gt; Open books in Aryan's own reader</strong>, and those books open in your default app.</p>
+    <blockquote><strong>Bought Kindle or Adobe books:</strong> books sold with DRM are locked to the shop's own apps. Aryan tells you when a book is locked instead of showing scrambled text. Books without DRM open normally.</blockquote>
+
+    <!-- ===================== Reading ===================== -->
+    <h2 id="reading">5. Read comfortably</h2>
+    <figure>
+      <img src="https://raw.githubusercontent.com/aungkokomm/AryanEbookLibrary/main/docs/screenshots/reader-pdf.jpg" width="1440" height="900" alt="A PDF in the reader, in the dark theme, with the zoom panel open" loading="lazy">
+      <figcaption>The zoom button: minus, a slider, plus, and one click back to Fit width.</figcaption>
+    </figure>
+    <p>In a PDF, EPUB, MOBI or AZW3 book, the toolbar at the top has:</p>
+    <ul>
+      <li><strong>Contents</strong>, a side panel with the book's own table of contents and a Highlights tab.</li>
+      <li><strong>Find in book</strong> (<kbd>Ctrl</kbd>+<kbd>F</kbd>), with <kbd>F3</kbd> for the next match.</li>
+      <li><strong>The zoom button.</strong> In PDFs and comics it zooms, and <strong>Fit width</strong> is always one click away. In EPUB, MOBI and AZW3 books it sets the text size instead, with <strong>Usual size</strong> to go back.</li>
+      <li><strong>Layout</strong> (EPUB, MOBI and AZW3): <strong>Scroll</strong> reads the whole book as one long page, and the mouse wheel carries you from chapter to chapter. <strong>Pages</strong> turns like a book: click the left or right margin, or press the arrow keys.</li>
+      <li><strong>Page colour</strong>: Paper, Sepia or Night.</li>
+      <li><strong>Full screen</strong> (<kbd>F11</kbd>), and <strong>Keyboard shortcuts</strong> (<kbd>F1</kbd>), which lists every key for the book you have open.</li>
+    </ul>
+    <p>Comics keep it simpler: the zoom button, a <strong>Fit</strong> button (<strong>Continuous</strong>, <strong>Fit width</strong> or <strong>Fit page</strong>), <strong>Highlights and notes</strong>, full screen and <kbd>F1</kbd>.</p>
+    <p>Want the page all to yourself? In <strong>Settings &gt; Reading &gt; Reader toolbar</strong>, choose <strong>Hide while reading</strong>. The toolbar comes back when you point at the top of the page or press <kbd>Alt</kbd>.</p>
+    <p>When you reach the end of a book, Aryan offers to <strong>Mark as finished</strong>. <kbd>Ctrl</kbd>+<kbd>W</kbd> closes the book.</p>
+
+    <!-- ===================== Define ===================== -->
+    <h2 id="define">6. Look up a word</h2>
+    <figure>
+      <img src="https://raw.githubusercontent.com/aungkokomm/AryanEbookLibrary/main/docs/screenshots/reader-define.jpg" width="1440" height="900" alt="The word sister defined in English, with its Myanmar and Hindi meanings underneath" loading="lazy">
+      <figcaption>Right-click, Define: English, Myanmar and Hindi, all offline.</figcaption>
+    </figure>
+    <p><strong>Right-click an English word</strong> while reading a PDF, EPUB, MOBI or AZW3 book and choose <strong>Define</strong>. You get its meanings from WordNet, with the <strong>Myanmar</strong> (AKK dictionary) and <strong>Hindi</strong> meanings right underneath. No internet is needed.</p>
+    <p>The same menu can <strong>Copy</strong> the word, or <strong>Find</strong> it everywhere in the book. To show only one of the two languages, or neither, use <strong>Settings &gt; Reading &gt; Define in other languages</strong>.</p>
+    <p>Burmese titles stored in old Zawgyi text, or typed in visual order, are shown as proper Unicode in your library. The files themselves are left alone.</p>
+
+    <!-- ===================== Highlights ===================== -->
+    <h2 id="highlights">7. Highlights, clips and notes</h2>
+    <ul>
+      <li><strong>Highlight words:</strong> select them, and a small bar appears with five colours (Lime, Pink, Orange, Red and Green), a note, copy and delete. You can also right-click a selection and choose <strong>Highlight</strong> or <strong>Highlight with a note...</strong></li>
+      <li><strong>Note a page:</strong> right-click anywhere on a page and choose <strong>Add a note to this page...</strong></li>
+      <li><strong>Clip a picture</strong> in a PDF: click <strong>Highlight an area</strong> in the toolbar and drag a box round a diagram, a photo or a scanned paragraph. In comics, drag a box round a panel, or right-click a page to highlight all of it.</li>
+      <li><strong>Change one later:</strong> click a highlight to change its colour, add a note, copy it or delete it.</li>
+    </ul>
+    <p>Each book's highlights are listed on the <strong>Highlights</strong> tab of its side panel: click one to jump to it. In the library, the <strong>Highlights</strong> page gathers them from every book you own, and <strong>My Notes</strong> gathers your notes. Both can be searched, sorted by book or by date, and exported as Markdown for a notes app or CSV for a spreadsheet.</p>
+
+    <!-- ===================== Progress ===================== -->
+    <h2 id="progress">8. Keep track of your reading</h2>
+    <ul>
+      <li>Every book is <strong>Unread</strong>, <strong>Reading</strong> or <strong>Finished</strong>. Set it from the right-click menu or the book's details, where you can also add the date you finished it.</li>
+      <li>Give books a <strong>favourite</strong> star and <strong>your rating</strong>, from one to five stars, in their details.</li>
+      <li>The <strong>Reading log</strong> shows your time reading today, this week and all time, your pages this year, the books you finished each month, and a <strong>Goal</strong> for the year if you set one. <strong>Reading now</strong> lists your current books, and <strong>Up next</strong> the next unread book in a series you're reading.</li>
+    </ul>
+    <p>Reading time is counted only while a book is open in Aryan's own reader.</p>
+
+    <!-- ===================== Details ===================== -->
+    <h2 id="details">9. Better book details</h2>
+    <p>Aryan reads a book's details from the book itself, from Calibre's <code>metadata.opf</code> when there is one, from the copyright page, and even from the file name. When something is still wrong or missing, click the book once to open its details:</p>
+    <ul>
+      <li><strong>Edit title, author and series</strong> puts your own details in. They are kept beside the book, the file is never changed, and <strong>Use the file's details</strong> goes back to what the file says.</li>
+      <li><strong>Find details online</strong> looks the book up on Open Library, Wikidata and Wikipedia, and shows you what it found before anything changes.</li>
+    </ul>
+    <p>To fill gaps for the whole library, turn on <strong>Settings &gt; Library &gt; Fill in missing details online</strong>. It only fills details that are empty, and sends nothing but a title, author or ISBN. It is off until you turn it on. For even more descriptions and years, you can add a free Google Books key of your own there too.</p>
+
+    <!-- ===================== Organise ===================== -->
+    <h2 id="organise">10. Lists, tags and a tidy library</h2>
+    <h3>Collections of your own</h3>
+    <ul>
+      <li><strong>My lists:</strong> click <strong>New list...</strong> under My lists, then drag books onto it or right-click a book and choose <strong>Add to list</strong>. A book can be on as many lists as you like.</li>
+      <li><strong>Tags:</strong> add them in a book's details. The <strong>Tags</strong> page also suggests tags Aryan worked out from your folders, languages and titles, and nothing is added until you say so.</li>
+      <li><strong>Shelves:</strong> set up a search or some filters, then <strong>Save as shelf</strong>.</li>
+    </ul>
+    <h3>Many books at once</h3>
+    <p>Click the <strong>Select books</strong> button on the library page and tick the books you want, or press <strong>Select all</strong>. Then use <strong>Edit...</strong> for author, series and tags, <strong>Mark</strong> to set them Reading, Finished, Unread or Favorite, or <strong>Find online</strong>. Press <strong>Done</strong> when you've finished.</p>
+    <h3>Tidy up</h3>
+    <ul>
+      <li><strong>Duplicates</strong> finds books you have twice and suggests which copy to keep, by your preferred language and format. Nothing is ever deleted.</li>
+      <li><strong>Missing</strong> lists books whose files weren't found at the last scan. <strong>Look for moved files</strong> finds them again, and <strong>Relink</strong> keeps the book's favourite, rating, notes and tags.</li>
+      <li><strong>Needs Details</strong> lists books with no author, no real cover, or a title that isn't really a title.</li>
+      <li><strong>Authors</strong> offers to join names that are the same person, such as two spellings of one writer.</li>
+    </ul>
+
+    <!-- ===================== Data ===================== -->
+    <h2 id="data">11. Your data, backups and a new PC</h2>
+    <ul>
+      <li>Your library, covers, settings and notes live in one folder, <code>AryanLibrary-Data</code>, beside the app. <strong>Settings &gt; Your data &gt; Open data folder</strong> shows it.</li>
+      <li>Your favourites, ratings, reading status, tags, notes, lists and highlights are also kept in two small files beside your books on each drive (<code>.aryan-library.json</code> and <code>.aryan-highlights.json</code>), so they travel with the drive. These are the only files Aryan ever writes near your books.</li>
+      <li><strong>Export backup...</strong> saves all of that in one file, and <strong>Restore backup...</strong> brings it back.</li>
+      <li><strong>Export catalogue...</strong> saves every book with its details as a CSV file for a spreadsheet.</li>
+    </ul>
+    <p><strong>Moving to a new PC:</strong> with a portable copy, just copy the whole Aryan folder. Otherwise, install Aryan on the new PC and add your folders: your favourites, ratings, notes, lists and highlights come back from the small files beside your books. A backup you exported can be brought in with <strong>Restore backup...</strong> as well.</p>
+
+    <!-- ===================== Keys ===================== -->
+    <h2 id="keys">12. Handy keys</h2>
+    <table>
+      <tr><th>Keys</th><th>What they do</th></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Search the library, or find in the book you're reading</td></tr>
+      <tr><td><kbd>F1</kbd></td><td>Every key for the book you have open</td></tr>
+      <tr><td><kbd>Space</kbd>, <kbd>Page Down</kbd></td><td>Down one screen (in a book in Pages layout, the next page)</td></tr>
+      <tr><td><kbd>Right</kbd>, <kbd>Left</kbd></td><td>Next or previous page</td></tr>
+      <tr><td><kbd>Home</kbd>, <kbd>End</kbd></td><td>First or last page</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd></td><td>Go to a page (in EPUB, MOBI and AZW3 books, a place in percent)</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>+</kbd>, <kbd>Ctrl</kbd>+<kbd>-</kbd></td><td>Zoom in or out, or larger or smaller text</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>0</kbd></td><td>Back to Fit width, or the usual text size</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>Left</kbd></td><td>Back after following a link or a jump</td></tr>
+      <tr><td><kbd>F11</kbd></td><td>Full screen, and <kbd>Esc</kbd> leaves it</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>W</kbd></td><td>Close the book</td></tr>
+    </table>
+
+    <!-- ===================== FAQ ===================== -->
+    <h2 id="faq">13. Questions</h2>
+    <h3>Does Aryan change my books?</h3>
+    <p>No. It only reads them. It never moves, renames or edits a book file. Your own details, ratings and notes are kept in Aryan's data folder and in the two small files described in <a href="#data">Your data</a>.</p>
+    <h3>Does it need the internet?</h3>
+    <p>No. Reading, word meanings, highlights and everything else work offline. Aryan goes online only if you turn on online details, or click Find details online, and then it sends only a title, author or ISBN. There is no account and no tracking.</p>
+    <h3>A book has a grey dot and won't open</h3>
+    <p>Its drive isn't plugged in. Plug it in and the book opens again, with nothing lost.</p>
+    <h3>I moved or renamed books in File Explorer</h3>
+    <p>The next scan finds them again, with their notes and highlights. If a book still shows on the <strong>Missing</strong> page, use <strong>Look for moved files</strong> or <strong>Relink</strong>.</p>
+    <h3>A book's title or author is wrong</h3>
+    <p>Click the book, then <strong>Edit title, author and series</strong>, or <strong>Find details online</strong>. See <a href="#details">Better book details</a>.</p>
+    <h3>A Kindle book won't open</h3>
+    <p>It is probably protected with DRM, which only Amazon's apps can open. Aryan says so when it happens. MOBI and AZW3 books without DRM open fine.</p>
+    <h3>Something else went wrong</h3>
+    <p>Aryan keeps a log, <code>aryan.log</code>, in its data folder. Please <a href="https://github.com/aungkokomm/AryanEbookLibrary/issues" target="_blank" rel="noopener">open an issue on GitHub</a> and describe what happened; the log helps.</p>
+
+    <div class="feature-grid" style="margin-top:40px">
+      <a class="feature" href="https://github.com/aungkokomm/AryanEbookLibrary/releases/latest" target="_blank" rel="noopener" style="color:inherit">
+        <h4>⬇ Download Aryan</h4>
+        <p>The latest installer, with Install for me and Portable in one.</p>
+      </a>
+      <a class="feature" href="../" style="color:inherit">
+        <h4>📚 About Aryan</h4>
+        <p>What it can do, with screenshots.</p>
+      </a>
+      <a class="feature" href="https://github.com/aungkokomm/AryanEbookLibrary" target="_blank" rel="noopener" style="color:inherit">
+        <h4>💻 Source code</h4>
+        <p>Free and open source under the MIT licence.</p>
+      </a>
+    </div>
+
+  </article>
+</div>
+</div>
+
+<footer class="site">
+  <div class="container">
+    <div>© 2026 Aung Ko Ko · MIT licensed</div>
+    <div><a href="https://github.com/aungkokomm/AryanEbookLibrary" target="_blank" rel="noopener">github.com/aungkokomm/AryanEbookLibrary</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
