@@ -62,21 +62,31 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v3.5.0: a fresh foundation 🔧</h2>
-    <p style="opacity:0.8;margin-bottom:1rem">Some releases add features. This one keeps CineLibrary on solid, supported ground for the years ahead, and fixes a few things we found along the way.</p>
+    <h2>What's new in v3.6.0: TV season folders and your own video player 📺</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">A release shaped by user feedback: TV shows in season folders now work, you can pick your own video player, and two smaller fixes.</p>
 
-    <h3 style="margin-top:1.5rem">🔧 Under the hood: .NET 10 and Windows App SDK 2.5</h3>
+    <h3 style="margin-top:1.5rem">📺 TV shows in season folders</h3>
     <ul class="checklist">
-      <li><strong>Supported for years ahead.</strong> CineLibrary now runs on .NET 10 (supported until November 2028) and the latest Windows App SDK, well before .NET 8 reaches end of support on 10 November 2026.</li>
-      <li><strong>Same app, same speed.</strong> Nothing new to learn: it still opens in about a second and uses a little less memory. Everything stays bundled in the portable folder, so there's nothing extra to install.</li>
+      <li><strong>Kodi's layout works.</strong> Shows with each season in its own folder (<code>Season 01</code>, <code>Season 02</code>, <code>Specials</code>) used to show 0 seasons. Episodes, their <code>.nfo</code> details and thumbnails are now read from season folders as well as from the show folder itself. That's also the layout CineLibrary Essentials writes.</li>
+      <li><strong>One click to pick them up.</strong> After updating, open <strong>Drives</strong> and click <strong>Rescan</strong>.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">▶ Choose your video player</h3>
+    <ul class="checklist">
+      <li><strong>Settings → Playback → Video player.</strong> Pick VLC, MPC-HC, PotPlayer, mpv or any other player, and every Play button opens videos there.</li>
+      <li><strong>Always a way back.</strong> <em>Use Windows default</em> switches back, and CineLibrary falls back to the Windows default by itself if the chosen player is later uninstalled.</li>
     </ul>
 
     <h3 style="margin-top:1.5rem">🩹 Fixes</h3>
     <ul class="checklist">
-      <li><strong>Uninstalling keeps your library.</strong> The uninstaller now removes only the app itself. Your database, posters and art in <code>CineLibrary-Data</code> stay put for a reinstall.</li>
-      <li><strong>A rare start-up error is gone.</strong> Saving your watched and favorite marks in the background no longer collides with the library loading, and Backup &amp; restore now take turns the same way.</li>
-      <li><strong>Deeply nested install folders work.</strong> CineLibrary now starts even when installed very deep in a folder tree.</li>
-      <li><strong>Clearer Dupes description.</strong> Copies in a different audio language or edition are kept on purpose, while copies that differ only in quality or codec are flagged.</li>
+      <li><strong>No more floating "Esc" label</strong> over the movie details window.</li>
+      <li><strong>Uninstalling keeps your library, also after an upgrade.</strong> An install upgraded from 3.4.x or earlier still carried the old step that deleted <code>CineLibrary-Data</code>. Installing 3.6.0 removes it.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">🔧 Also recent: a fresh foundation (v3.5.0)</h3>
+    <ul class="checklist">
+      <li><strong>Supported for years ahead.</strong> CineLibrary runs on .NET 10 (supported until November 2028) and the latest Windows App SDK, well before .NET 8 reaches end of support on 10 November 2026. Same app, same speed, nothing extra to install.</li>
+      <li><strong>Steadier start-up and backups.</strong> A rare start-up error is gone, deeply nested install folders work, and the Dupes description says exactly what Dupes does.</li>
     </ul>
 
     <h3 style="margin-top:1.5rem">🧹 Also recent: Dupes, find the movies you have twice (v3.4.4)</h3>
@@ -160,6 +170,7 @@
       <li>Movie details: cast, crew, ratings, runtime, file path</li>
       <li>Toggle watched / favorite / watchlist with one click</li>
       <li>Export catalog as CSV or HTML</li>
+      <li>Play in your own video player (VLC, MPC-HC, PotPlayer, mpv) or the Windows default</li>
       <li>Keyboard shortcuts: Ctrl+F search, Ctrl+B sidebar, Ctrl+Q quit, Ctrl+Shift+/ help</li>
     </ul>
   </div>
