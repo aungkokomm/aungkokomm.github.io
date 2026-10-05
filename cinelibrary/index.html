@@ -30,7 +30,7 @@
     </p>
     <div class="actions">
       <a class="btn btn-primary" data-dl data-repo="aungkokomm/CineLibraryCS" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v3.9.0
+        ⬇ Download v3.10.0
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryCS/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener">
         📖 User Guide
@@ -62,27 +62,35 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v3.9.0: a tidier main window 🧭</h2>
-    <p style="opacity:0.8;margin-bottom:1rem">Everything you need to find a movie now sits on one row, and the sidebar is easier to read at a glance.</p>
+    <h2>What's new in v3.10.0: a new TV show page 📺</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">More love for TV shows, from user feedback: a show's page now looks like the movie details window, and it can fill in what a show is missing.</p>
 
-    <h3 style="margin-top:1.5rem">🧭 One row for everything</h3>
+    <h3 style="margin-top:1.5rem">📺 A show page like the movie details</h3>
     <ul class="checklist">
-      <li><strong>Title, count, filters and tools on one row</strong> on All movies, All TV shows and Collections: All / Unwatched / Watched, sort, Surprise me, grid or list, and poster size. In a narrow window it wraps neatly.</li>
-      <li><strong>Poster size is a drop-down</strong> ("Size: M") instead of four buttons.</li>
-      <li><strong>The movie count is always the real total</strong> for what you're looking at.</li>
-      <li><strong>A tighter frame</strong> around the sidebar and the page, so the search box sits closer to your movies.</li>
+      <li><strong>The fanart is a banner across the top,</strong> with the poster overlapping it and the info below.</li>
+      <li><strong>IMDb and TMDb buttons</strong> open the show's pages.</li>
+      <li><strong>Cast as photo cards</strong> with name and role, on one line that scrolls sideways.</li>
+      <li><strong>Tags sit next to Add to list,</strong> and the page ends after the cast, so a wide window no longer leaves a big empty area.</li>
     </ul>
 
-    <h3 style="margin-top:1.5rem">🎨 A sidebar you can read at a glance</h3>
+    <h3 style="margin-top:1.5rem">✨ Fetch missing info for shows</h3>
     <ul class="checklist">
-      <li><strong>Colour-coded icons:</strong> Library, Discover, Browse and Tools each have their own colour, in dark and light themes.</li>
-      <li><strong>Drives moved to the bottom bar,</strong> first in the row, next to Switch theme. Hover it to see how many drives you have.</li>
+      <li><strong>Fetch missing info from TMDB</strong> on a show's page fills only what's blank: poster, fanart, plot, year, rating, certification, status, network, genres, and cast with photos.</li>
+      <li><strong>A rescan keeps it.</strong> Your <code>.nfo</code> still wins wherever it has a value; fetched details stay where it's blank.</li>
+      <li><strong>Cast photos show with the drive offline too,</strong> as they already did for movies.</li>
     </ul>
 
-    <h3 style="margin-top:1.5rem">📤 Export, now under Tools</h3>
+    <h3 style="margin-top:1.5rem">🧹 Fixes</h3>
     <ul class="checklist">
-      <li><strong>Export all your movies</strong> to CSV or HTML, or just <strong>this view</strong> when All movies is filtered, searched or showing a list.</li>
-      <li><strong>Every movie is exported.</strong> Before, a big library could export only the first pages that had loaded.</li>
+      <li><strong>Show titles</strong> at the top of a show's page are no longer in capitals.</li>
+      <li><strong>Continue Watching cards</strong> on All TV shows now show the show's poster.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">🧭 Also recent: a tidier main window (v3.9.0)</h3>
+    <ul class="checklist">
+      <li><strong>Title, filters and tools on one row</strong> on All movies, All TV shows and Collections, with poster size in a drop-down.</li>
+      <li><strong>Colour-coded sidebar icons,</strong> Drives in the bottom bar, and a tighter frame.</li>
+      <li><strong>Export moved to Tools</strong> and now writes every movie in the view, not just the ones loaded.</li>
     </ul>
 
     <h3 style="margin-top:1.5rem">🗂️ Also recent: season tabs and a Collections toolbar (v3.8.0)</h3>
