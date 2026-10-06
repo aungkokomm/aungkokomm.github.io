@@ -40,7 +40,8 @@ header.site .container {
   font-weight: 600; font-size: 18px; color: var(--text);
   display: flex; align-items: center; gap: 10px;
 }
-.brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.brand a { display: flex; align-items: center; gap: 10px; }
+.brand .avatar { width: 28px; height: 28px; border-radius: 50%; box-shadow: 0 0 0 1px var(--border); }
 nav.site a { margin-left: 20px; color: var(--muted); font-size: 14px; }
 nav.site a:hover { color: var(--text); }
 
@@ -230,9 +231,9 @@ footer.site .container {
 }
 
 /* ── Project grid ───────────────────────────────────────── */
-.projects-section { padding: 0 0 100px; }
+.projects-section { padding-bottom: 100px; }
 .projects-rich {
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 24px;
   padding: 0;
 }
@@ -257,11 +258,6 @@ footer.site .container {
 }
 .card-rich:hover .card-preview img { transform: scale(1.03); }
 .card-preview.no-img { background: var(--bg-card-hover); }
-.card-preview-illustration {
-  background: linear-gradient(135deg, rgba(124,95,232,0.08), rgba(94,127,245,0.08));
-  padding: 28px;
-}
-.card-preview-illustration svg { width: 100%; height: 100%; }
 
 .card-body { padding: 22px 24px 26px; }
 .card-rich h3 {
