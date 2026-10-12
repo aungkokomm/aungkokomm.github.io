@@ -33,7 +33,7 @@
     </p>
     <div class="actions">
       <a class="btn btn-primary" data-dl data-repo="aungkokomm/AryanEbookLibrary" href="https://github.com/aungkokomm/AryanEbookLibrary/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v1.4.3
+        ⬇ Download v1.5.0
       </a>
       <a class="btn btn-ghost" href="guide/">
         📖 User Guide
@@ -65,11 +65,22 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v1.4.3: adding folders and updating, on every PC 🛠️</h2>
-    <p style="opacity:0.8;margin-bottom:1rem">Two fixes, the first from a reader's report.</p>
+    <h2>What's new in v1.5.0: many books at once, and tools for big libraries ⚡</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">Ticking books is quick now, and a library in the thousands can be searched, sorted and marked from the keyboard.</p>
     <ul class="checklist">
-      <li><strong>Adding a folder works on every PC.</strong> On some PCs, Windows' folder window failed before it even opened, so <strong>Add a folder with books</strong> showed an "Error" box with nothing in it. Aryan now uses the newer folder and file windows from the Windows App SDK, which run inside Aryan itself.</li>
-      <li><strong>Updating goes back to your copy.</strong> Run the new installer and it finds the Aryan you already have, portable or installed, and updates it there with your library kept, instead of offering a new folder.</li>
+      <li><strong>Tick many books, quickly.</strong> <strong>Ctrl+click</strong> ticks a book and <strong>Shift+click</strong> ticks every book from the last one ticked, or point at a cover and click the tick in its corner. <strong>Space</strong>, <strong>Shift+arrows</strong> and <strong>Ctrl+A</strong> do it from the keyboard.</li>
+      <li><strong>One menu for all of them.</strong> Right-click a ticked book to mark, favorite, list, edit, look up or copy every ticked book at once.</li>
+      <li><strong>Search by field.</strong> <code>author:tolstoy</code>, <code>tag:history</code>, <code>year:1990-2000</code>, <code>rating:4+</code>, <code>format:pdf</code>, <code>is:unread</code>, and a minus to leave books out: <code style="white-space:nowrap">-tag:lent</code>. <strong>Save as shelf</strong> keeps any such search.</li>
+      <li><strong>Go anywhere with Ctrl+K.</strong> Type a few letters to jump to any book, author, series, tag, list, shelf or page.</li>
+      <li><strong>Rate and mark from the keyboard.</strong> <strong>1</strong> to <strong>5</strong> give a book stars, <strong>F</strong> makes it a favorite, <strong>R</strong> marks it reading and <strong>D</strong> finished.</li>
+      <li><strong>Copy to a folder or drive.</strong> Put the ticked books on an e-reader or a USB stick; the originals stay where they are.</li>
+      <li><strong>More ways to sort and see.</strong> Sort by progress, size or format, and choose the list's columns: rating, status, file size, date added and last opened.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">🛠️ Also recent: adding folders and updating, on every PC (v1.4.3)</h3>
+    <ul class="checklist">
+      <li><strong>Adding a folder works on every PC.</strong> On some PCs, Windows' folder window failed before it even opened. Aryan now uses the newer folder and file windows that run inside Aryan itself.</li>
+      <li><strong>Updating goes back to your copy.</strong> The installer finds the Aryan you already have, portable or installed, and updates it there with your library kept.</li>
     </ul>
 
     <h3 style="margin-top:1.5rem">🔊 Also recent: read aloud, bookmarks, and fewer steps (v1.4.0)</h3>
@@ -89,13 +100,6 @@
       <li><strong>Back to the library.</strong> Every reader has a <strong>Library</strong> button at the left of its toolbar. It closes the book and brings your library back. <strong>Ctrl+W</strong> does the same.</li>
       <li><strong>Colour themes.</strong> Pick one of eight colours in Settings &gt; Appearance. It colours buttons and selections and tints every window, in light and dark, as strongly as you like. Your books' pages are never tinted, and Aryan blue keeps the classic look.</li>
       <li><strong>Know when there's a new version.</strong> When it starts, Aryan asks GitHub whether a newer version is out, and a small bubble offers it. Nothing downloads by itself, and nothing about you or your books is sent.</li>
-    </ul>
-
-    <h3 style="margin-top:1.5rem">📚 Also recent: Kindle's newest books, KFX (v1.1.0)</h3>
-    <ul class="checklist">
-      <li><strong>KFX books in your library.</strong> Aryan finds them when it scans your folders and lists them under <strong>Kindle</strong>, with their titles, authors and covers, Burmese books included.</li>
-      <li><strong>Read like any other book.</strong> A KFX book opens in the book reader with Define in English, Myanmar and Hindi, highlights and notes, text size and the reading log.</li>
-      <li><strong>Your files stay as they are.</strong> Each book gets a readable copy, made once and kept in Aryan's data folder. KFX books bought from the Kindle Store are locked with DRM, and Aryan says so instead of trying to open them.</li>
     </ul>
   </div>
 </section>
@@ -170,7 +174,7 @@
       </div>
       <div class="feature">
         <h4>⌨️ Every key at hand</h4>
-        <p>Every reader can be driven from the keyboard. Press <strong>F1</strong> in any reader to see every shortcut.</p>
+        <p>The library and every reader can be driven from the keyboard. Press <strong>F1</strong> to see every shortcut, and <strong>Ctrl+K</strong> in the library to go anywhere.</p>
       </div>
     </div>
   </div>

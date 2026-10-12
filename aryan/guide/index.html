@@ -224,9 +224,11 @@
     <h3>Finding a book</h3>
     <ul>
       <li><strong>Search</strong> with the box at the top of the window, or press <kbd>Ctrl</kbd>+<kbd>F</kbd>. It looks through titles, authors, series and tags. <kbd>Esc</kbd> clears it.</li>
+      <li><strong>Search one field:</strong> put its name in front, as in <code>author:tolstoy</code>, <code>title:</code>, <code>series:</code>, <code>tag:history</code>, <code>list:</code>, <code>publisher:</code>, <code>format:pdf</code> (or <code>kindle</code>, <code>comics</code>) and <code>lang:my</code> (or <code>lang:hindi</code>). Numbers take ranges: <code>year:1990-2000</code>, <code>year:2000+</code>, <code>rating:4+</code>. <code>is:</code> finds <code>unread</code>, <code>reading</code>, <code>finished</code>, <code>favorite</code>, <code>rated</code>, <code>unrated</code>, <code>offline</code> or <code>notes</code>. A minus leaves books out (<code style="white-space:nowrap">-tag:lent</code>), and quotes keep a value with spaces together (<code>author:"leo tolstoy"</code>).</li>
+      <li><strong>Go anywhere:</strong> press <kbd>Ctrl</kbd>+<kbd>K</kbd> and type a few letters of a book, author, series, tag, list, shelf or page, then <kbd>Enter</kbd>. A book opens to read.</li>
       <li><strong>All, EPUB, PDF, Kindle and Comics</strong> show one kind of book at a time.</li>
-      <li><strong>Filters</strong> narrow the page by language, year, publisher, your rating, or only the books on connected drives. <strong>Save as shelf</strong> keeps that view in the sidebar, and it fills itself as books come and go.</li>
-      <li>The buttons on the right sort the page, pick a book at random with <strong>Surprise me</strong>, and change the cover size or switch to a list.</li>
+      <li><strong>Filters</strong> narrow the page by language, year, publisher, your rating, or only the books on connected drives. <strong>Save as shelf</strong> keeps that view in the sidebar, searches with fields included, and it fills itself as books come and go.</li>
+      <li>The buttons on the right sort the page (by title, author, series, date added, last opened, rating, progress, size or format), pick a book at random with <strong>Surprise me</strong>, and change the cover size or switch to a list. In the list, <strong>List columns</strong> in the same menu chooses what each row shows: rating, reading status, file size, date added and last opened.</li>
     </ul>
 
     <h3>Make it yours</h3>
@@ -322,7 +324,13 @@
       <li><strong>Shelves:</strong> set up a search or some filters, then <strong>Save as shelf</strong>.</li>
     </ul>
     <h3>Many books at once</h3>
-    <p>Click the <strong>Select books</strong> button on the library page and tick the books you want, or press <strong>Select all</strong>. Then use <strong>Edit...</strong> for author, series and tags, <strong>Mark</strong> to set them Reading, Finished, Unread or Favorite, or <strong>Find online</strong>. Press <strong>Done</strong> when you've finished.</p>
+    <ul>
+      <li><strong>Tick books:</strong> <kbd>Ctrl</kbd>+click a book to tick it, and <kbd>Shift</kbd>+click another to tick every book in between. Or point at a cover and click the tick in its corner. Once you've started, a click anywhere on a cover ticks it. The <strong>Select books</strong> button and <strong>Select all</strong> work too.</li>
+      <li><strong>With the keyboard:</strong> the arrow keys move between books, <kbd>Space</kbd> ticks one, <kbd>Shift</kbd>+arrows tick the books on the way, <kbd>Ctrl</kbd>+<kbd>A</kbd> ticks every book shown, and <kbd>Esc</kbd> puts the ticks away.</li>
+      <li><strong>Then act on them:</strong> the bar above the books has <strong>Edit...</strong> for author, series and tags, <strong>Mark</strong> for Reading, Finished, Unread or Favorite, <strong>Add to list</strong>, <strong>Copy to folder...</strong> and <strong>Find online</strong>. Right-clicking a ticked book offers the same for all of them. Press <strong>Done</strong> when you've finished.</li>
+      <li><strong>Copy to folder</strong> puts the books' files on an e-reader, a USB stick or any folder. Your originals stay where they are, and Aryan asks before replacing a file that's already there.</li>
+      <li><strong>Rate and mark from the keyboard:</strong> on a book, <kbd>1</kbd> to <kbd>5</kbd> give it stars and <kbd>0</kbd> takes them away, <kbd>F</kbd> makes it a favorite, <kbd>R</kbd> marks it reading and <kbd>D</kbd> finished. Press it again to undo. On a ticked book, they change every ticked book.</li>
+    </ul>
     <h3>Tidy up</h3>
     <ul>
       <li><strong>Duplicates</strong> finds books you have twice and suggests which copy to keep, by your preferred language and format. Nothing is ever deleted.</li>
@@ -347,10 +355,16 @@
     <h3>In the library</h3>
     <table>
       <tr><th>Keys</th><th>What they do</th></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Go to any book, author, series, tag, list, shelf or page</td></tr>
       <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>Search the library</td></tr>
       <tr><td><kbd>Enter</kbd>, <kbd>Alt</kbd>+<kbd>Enter</kbd></td><td>Read the book, or show its details</td></tr>
+      <tr><td>Arrow keys</td><td>Move between the books</td></tr>
       <tr><td><kbd>Page Down</kbd>, <kbd>Page Up</kbd></td><td>Down or up a screen of books</td></tr>
       <tr><td><kbd>Home</kbd>, <kbd>End</kbd></td><td>The first or last book</td></tr>
+      <tr><td><kbd>Space</kbd>, <kbd>Shift</kbd>+arrows</td><td>Tick the book, or the books on the way</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Esc</kbd></td><td>Tick every book shown, or put the ticks away</td></tr>
+      <tr><td><kbd>1</kbd> to <kbd>5</kbd>, <kbd>0</kbd></td><td>Stars for the book, or none</td></tr>
+      <tr><td><kbd>F</kbd>, <kbd>R</kbd>, <kbd>D</kbd></td><td>Favorite, reading, or finished (again to undo)</td></tr>
     </table>
     <h3>While reading</h3>
     <table>
