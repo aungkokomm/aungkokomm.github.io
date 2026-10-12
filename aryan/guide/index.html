@@ -177,10 +177,10 @@
     <table>
       <tr><th>Choice</th><th>What you get</th></tr>
       <tr><td><strong>Install for me</strong></td><td>Aryan is installed for your Windows account only, so no administrator rights are needed. It gets a Start menu entry and can be removed from Windows Settings &gt; Apps.</td></tr>
-      <tr><td><strong>Portable</strong></td><td>Aryan is copied into any folder you pick, a USB drive included, and nothing is written to Windows. Copy the folder to another drive or PC and your whole library goes with it.</td></tr>
+      <tr><td><strong>Portable</strong></td><td>Aryan is copied into any folder you pick, a USB drive included. Nothing is installed in Windows: Setup only notes the folder, so the next update can find it. Copy the folder to another drive or PC and your whole library goes with it.</td></tr>
     </table>
     <p>Aryan runs on Windows 10 (version 1809 or later) and Windows 11, on 64-bit PCs. It carries everything it needs, so there is nothing else to install.</p>
-    <p><strong>Updating later:</strong> download the newer Setup and run it on the same folder. Your library is kept, and before a new version changes its database, a copy is saved in <code>AryanLibrary-Data\Backups</code>.</p>
+    <p><strong>Updating later:</strong> download the newer Setup and run it. It goes straight to your copy, installed or portable, and updates it there. Your library is kept, and before a new version changes its database, a copy is saved in <code>AryanLibrary-Data\Backups</code>.</p>
 
     <!-- ===================== Books ===================== -->
     <h2 id="books">2. Bring in your books</h2>
@@ -208,27 +208,28 @@
     <h2 id="library">3. Find your way around</h2>
     <figure>
       <img src="https://raw.githubusercontent.com/aungkokomm/AryanEbookLibrary/main/docs/screenshots/library-light.jpg" width="1440" height="900" alt="The library: book covers, a Now reading card, a Continue reading row and the sidebar" loading="lazy">
-      <figcaption>The library, with the book you're reading at the top of the sidebar.</figcaption>
+      <figcaption>The library, with the book you're reading beside the menu button.</figcaption>
     </figure>
     <h3>The sidebar</h3>
     <table>
       <tr><th>Section</th><th>What's in it</th></tr>
       <tr><td><strong>Library</strong></td><td>All Books, Continue Reading, Recently Added and Favorites, plus any shelves you save.</td></tr>
       <tr><td><strong>Reading</strong></td><td>Unread and Finished books, and your Reading log.</td></tr>
-      <tr><td><strong>Your notes</strong></td><td>Highlights, My Notes, and My lists.</td></tr>
+      <tr><td><strong>Your notes</strong></td><td>Highlights, My Notes, Words, and My lists.</td></tr>
       <tr><td><strong>Browse</strong></td><td>Your books by Authors, Series and Tags.</td></tr>
       <tr><td><strong>Tidy up</strong></td><td>Duplicates, Missing books and books that Need Details.</td></tr>
     </table>
-    <p>The number beside each item is how many books it holds. At the very top, the <strong>Now reading</strong> card takes you straight back to your book.</p>
+    <p>The number beside each item is how many books it holds. At the top, beside the menu button, the <strong>Now reading</strong> card takes you straight back to your book.</p>
 
     <h3>Finding a book</h3>
     <ul>
       <li><strong>Search</strong> with the box at the top of the window, or press <kbd>Ctrl</kbd>+<kbd>F</kbd>. It looks through titles, authors, series and tags. <kbd>Esc</kbd> clears it.</li>
-      <li><strong>Search one field:</strong> put its name in front, as in <code>author:tolstoy</code>, <code>title:</code>, <code>series:</code>, <code>tag:history</code>, <code>list:</code>, <code>publisher:</code>, <code>format:pdf</code> (or <code>kindle</code>, <code>comics</code>) and <code>lang:my</code> (or <code>lang:hindi</code>). Numbers take ranges: <code>year:1990-2000</code>, <code>year:2000+</code>, <code>rating:4+</code>. <code>is:</code> finds <code>unread</code>, <code>reading</code>, <code>finished</code>, <code>favorite</code>, <code>rated</code>, <code>unrated</code>, <code>offline</code> or <code>notes</code>. A minus leaves books out (<code style="white-space:nowrap">-tag:lent</code>), and quotes keep a value with spaces together (<code>author:"leo tolstoy"</code>).</li>
+      <li><strong>Search one field:</strong> put its name in front, as in <code>author:tolstoy</code>, <code>title:</code>, <code>series:</code>, <code>tag:history</code>, <code>list:</code>, <code>publisher:</code>, <code>format:pdf</code> (or <code>kindle</code>, <code>comics</code>) and <code>lang:my</code> (or <code>lang:hindi</code>). Numbers take ranges: <code>year:1990-2000</code>, <code>year:2000+</code>, <code>rating:4+</code>, <code>pages:&lt;300</code>. <code>is:</code> finds <code>unread</code>, <code>reading</code>, <code>finished</code>, <code>favorite</code>, <code>rated</code>, <code>unrated</code>, <code>offline</code> or <code>notes</code>. A minus leaves books out (<code style="white-space:nowrap">-tag:lent</code>), and quotes keep a value with spaces together (<code>author:"leo tolstoy"</code>).</li>
       <li><strong>Go anywhere:</strong> press <kbd>Ctrl</kbd>+<kbd>K</kbd> and type a few letters of a book, author, series, tag, list, shelf or page, then <kbd>Enter</kbd>. A book opens to read.</li>
       <li><strong>All, EPUB, PDF, Kindle and Comics</strong> show one kind of book at a time.</li>
       <li><strong>Filters</strong> narrow the page by language, year, publisher, your rating, or only the books on connected drives. <strong>Save as shelf</strong> keeps that view in the sidebar, searches with fields included, and it fills itself as books come and go.</li>
-      <li>The buttons on the right sort the page (by title, author, series, date added, last opened, rating, progress, size or format), pick a book at random with <strong>Surprise me</strong>, and change the cover size or switch to a list. In the list, <strong>List columns</strong> in the same menu chooses what each row shows: rating, reading status, file size, date added and last opened.</li>
+      <li>The buttons on the right sort the page (by title, author, series, date added, last opened, rating, progress, size, format, length or pages left), pick a book at random with <strong>Surprise me</strong>, and change the cover size or switch to a list. In the list, <strong>List columns</strong> in the same menu chooses what each row shows: rating, reading status, file size, pages, date added and last opened.</li>
+      <li><strong>A book's length:</strong> PDFs and comics have their own pages, and for EPUB, MOBI, AZW3 and KFX books Aryan estimates them from the text.</li>
     </ul>
 
     <h3>Make it yours</h3>
@@ -284,6 +285,7 @@
     </figure>
     <p><strong>Right-click an English word</strong> while reading a PDF, EPUB, MOBI, AZW3 or KFX book and choose <strong>Define</strong>. You get its meanings from WordNet, with the <strong>Myanmar</strong> (AKK dictionary) and <strong>Hindi</strong> meanings right underneath. No internet is needed.</p>
     <p>The same menu can <strong>Copy</strong> the word, or <strong>Find</strong> it everywhere in the book. To show only one of the two languages, or neither, use <strong>Settings &gt; Reading &gt; Define in other languages</strong>.</p>
+    <p>Every word you look up is kept on the <strong>Words</strong> page in the sidebar, with the sentence you met it in and the book. Search it, and <strong>Export</strong> the words as <strong>Cards for Anki</strong> or a <strong>Spreadsheet (CSV)</strong> to learn them. Your words are kept in backups too.</p>
     <p>Burmese titles stored in old Zawgyi text, or typed in visual order, are shown as proper Unicode in your library. The files themselves are left alone.</p>
 
     <!-- ===================== Highlights ===================== -->
@@ -302,7 +304,8 @@
     <ul>
       <li>Every book is <strong>Unread</strong>, <strong>Reading</strong> or <strong>Finished</strong>. Set it from the right-click menu or the book's details, where you can also add the date you finished it.</li>
       <li>Give books a <strong>favourite</strong> star and <strong>your rating</strong>, from one to five stars, in their details.</li>
-      <li>The <strong>Reading log</strong> shows your time reading today, this week and all time, your pages this year, the books you finished each month, and a <strong>Goal</strong> for the year if you set one. <strong>Reading now</strong> lists your current books, and <strong>Up next</strong> the next unread book in a series you're reading.</li>
+      <li>The <strong>Reading log</strong> shows your time reading today, this week and all time, your pages this year with the longest book you finished, the <strong>Books</strong> or <strong>Pages</strong> you finished each month, and a <strong>Goal</strong> for the year if you set one. <strong>Reading now</strong> lists your current books, and <strong>Up next</strong> the next unread book in a series you're reading.</li>
+      <li>When you finish a book in a series, the next one waits in the <strong>Continue reading</strong> row at the top of All Books.</li>
     </ul>
     <p>Reading time is counted only while a book is open in Aryan's own reader.</p>
 
@@ -312,6 +315,7 @@
     <ul>
       <li><strong>Edit title, author and series</strong> puts your own details in. They are kept beside the book, the file is never changed, and <strong>Use the file's details</strong> goes back to what the file says.</li>
       <li><strong>Find details online</strong> looks the book up on Open Library, Wikidata and Wikipedia, and shows you what it found before anything changes.</li>
+      <li><strong>Change cover</strong> appears when you point at the cover: choose <strong>A picture on this PC</strong>, or for a PDF or comic <strong>A page of the book</strong>. <strong>The book's own cover</strong> puts the original back.</li>
     </ul>
     <p>To fill gaps for the whole library, turn on <strong>Settings &gt; Library &gt; Fill in missing details online</strong>. It only fills details that are empty, and sends nothing but a title, author or ISBN. It is off until you turn it on. For even more descriptions and years, you can add a free Google Books key of your own there too.</p>
 
@@ -365,6 +369,8 @@
       <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd>, <kbd>Esc</kbd></td><td>Tick every book shown, or put the ticks away</td></tr>
       <tr><td><kbd>1</kbd> to <kbd>5</kbd>, <kbd>0</kbd></td><td>Stars for the book, or none</td></tr>
       <tr><td><kbd>F</kbd>, <kbd>R</kbd>, <kbd>D</kbd></td><td>Favorite, reading, or finished (again to undo)</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Undo the last change to books: a mark, stars, a favorite, a list, tags or details</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Copy the ticked books as a list, to paste anywhere</td></tr>
     </table>
     <h3>While reading</h3>
     <table>
