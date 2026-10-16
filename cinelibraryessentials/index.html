@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CineLibrary Essentials — Movie file organizer for Windows</title>
+<title>CineLibrary Essentials - Movie file organizer for Windows</title>
 <meta name="description" content="Clean up messy movie downloads. Rename, organize into Plex/Kodi Title (Year) folders, and prep for scraping. The recommended preparation step before MediaElch and CineLibrary.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -27,11 +27,11 @@
     <p class="tagline">
       Clean up messy <strong>movie and TV-show</strong> downloads. <strong>Rename</strong>,
       <strong>organize</strong>, and <strong>scrape</strong> full metadata into the folder layout
-      Plex, Kodi, Jellyfin and MediaElch expect — fast, offline, no admin required.
+      Plex, Kodi, Jellyfin and MediaElch expect - fast, offline, no admin required.
     </p>
     <div class="actions">
       <a class="btn btn-primary" data-dl data-repo="aungkokomm/CineLibraryEssentials" href="https://github.com/aungkokomm/CineLibraryEssentials/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v1.2.10
+        ⬇ Download v1.3.0
       </a>
       <a class="btn btn-ghost" href="guide/">
         📖 User Guide
@@ -55,17 +55,17 @@
     <h2>The 3-stage workflow</h2>
     <p>
       CineLibrary Essentials takes a chaotic <code>Downloads</code> folder and turns it
-      into a polished, library-ready movie collection in a single pass — no other tool
+      into a polished, library-ready movie collection in a single pass - no other tool
       required.
     </p>
     <div class="feature-grid" style="margin-top:1rem">
       <div class="feature">
         <h4>1️⃣ Essentials <em>(this app)</em></h4>
-        <p>Rename, organize and scrape <strong>movies and TV shows</strong> into the standard <code>Title (Year)/</code> and <code>Show/Season XX/</code> layouts — full Kodi NFO with director, writers, country, studios, certification, trailer, complete cast with photos, probed file info, and per-episode metadata for TV.</p>
+        <p>Rename, organize and scrape <strong>movies and TV shows</strong> into the standard <code>Title (Year)/</code> and <code>Show/Season XX/</code> layouts - full Kodi NFO with director, writers, country, studios, certification, trailer, complete cast with photos, probed file info, and per-episode metadata for TV.</p>
       </div>
       <div class="feature">
         <h4>2️⃣ <a href="https://www.mediaelch.de/" target="_blank" rel="noopener">MediaElch</a> <em>(optional)</em></h4>
-        <p>If you want to layer in extra sources or edition-specific data, MediaElch reads the folders Essentials prepared. Not required — Essentials now produces equivalent NFO output on its own.</p>
+        <p>If you want to layer in extra sources or edition-specific data, MediaElch reads the folders Essentials prepared. Not required - Essentials now produces equivalent NFO output on its own.</p>
       </div>
       <div class="feature">
         <h4>3️⃣ <a href="../cinelibrary/">CineLibrary</a></h4>
@@ -81,15 +81,15 @@
     <div class="feature-grid">
       <div class="feature">
         <h4>🧠 Smart filename parser</h4>
-        <p>Strips release-group prefixes, codecs (x265, HEVC, AV1), audio (DDP5.1, Atmos), HDR, source tags, and tracker URLs. Extracts the real title and year.</p>
+        <p>Strips release-group prefixes, codecs (x265, HEVC, AV1), audio (DDP5.1, Atmos), HDR, source tags, and tracker URLs. Extracts the real title and year. Add your own <strong>words to always remove</strong> for the tags it doesn't know.</p>
       </div>
       <div class="feature">
         <h4>🟥 Word-level diff</h4>
-        <p>Each row shows the original filename with kept tokens grey and removed tokens in <span style="color:#c42b1c;text-decoration:line-through">red strikethrough</span> — see exactly what was cleaned.</p>
+        <p>Each row shows the original filename with kept tokens grey and removed tokens in <span style="color:#c42b1c;text-decoration:line-through">red strikethrough</span> - see exactly what was cleaned.</p>
       </div>
       <div class="feature">
         <h4>🪄 Inline TMDb search</h4>
-        <p>Per-row 🔍 button opens a TMDb search dialog — pick the right match, app uses that exact ID for metadata download.</p>
+        <p>Per-row 🔍 button opens a TMDb search dialog - pick the right match, app uses that exact ID for metadata download.</p>
       </div>
       <div class="feature">
         <h4>📁 Drag-and-drop</h4>
@@ -97,7 +97,7 @@
       </div>
       <div class="feature">
         <h4>🛠 Bulk power tools</h4>
-        <p>Find &amp; Replace, Smart Title Case, output template picker (<code>Title (Year)</code> or <code>Year - Title</code>), Reset, Select All / None.</p>
+        <p>Find &amp; Replace, Smart Title Case, output template picker (<code>Title (Year)</code> or <code>Year - Title</code>), Reset, Select all, a one-click <em>Show only warnings</em> view, and keyboard editing (<code>F2</code>, <code>Enter</code>, <code>Delete</code>).</p>
       </div>
       <div class="feature">
         <h4>⚠️ Safety first</h4>
@@ -113,19 +113,19 @@
       </div>
       <div class="feature">
         <h4>🧹 MKV metadata cleanup</h4>
-        <p>Optional in-place scrub of pirate site branding (HDHub4u titles, embedded logos, junk tags) using the bundled mkvpropedit. Only the metadata block is rewritten — the video, audio and subtitles are never re-encoded.</p>
+        <p>Optional in-place scrub of pirate site branding (HDHub4u titles, embedded logos, junk tags) using the bundled mkvpropedit. Only the metadata block is rewritten - the video, audio and subtitles are never re-encoded.</p>
       </div>
       <div class="feature">
         <h4>🔔 One-click auto-update</h4>
-        <p>Silent once-per-24h check against GitHub. When a newer release is published, the toast that appears can download and launch the installer for you — no browser, no manual download.</p>
+        <p>Silent once-per-24h check against GitHub. When a newer release is published, the toast that appears can download and launch the installer for you - no browser, no manual download.</p>
       </div>
       <div class="feature">
         <h4>⚙️ Settings page</h4>
-        <p>One place for the output template, recursive scan default, embedded-metadata cleanup default, the TMDb scrape language, and the auto-update preference.</p>
+        <p>One place for the output template, recursive scan default, embedded-metadata cleanup default, words to always remove, the TMDb scrape language, the main rating (IMDb or TMDb), episode titles in file names, and the auto-update preference.</p>
       </div>
       <div class="feature">
         <h4>🌐 Scrape in your language</h4>
-        <p>TMDb metadata in <strong>Burmese, Hindi, Tamil, Telugu, Thai, Chinese, Japanese, Korean</strong> and 8 others — localized titles, plots and posters, with English fallback where needed.</p>
+        <p>TMDb metadata in <strong>Burmese, Hindi, Tamil, Telugu, Thai, Chinese, Japanese, Korean</strong> and 8 others - localized titles, plots and posters, with English fallback where needed.</p>
       </div>
       <div class="feature">
         <h4>🎬 Edition detection</h4>
@@ -133,15 +133,27 @@
       </div>
       <div class="feature">
         <h4>🔎 Rich Movie Details view</h4>
-        <p>Double-tap a scraped movie in Step 3 to open a polished, resizable details window — hero fanart, floating poster, full plot, color-coded director / writer / studio / country / genres / IDs / file info, scrollable cast strip with photos, plus one-click Play and Open Folder.</p>
+        <p>Double-tap a scraped movie in Step 3 to open a polished, resizable details window - hero fanart, floating poster, full plot, IMDb and TMDb ratings, color-coded director / writer / studio / country / genres / IDs / file info, scrollable cast strip with photos, plus one-click Play and Open Folder.</p>
+      </div>
+      <div class="feature">
+        <h4>✏️ Full NFO editor</h4>
+        <p>Right-click any card → <em>Edit NFO</em>: a resizable editor for every detail field, genres and tags with suggestions from your library, the cast, TV episodes, and artwork picked from everything TMDb has. Fetch any field from TMDb in another language, bulk-edit many titles at once, and restore the previous version of any save.</p>
+      </div>
+      <div class="feature">
+        <h4>⭐ IMDb + TMDb ratings</h4>
+        <p>Every NFO gets both ratings with vote counts, and you pick which one players show first. <em>Refresh IMDb ratings</em> updates them for your whole library in one quick request, without re-scraping anything.</p>
       </div>
       <div class="feature">
         <h4>📺 TV show support</h4>
-        <p>Full pipeline for TV: cleans episodes to <code>Show - S01E01 - Title</code>, organizes into <code>Show/Season XX/</code>, and scrapes <code>tvshow.nfo</code> + show artwork + per-episode NFO and thumbnails. Recognizes flat <em>"Season Complete"</em> folders too.</p>
+        <p>Full pipeline for TV: cleans episodes to <code>Show - S01E01</code>, organizes into <code>Show/Season XX/</code>, and scrapes <code>tvshow.nfo</code> + show artwork + per-episode NFO and thumbnails. Recognizes flat <em>"Season Complete"</em> folders too. Optionally adds the real episode title to file names, with Undo.</p>
+      </div>
+      <div class="feature">
+        <h4>🧩 Missing episodes</h4>
+        <p>TV cards count seasons and episodes, and a show's details window lists every episode with thumbnail and air date, plus the aired episodes you don't have yet. Unaired episodes and specials are never counted as missing.</p>
       </div>
       <div class="feature">
         <h4>✅ Verify your library</h4>
-        <p><strong>Fill gaps only</strong> sweeps an existing library and scrapes just the folders missing an NFO, poster, fanart, or actor photos — skipping the ones already complete.</p>
+        <p><strong>Fill gaps only</strong> sweeps an existing library and scrapes just the folders missing an NFO, poster, fanart, or actor photos - skipping the ones already complete.</p>
       </div>
     </div>
   </div>
@@ -151,12 +163,12 @@
   <div class="container">
     <h2>Wizard at a glance</h2>
     <ul class="checklist">
-      <li><strong>Mode selector</strong> — Auto · Movies · TV Shows, so the app always knows what you're processing</li>
-      <li><strong>Step 1 · Clean Names</strong> — review/edit cleaned names (movies → <em>Title (Year)</em>, TV → <em>Show - S01E01 - Title</em>), click <em>Rename Selected</em>. Optional MKV metadata scrub kills embedded pirate branding in place.</li>
-      <li><strong>Step 2 · Organize</strong> — files auto-carry over into <em>Title (Year)/</em> or <em>Show/Season XX/</em>, with folder merging and subtitle handling, then <em>Run File to Folder</em></li>
-      <li><strong>Step 3 · Scrape</strong> — full Kodi-standard NFO + original-resolution poster, fanart, and complete cast photos for movies; <em>tvshow.nfo</em> + per-episode NFO and thumbnails for TV. <em>Fill gaps only</em> verifies an existing library.</li>
+      <li><strong>Mode selector</strong> - Auto · Movies · TV Shows, so the app always knows what you're processing</li>
+      <li><strong>Step 1 · Clean Names</strong> - review/edit cleaned names (movies → <em>Title (Year)</em>, TV → <em>Show - S01E01</em>), click <em>Rename Selected</em>. Optional MKV metadata scrub kills embedded pirate branding in place.</li>
+      <li><strong>Step 2 · Organize</strong> - files auto-carry over into <em>Title (Year)/</em> or <em>Show/Season XX/</em>, with folder merging and subtitle handling, then <em>Run File to Folder</em></li>
+      <li><strong>Step 3 · Scrape</strong> - full Kodi-standard NFO with IMDb + TMDb ratings, original-resolution poster, fanart, and complete cast photos for movies; <em>tvshow.nfo</em> + per-episode NFO and thumbnails for TV, with missing episodes listed. <em>Fill gaps only</em> verifies an existing library, and <em>Edit</em> fixes any detail by hand.</li>
       <li>Output is fully <strong>Plex / Kodi / Jellyfin / MediaElch / CineLibrary compatible</strong></li>
-      <li>TMDb API key embedded — works out of the box, no setup · 16 scrape languages</li>
+      <li>TMDb API key embedded - works out of the box, no setup · 16 scrape languages</li>
     </ul>
   </div>
 </section>
@@ -168,7 +180,7 @@
   </div>
 </footer>
 
-<!-- Version + download auto-refresh from GitHub Releases — see assets/release.js -->
+<!-- Version + download auto-refresh from GitHub Releases - see assets/release.js -->
 <script src="../assets/release.js"></script>
 
 </body>
