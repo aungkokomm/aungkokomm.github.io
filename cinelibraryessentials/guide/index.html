@@ -266,7 +266,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
       <li><strong>TV episodes</strong> → <code>Show Name/Season 01/Show Name - S01E01.ext</code></li>
     </ul>
     <p>If the original filename already contains the episode title, it's kept (<code>Show - S01E01 - Title</code>). Otherwise the real title comes from TMDb in Step 3 and is written into each episode's <code>.nfo</code>, which is where Kodi, Plex, Jellyfin and CineLibrary read it from. Want the title in the filename too? Turn on <strong>Settings → Add episode titles to file names</strong> (see <a href="#episode-titles">Episode titles in file names</a>).</p>
-    <p>Scraping differs too: movies get <code>Title (Year).nfo</code> + poster + fanart + <code>.actors/</code>; TV shows get <code>tvshow.nfo</code> + show artwork + cast at the root, plus a per-episode <code>.nfo</code> and thumbnail for each episode. Flat single-season folders (like <code>Breaking Bad Season 1 Complete/</code>) are recognized - the show name is read from the episode filenames, not the folder name.</p>
+    <p>Scraping differs too: movies get <code>Title (Year).nfo</code> + poster + fanart + <code>.actors/</code>; TV shows get <code>tvshow.nfo</code> + show artwork + cast at the root, plus a per-episode <code>.nfo</code> and thumbnail for each episode. Flat single-season folders (like <code>Breaking Bad Season 1 Complete/</code>) are recognized - the show name is read from the episode filenames, not the folder name. When such folders sit inside a folder named after the show (<code>Dark/Dark Season 1 Complete/</code>), or inside a folder that holds only that show's seasons (<code>Billions (S1 S2 S3)/Billions S1/</code>, <code>GoT [Hindi]/Game of Thrones - Season 1 Complete (Hindi)/</code>), they're seasons of that show: one card, with <code>tvshow.nfo</code> and the show's artwork in the show's folder. A folder that also holds another show or a movie is never taken for one show.</p>
 
     <!-- ===================== Step 1 ===================== -->
     <h2 id="step1">3. Step 1 - Clean Names</h2>
@@ -281,7 +281,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
       <li><strong>Drag a folder</strong> from File Explorer onto the window. A dimmed overlay confirms the drop is accepted.</li>
     </ol>
     <p>If you drop a <em>file</em> instead of a folder, the app uses the file's parent folder.</p>
-    <p>If the folder you load is a season folder (<code>Season 01</code>, <code>Specials</code>), a message offers <strong>Use show folder</strong>. That loads the show's folder with Subfolders on, so every season is cleaned together and Steps 2 and 3 see the whole show.</p>
+    <p>If the folder you load is a season folder (<code>Season 01</code>, <code>Specials</code>, or <code>Dark Season 1 Complete</code> inside a <code>Dark</code> folder), a message offers <strong>Use show folder</strong>. That loads the show's folder with Subfolders on, so every season is cleaned together and Steps 2 and 3 see the whole show.</p>
 
     <h3 id="columns">Each row explained</h3>
     <table>
@@ -434,7 +434,9 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
 
     <h3>TV shows in Step 3</h3>
     <p>TV folders appear as one card per show. Under the title, a line like <em>"TV · 3 seasons · 24 episodes"</em> counts what's on disk (double episodes like <code>S01E01E02</code> count as two), and after a scrape it adds how many aired episodes are missing, e.g. <em>"· 2 missing"</em>. The status pill shows <em>Complete</em> or what's missing, the same as for movies.</p>
-    <p>Scraping a TV card writes <code>tvshow.nfo</code> + show artwork at the root and a per-episode <code>.nfo</code> + thumbnail for every episode. Right-click → <strong>Search TMDb</strong> searches the TV database (not movies) for TV cards. If you add a <code>Season 01</code> folder, the card is made for the show folder above it, which is where the show's files belong.</p>
+    <p>Scraping a TV card writes <code>tvshow.nfo</code> + show artwork at the root and a per-episode <code>.nfo</code> + thumbnail for every episode. Right-click → <strong>Search TMDb</strong> searches the TV database (not movies) for TV cards. If you add a <code>Season 01</code> folder (or <code>Dark Season 1 Complete</code> inside <code>Dark</code>), the card is made for the show folder above it, which is where the show's files belong.</p>
+    <p>The cast comes from every season of the show, not just the latest one. Scraping a show again keeps the TMDb show its <code>tvshow.nfo</code> is already matched to, so a show you once corrected with <strong>Search TMDb</strong> stays correct. To match it to a different show, use <strong>Search TMDb</strong>.</p>
+    <p>Shows scraped by v1.3.0 and earlier as one show per <code>Dark Season 1 Complete</code> folder are fixed when you add them: the show's <code>tvshow.nfo</code>, poster, fanart and <code>.actors</code> move up from the first season folder into <code>Dark/</code> (only what <code>Dark/</code> doesn't have yet, nothing is overwritten). The copies left in the other season folders are no longer used. Scrape the show again for the full cast and the right missing-episode count.</p>
 
     <h3 id="episode-titles">Episode titles in file names</h3>
     <p>Off by default. Turn on <strong>Settings → Add episode titles to file names</strong>, and scraping a TV show renames episodes that have no title yet:</p>
@@ -443,7 +445,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
 
     <h3 id="ratings">Ratings: IMDb and TMDb</h3>
     <p>Every NFO gets both ratings, each with its vote count, so Kodi, Jellyfin and CineLibrary can show either one. <strong>Settings → Main rating</strong> picks which one players show first (IMDb by default, when the title has one).</p>
-    <p>IMDb ratings change over time. <strong>⋯ → Refresh IMDb ratings</strong> updates them for the checked cards (or all cards when none are checked) in one quick request. Only the ratings in the NFO change: nothing is re-scraped and nothing else in the file is touched.</p>
+    <p>IMDb ratings change over time. <strong>⋯ → Refresh IMDb ratings</strong> updates them for the checked cards (or all cards when none are checked) in one quick request. Only the ratings in the NFO change: nothing is re-scraped and nothing else in the file is touched. NFOs scraped before v1.1.10 have only the TMDb id, so their IMDb id is looked up on TMDb first and added to the NFO. Ratings from other sources (such as Rotten Tomatoes) are kept as they are.</p>
 
     <h3>Other things you can do</h3>
     <ul>
