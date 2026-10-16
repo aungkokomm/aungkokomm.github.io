@@ -39,23 +39,28 @@
   }
 
   // Home page: one request per app for all its releases gives the latest tag,
-  // its date, the installer and the app's total downloads. Kept for an hour in
-  // the visitor's browser, since GitHub allows 60 requests an hour without a key.
-  var TTL = 60 * 60 * 1000;
+  // its date, the installer and the app's total downloads. Kept for 15 minutes
+  // in the visitor's browser: GitHub allows 60 requests an hour without a key,
+  // and four refreshes of every card an hour stay under that. When GitHub says
+  // no (limit reached, offline), the last answer is shown instead of the
+  // typed-in fallback, which can be older.
+  var TTL = 15 * 60 * 1000;
 
   function fetchSummary(repo) {
-    var key = "ghrel:" + repo;
+    var key = "ghrel:" + repo, hit = null;
     try {
-      var hit = JSON.parse(localStorage.getItem(key) || "null");
+      hit = JSON.parse(localStorage.getItem(key) || "null");
       if (hit && Date.now() - hit.t < TTL) return Promise.resolve(hit.d);
     } catch (e) { /* storage blocked: just fetch */ }
+    var stale = hit && hit.d ? hit.d : null;
     return fetch("https://api.github.com/repos/" + repo + "/releases?per_page=100",
                  { headers: { "Accept": "application/vnd.github+json" } })
       .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
       .then(function (list) {
-        if (!Array.isArray(list)) return null;
+        if (!Array.isArray(list)) return stale;
         var rels = list.filter(function (x) { return !x.draft && !x.prerelease; });
-        if (!rels.length) return null;
+        if (!rels.length) return stale;
         var asset = findAsset(rels[0]);
         var d = {
           tag: rels[0].tag_name,
