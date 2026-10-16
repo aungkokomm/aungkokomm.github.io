@@ -30,7 +30,7 @@
     </p>
     <div class="actions">
       <a class="btn btn-primary" data-dl data-repo="aungkokomm/CineLibraryCS" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v4.5.1
+        ⬇ Download v4.6.0
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryCS/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener">
         📖 User Guide
@@ -68,20 +68,37 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v4.5.1: ratings the Kodi way ⭐</h2>
-    <p style="opacity:0.8;margin-bottom:1rem">The main rating is the one your <code>.nfo</code> picks, and show cards match the page.</p>
+    <h2>What's new in v4.6.0: missing episodes and IMDb ratings ⭐</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">Everything <a href="../cinelibraryessentials/">CineLibrary Essentials</a> writes now shows, your whole library can get its IMDb ratings, and fetched pictures go onto your drives.</p>
 
-    <h3 style="margin-top:1.5rem">⭐ Ratings the Kodi way</h3>
+    <h3 style="margin-top:1.5rem">📺 A fuller show page</h3>
     <ul class="checklist">
-      <li><strong>The yellow ★ is the rating your <code>.nfo</code> marks as default,</strong> as in Kodi. Your scraper decides which source that is: IMDb, TMDb or another.</li>
-      <li><strong>Every source counts out of 10,</strong> so a score out of 100 sits fairly beside the others. Rotten Tomatoes still shows as a percentage.</li>
-      <li><strong>No doubled rating.</strong> The movie window lists each source only when your <code>.nfo</code> has more than one.</li>
-      <li><strong>AUDIO is back</strong> as the label for the audio track languages.</li>
+      <li><strong>Missing episodes:</strong> the aired episodes you don't have appear greyed in their season, with the air date, and seasons you have none of are listed. Specials and episodes that haven't aired never count. Settings can turn the check off.</li>
+      <li><strong>IMDb and TMDb ratings</strong> with their votes, IMDb in gold and TMDb in green.</li>
+      <li><strong>Created by, every studio and network, the country, the tagline</strong> and how long an episode is.</li>
     </ul>
 
-    <h3 style="margin-top:1.5rem">📺 Show cards that match the page</h3>
+    <h3 style="margin-top:1.5rem">⭐ IMDb ratings for your whole library</h3>
     <ul class="checklist">
-      <li><strong>On Favorites, To Watch, your lists and search,</strong> TV show cards now take the page's size (S, M, L or XL), like the movies under them.</li>
+      <li><strong>Update IMDb ratings</strong> on the Drives page gets the IMDb rating and votes of every movie and show in one go, and makes IMDb the main ★.</li>
+      <li><strong>Older <code>.nfo</code> files with only a TMDb id</strong> get their IMDb id from TMDb first.</li>
+      <li><strong>Written into each <code>.nfo</code>,</strong> changing only the ratings: on connected drives now, on the others when you plug them in.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">🎬 More in the movie window</h3>
+    <ul class="checklist">
+      <li><strong>The edition</strong> (Director's Cut, Extended, IMAX), <strong>every studio and country</strong>, and a <strong>🎞 Trailer</strong> button.</li>
+      <li><strong>Tags from your <code>.nfo</code> files</strong> beside your own, and <strong>Reload from .nfo</strong> to see an edit from CineLibrary Essentials at once.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">💾 Fetched pictures on your drives</h3>
+    <ul class="checklist">
+      <li><strong>After Fetch missing info,</strong> the poster, fanart and cast photos are copied into the movie's or show's folder. A drive that isn't connected gets them the next time you plug it in. Files already there are never replaced.</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem">⭐ Also recent: ratings the Kodi way (v4.5.1)</h3>
+    <ul class="checklist">
+      <li><strong>The yellow ★ is the rating your <code>.nfo</code> marks as default,</strong> as in Kodi, every source counts out of 10, and TV show cards take the page's size.</li>
     </ul>
 
     <h3 style="margin-top:1.5rem">♥ Also recent: favorite and play from the card (v4.5.0)</h3>
@@ -249,7 +266,9 @@
       <li>Filter by collection, genre, decade, watched status</li>
       <li>Search title, actor, director, plot</li>
       <li>Grid + list views with S/M/L/XL density</li>
-      <li>Movie details: cast, crew, ratings, runtime, file path</li>
+      <li>Movie details: cast, crew, IMDb and TMDb ratings, edition, trailer, runtime, file path</li>
+      <li>TV shows: seasons, episodes, the aired episodes you're missing, IMDb and TMDb ratings</li>
+      <li>Update IMDb ratings for your whole library in one click</li>
       <li>Toggle watched / favorite / watchlist with one click</li>
       <li>Export catalog as CSV or HTML</li>
       <li>Play in your own video player (VLC, MPC-HC, PotPlayer, mpv) or the Windows default</li>
