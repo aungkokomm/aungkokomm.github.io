@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PocketReader — Offline reader for Raindrop.io</title>
-<meta name="description" content="Portable Windows (WinUI 3) read-it-later app that turns your Raindrop.io bookmarks into a fast, private, fully-offline reading library — offline caching, full-text search, highlights, notes, ratings, text-to-speech, and PDF export.">
+<title>PocketReader: turn your Raindrop.io bookmarks into a private, fully-offline reading library</title>
+<meta name="description" content="Free, open-source, portable Windows app that turns your Raindrop.io bookmarks into a fast, private, fully-offline reading library — full text and images cached on your own disk, full-text search, in-text highlights, notes, ratings, text-to-speech, PDF export and reading stats. One-way, no account beyond Raindrop, no telemetry.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -25,13 +25,18 @@
     <div class="icon">📖</div>
     <h1>PocketReader</h1>
     <p class="tagline">
-      Pocket is gone — but your reading list shouldn't be. PocketReader turns your
-      <strong>Raindrop.io</strong> bookmarks into a fast, private, fully-offline reading
-      library that you actually own.
+      <strong>Pocket is gone — your reading list shouldn't be.</strong> Save articles in
+      <strong>Raindrop.io</strong> like always; PocketReader pulls them down, archives each one's
+      full text and images on your own disk, and gives you a calm place to read, search, highlight
+      and revisit them — online or off. No subscription, no server, no cloud. One portable folder
+      you actually own.
     </p>
     <div class="actions">
       <a class="btn btn-primary" data-dl data-repo="aungkokomm/PocketReader" href="https://github.com/aungkokomm/PocketReader/releases/latest" target="_blank" rel="noopener">
         ⬇ Download v1.9.0
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/aungkokomm/PocketReader/blob/main/USER_GUIDE.md" target="_blank" rel="noopener">
+        📖 User Guide
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/PocketReader" target="_blank" rel="noopener">
         View source
@@ -44,6 +49,8 @@
       <span>·</span>
       <span>Portable</span>
       <span>·</span>
+      <span>Windows 10 &amp; 11</span>
+      <span>·</span>
       <span>MIT licensed</span>
     </div>
   </div>
@@ -51,10 +58,40 @@
 
 <section class="section">
   <div class="container">
-    <div class="shot compact">
+    <div class="shot">
       <img src="https://github.com/user-attachments/assets/05876c5f-8ff9-4ba7-9773-613aa6b33f97"
-           alt="PocketReader — library and reading view">
+           alt="PocketReader — the library of saved articles beside the distraction-free reading view">
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Why it exists</h2>
+    <p style="color:var(--muted);max-width:820px">
+      For a decade, "read it later" meant <strong>Pocket</strong> — save now, read later, trust
+      it'll be there. Then Mozilla shut it down for good. <strong>Raindrop.io</strong> is the natural
+      place to save now (unlimited bookmarks, free), but the reading half has walls: full-text search,
+      permanent copies of your articles and annotations are all locked behind <strong>Pro</strong>,
+      and everything opens online-only — one dead link or new paywall and the article you saved is
+      gone. PocketReader fills that gap. Point it at your Raindrop account once and your library
+      becomes yours: it reads beautifully offline, it's searchable to the last word, and it outlives
+      link-rot and paywalls.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Everything the reading half needs — free and offline</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">The features Raindrop charges for, done locally and for free — plus a lot it doesn't do at all.</p>
+    <ul class="checklist">
+      <li><strong>Full-text search</strong> across every cached article, offline and instant. <em>Raindrop: Pro-only.</em></li>
+      <li><strong>Forever copies</strong> of your articles — full text <strong>and</strong> images, on your own disk. <em>Raindrop: Pro-only.</em></li>
+      <li><strong>Annotations</strong> — in-text highlights and a private note on every article. <em>Raindrop: Pro-only.</em></li>
+      <li><strong>Smart tags</strong> — suggestions and auto-tagging, computed on your machine. <em>Raindrop: Pro-only.</em></li>
+      <li><strong>And things Raindrop doesn't do:</strong> offline text-to-speech, export to PDF, reading statistics, 1–5 star ratings, reading-progress &amp; resume, and a Recycle Bin.</li>
+    </ul>
   </div>
 </section>
 
@@ -64,27 +101,59 @@
     <div class="feature-grid">
       <div class="feature">
         <h4>📴 Truly offline</h4>
-        <p>Caches the full article text and images to your disk. Read, search, and highlight with no connection — and it outlives link-rot and paywalls.</p>
+        <p>It caches the full article text and images to your disk, so reading, searching and highlighting all work with no connection — and survive link-rot and paywalls.</p>
       </div>
       <div class="feature">
         <h4>🔎 Full-text search</h4>
-        <p>Millisecond search across your whole offline library — not just titles and tags, but the words inside every cached article.</p>
+        <p>Search the words inside every cached article, not just titles and tags — across tens of thousands of articles in milliseconds.</p>
       </div>
       <div class="feature">
         <h4>🖊 Highlights &amp; notes</h4>
-        <p>Highlight text right in the reader and jot per-article notes. Everything is saved locally and reappears every time you open the article.</p>
+        <p>Highlight text right in the reader and jot a private note per article. Both are saved locally and reappear every time you open it.</p>
       </div>
       <div class="feature">
         <h4>🔊 Listen &amp; export</h4>
-        <p>Built-in offline text-to-speech reads any article aloud, and one click exports it to a clean PDF.</p>
+        <p>Built-in offline text-to-speech reads any article aloud, and one click exports it to a clean PDF exactly as it reads.</p>
       </div>
       <div class="feature">
         <h4>⭐ Organize &amp; track</h4>
-        <p>Star ratings, a drag-and-drop tag manager, reading progress with resume, a Recycle Bin, and a statistics page for what you've read.</p>
+        <p>Star ratings, a drag-and-drop tag manager, reading progress with resume, a statistics page, and browse by Favorites, Unread, Notes, Highlights or any tag.</p>
       </div>
       <div class="feature">
         <h4>🔒 One-way &amp; private</h4>
-        <p>Syncs <em>from</em> Raindrop and never writes back. Portable single folder, no server, no subscription, no telemetry.</p>
+        <p>It only ever <em>reads</em> from Raindrop and never writes back. No telemetry, no external AI — your ratings, notes and highlights stay on your machine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>How it works</h2>
+    <ul class="checklist">
+      <li><strong>Install.</strong> Run the setup and pick any folder or drive — even a USB stick. No administrator rights needed.</li>
+      <li><strong>Connect Raindrop.</strong> The simplest way is <strong>Sign in with a token</strong> (Raindrop → Settings → Integrations → create a test token). It takes a minute and never expires. Browser OAuth is also supported if you supply your own app credentials.</li>
+      <li><strong>Sync.</strong> Pull your bookmarks in — the first sync grabs everything, after that it only fetches what changed.</li>
+      <li><strong>Download offline.</strong> Cache the full articles, then read, search and highlight anywhere, anytime.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Good to know</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h4>📥 Install it, or carry it</h4>
+        <p>One self-contained folder — no Docker, no server to babysit. Install to any drive or run it portable from a USB stick. It isn't code-signed, so if SmartScreen warns you, click <em>More info</em>, then <em>Run anyway</em>.</p>
+      </div>
+      <div class="feature">
+        <h4>🔑 A free Raindrop account is all you need</h4>
+        <p>No PocketReader account, no second device. Sign in once with a Raindrop token — it never leaves your computer, and it only lets PocketReader <em>read</em> your bookmarks.</p>
+      </div>
+      <div class="feature">
+        <h4>🧳 Move it anywhere</h4>
+        <p>Your articles, tags, notes, highlights and settings all live in the folder next to the app. Copy that folder to a new PC or drive and your whole library travels with it.</p>
       </div>
     </div>
   </div>
@@ -97,7 +166,7 @@
   </div>
 </footer>
 
-<!-- Version + download auto-refresh from GitHub Releases — see assets/release.js -->
+<!-- Version + download auto-refresh from GitHub Releases: see assets/release.js -->
 <script src="../assets/release.js"></script>
 
 </body>
