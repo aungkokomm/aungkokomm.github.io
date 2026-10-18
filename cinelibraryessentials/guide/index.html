@@ -420,13 +420,14 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
       <tr><td><span class="pill pill-complete">Complete</span> / <span class="pill pill-complete">Already scraped</span></td><td>Just scraped, OR folder already had .nfo + poster when loaded</td></tr>
       <tr><td><span class="pill pill-failed">Failed</span></td><td>Hover the warning, error is in the row</td></tr>
     </table>
-    <p>If a folder was already scraped (it has both an <code>.nfo</code> and a <code>-poster.jpg</code>), the app <strong>detects this on load</strong> and pre-unchecks it so a bulk <em>Scrape Selected</em> won't redo it.</p>
+    <p>If a folder was already scraped (it has both an <code>.nfo</code> and a <code>-poster.jpg</code>), the app <strong>detects this on load</strong> and pre-unchecks it, so a bulk <em>Scrape Selected</em> only redoes it if you check it.</p>
 
     <h3>Per-movie scrape</h3>
     <p>Click <strong>Scrape</strong> on any card → the same TMDb search dialog as Step 1 opens, pre-filled with the title and year. Pick a result → app downloads everything. The card flips to green and the poster appears.</p>
 
     <h3>Bulk auto-scrape</h3>
     <p>Click <strong>Scrape Selected (auto)</strong> at the top → every checked card is processed sequentially using the <strong>first TMDb match</strong> (movie or TV show, depending on the card). Fast for batch processing, less precise than per-card.</p>
+    <p>Checked cards that are already <strong>Complete</strong> are scraped again, for example to get the full cast of a TV show or to add episode titles to file names. An already-scraped movie or show keeps the TMDb match in its NFO and its poster and fanart (only missing pictures are added), and protected edits stay as they are. To scrape only what's missing, use <strong>Fill gaps only</strong>.</p>
     <p>The <strong>Select all</strong> box ticks every card (or clears them all), and a progress bar at the bottom shows <em>"Scraping 3 of 12: Title"</em> while a batch runs.</p>
 
     <h3>Fill gaps only (verify a library)</h3>
@@ -467,7 +468,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
     <p>Scraped the right title but want to fix something? Right-click a card → <strong>Edit NFO...</strong>, or click <strong>Edit</strong> in the details window. The editor is its own window: resize it, maximize it, keep it open next to the app. Sections on the left:</p>
     <table>
       <tr><th>Section</th><th>What you can change</th></tr>
-      <tr><td><strong>Details</strong></td><td>Title, original title, sort title, year, premiered date, runtime, age rating, tagline, plot, outline, and for movies the collection and edition</td></tr>
+      <tr><td><strong>Details</strong></td><td>Title, original title, sort title, year, premiered date, runtime, certification, tagline, plot (overview), outline, and for movies the collection and edition</td></tr>
       <tr><td><strong>Genres and tags</strong></td><td>Genres, tags (your own labels like <em>4K</em> or <em>Watched</em>), studios, countries</td></tr>
       <tr><td><strong>Cast and crew</strong></td><td>Director, writers (creators for TV), and the cast: add, remove, rename, change roles and photos, and drag rows (or use the arrows) to change the billing order</td></tr>
       <tr><td><strong>Ratings and IDs</strong></td><td>See the IMDb and TMDb ratings, refresh the IMDb one, give your own rating (0 to 10 stars), and edit the IMDb id, TMDb id and trailer link (each with an Open button)</td></tr>
@@ -485,7 +486,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
     </ul>
 
     <h3 id="bulk-edit">Bulk edit</h3>
-    <p>Tick several cards, then <strong>⋯ → Bulk edit checked items...</strong> to change them all at once: set (or clear) the <strong>collection</strong>, set the <strong>age rating</strong>, <strong>add</strong> or <strong>remove</strong> genres and tags (each title keeps the ones you don't mention), and <strong>protect</strong> them from re-scrapes or stop protecting them.</p>
+    <p>Tick several cards, then <strong>⋯ → Bulk edit checked items...</strong> to change them all at once: set (or clear) the <strong>collection</strong>, set the <strong>certification</strong>, <strong>add</strong> or <strong>remove</strong> genres and tags (each title keeps the ones you don't mention), and <strong>protect</strong> them from re-scrapes or stop protecting them.</p>
     <p>Only what you tick or fill in changes. Every changed title keeps a backup, so <strong>Edit NFO → Restore previous version</strong> undoes it for that title.</p>
 
     <!-- ===================== Settings ===================== -->
