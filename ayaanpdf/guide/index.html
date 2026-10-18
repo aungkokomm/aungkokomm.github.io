@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started with Ayaan PDF</title>
+<meta name="description" content="A friendly guide to Ayaan PDF: install it, read and mark up PDFs, change the words on the page in English, Hindi and Myanmar, sign, turn scans into text, and work with pages.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+  /* ── Page layout, the same as the Aryan and CineLibrary Essentials guides ── */
+  .guide-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    margin-top: 32px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 900px) {
+    .guide-layout { grid-template-columns: 1fr; gap: 24px; }
+    .guide-toc { position: static !important; max-height: none !important; border-right: 0 !important; }
+  }
+
+  .guide-toc {
+    position: sticky; top: 24px;
+    align-self: start;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    font-size: 13px;
+    border-right: 1px solid var(--border);
+    padding-right: 16px;
+  }
+  .guide-toc h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .guide-toc ol { list-style: none; padding-left: 0; }
+  .guide-toc li { margin: 4px 0; }
+  .guide-toc a {
+    color: var(--muted);
+    text-decoration: none;
+    line-height: 1.4;
+    display: block;
+    padding: 2px 0;
+  }
+  .guide-toc a:hover { color: var(--accent); }
+
+  .guide-body { min-width: 0; }
+  .guide-body h2 {
+    font-size: 26px;
+    margin: 48px 0 12px;
+    letter-spacing: -0.01em;
+    scroll-margin-top: 24px;
+  }
+  .guide-body h3 {
+    font-size: 18px;
+    margin: 28px 0 8px;
+    color: var(--text);
+    scroll-margin-top: 24px;
+  }
+  .guide-body p, .guide-body li { color: var(--text); font-size: 15px; line-height: 1.7; }
+  .guide-body p { margin-bottom: 14px; }
+  .guide-body ul, .guide-body ol { margin: 0 0 14px 22px; color: var(--text); }
+  .guide-body ul li, .guide-body ol li { font-size: 15px; margin: 6px 0; }
+  .guide-body strong { color: var(--text); }
+
+  .guide-body blockquote {
+    border-left: 3px solid var(--accent);
+    background: rgba(124, 95, 232, 0.06);
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  .guide-body code, .guide-body kbd {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font: 13px/1.4 "Consolas", "Cascadia Mono", monospace;
+    color: var(--accent-dim);
+    white-space: nowrap;
+  }
+  .guide-body kbd { color: var(--text); border-bottom-width: 2px; }
+
+  .guide-body table {
+    border-collapse: collapse;
+    margin: 14px 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  .guide-body th, .guide-body td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .guide-body th { background: var(--bg-card); font-weight: 600; }
+
+  .guide-body figure { margin: 18px 0 22px; }
+  .guide-body figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .guide-body figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+  .guide-hero { padding: 32px 0 12px; }
+  .guide-hero h1 { font-size: 36px; letter-spacing: -0.02em; }
+  .guide-hero p { color: var(--muted); margin-top: 8px; max-width: 720px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><a href="../../" style="color:inherit"><img class="avatar" src="https://avatars.githubusercontent.com/u/46736497?s=96" alt="" width="28" height="28"> aungkokomm</a></div>
+    <nav class="site">
+      <a href="../">← Ayaan PDF</a>
+      <a href="https://github.com/aungkokomm/AyaanPDF" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/aungkokomm/AyaanPDF/releases/latest" target="_blank" rel="noopener">Download</a>
+    </nav>
+  </div>
+</header>
+
+<section class="guide-hero">
+  <div class="container">
+    <h1>📄 Getting started with Ayaan PDF</h1>
+    <p>Everything you need to read, mark up, sign and truly edit your PDFs. Every step is short, and Ctrl+Z takes back anything you didn't mean.</p>
+  </div>
+</section>
+
+<div class="container">
+<div class="guide-layout">
+
+  <aside class="guide-toc">
+    <h4>Contents</h4>
+    <ol>
+      <li><a href="#install">1. Install Ayaan PDF</a></li>
+      <li><a href="#around">2. Find your way around</a></li>
+      <li><a href="#read">3. Read a document</a></li>
+      <li><a href="#markup">4. Mark up a page</a></li>
+      <li><a href="#edit">5. Change the words on the page</a></li>
+      <li><a href="#textbox">6. Text boxes and links</a></li>
+      <li><a href="#sign">7. Sign a document</a></li>
+      <li><a href="#ocr">8. Turn scans into text</a></li>
+      <li><a href="#define">9. Look up a word</a></li>
+      <li><a href="#pages">10. Work with pages</a></li>
+      <li><a href="#bookmarks">11. Bookmarks</a></li>
+      <li><a href="#save">12. Save, print and document details</a></li>
+      <li><a href="#settings">13. Make it yours</a></li>
+      <li><a href="#keys">14. Handy keys</a></li>
+      <li><a href="#faq">15. Questions</a></li>
+    </ol>
+  </aside>
+
+  <article class="guide-body">
+
+    <blockquote><strong>In a nutshell:</strong> Ayaan PDF opens every document for reading, where you can highlight, draw, add notes and stamps. Switch to <strong>Edit</strong> to change the document itself: click a line of text and type, in English, Hindi or Myanmar, and it stays real text. It works without the internet.</blockquote>
+
+    <!-- ===================== Install ===================== -->
+    <h2 id="install">1. Install Ayaan PDF</h2>
+    <ol>
+      <li>Download <code>AyaanPDF-Setup-&lt;version&gt;.exe</code> from the <a href="https://github.com/aungkokomm/AyaanPDF/releases/latest" target="_blank" rel="noopener">latest release</a>.</li>
+      <li>Run it. Ayaan PDF isn't code-signed yet, so Windows SmartScreen may say it doesn't recognise the app. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+      <li>Choose the options you want, then click <strong>Next</strong> until it's done.</li>
+    </ol>
+    <table>
+      <tr><th>Option</th><th>What it does</th></tr>
+      <tr><td><strong>Create a desktop shortcut</strong></td><td>An Ayaan PDF icon on your desktop. The Start menu entry is there either way.</td></tr>
+      <tr><td><strong>Offer Ayaan PDF for PDF files</strong></td><td>Ayaan PDF appears under <strong>Open with</strong> when you right-click a PDF, and in Windows Settings &gt; Apps &gt; Default apps, where you can make it your default PDF app.</td></tr>
+      <tr><td><strong>Add "Open in Ayaan PDF" to the right-click menu</strong></td><td>One click from any PDF in File Explorer.</td></tr>
+    </table>
+    <p>It installs just for your Windows account, so no administrator rights are needed. Ayaan PDF runs on Windows 10 (version 1809 or later) and Windows 11, on 64-bit PCs, and carries everything it needs, so there is nothing else to install.</p>
+    <p><strong>Updating later:</strong> when Ayaan PDF starts, it checks whether a newer version is out and, if one is, tells you in a small bubble. Download the new Setup and run it: it updates your copy in place, and your settings, signatures and stamps are kept.</p>
+
+    <!-- ===================== Around ===================== -->
+    <h2 id="around">2. Find your way around</h2>
+    <figure>
+      <img src="https://github.com/user-attachments/assets/0822cb29-3df5-4420-8ed6-13959b389bb8" alt="Ayaan PDF's welcome screen in the dark theme, with recent files" loading="lazy">
+      <figcaption>The welcome screen: open a PDF, start a new one, or pick up a recent file at the page you were on.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>The menu bar</strong> at the top has File, Edit, Page, View and Help.</li>
+      <li><strong>Tabs:</strong> every document opens in its own tab. Double-click PDFs in File Explorer, or drag them onto the window, and they join the window that's already open. <kbd>Ctrl</kbd>+<kbd>Tab</kbd> moves between them.</li>
+      <li><strong>The tool rail</strong> runs down the left. At its top are the two mode buttons, then the tools, and at its foot the <strong>Pages</strong> and <strong>Bookmarks</strong> panels and <strong>Settings</strong>. Drag its handle to move it to the right side if you prefer.</li>
+      <li><strong>The options bar</strong> appears above the page when a tool has choices, such as colours and line widths.</li>
+      <li><strong>The status bar</strong> runs along the bottom. On the left: the page you're on, Back and Forward, and a mark when there are unsaved changes. On the right: night mode, turning the view, page layout, full screen and zoom.</li>
+    </ul>
+
+    <h3>Reading and Edit</h3>
+    <p>The two buttons at the top of the tool rail say what Ayaan PDF is doing. Every document opens in <strong>Reading</strong>.</p>
+    <table>
+      <tr><th>Mode</th><th>What you can do</th></tr>
+      <tr><td><strong>Reading</strong> (the open book)</td><td>Read, select and copy text, follow links, fill in forms, and mark the page up with the highlighter, the pen, shapes, notes and stamps.</td></tr>
+      <tr><td><strong>Edit</strong> (the page with a pencil)</td><td>Everything Reading does, and change the document itself: the words on the page, text boxes and links, and the marks already on the page, which you can now pick up, move, resize or delete.</td></tr>
+    </table>
+
+    <!-- ===================== Read ===================== -->
+    <h2 id="read">3. Read a document</h2>
+    <ul>
+      <li><strong>Open</strong> a PDF with <strong>File &gt; Open...</strong> (<kbd>Ctrl</kbd>+<kbd>O</kbd>), from <strong>File &gt; Recent files</strong>, or by dropping it on the window. A file protected with a password asks for it first.</li>
+      <li><strong>Move through it</strong> by scrolling, with <kbd>Page Down</kbd> and <kbd>Page Up</kbd>, or <kbd>Home</kbd> and <kbd>End</kbd> for the first and last page. To jump to a page, type its number in the status bar, or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd>.</li>
+      <li><strong>Pan</strong> by holding <kbd>Space</kbd> and dragging, whatever tool you have, or pick the <strong>Hand</strong> tool (<kbd>H</kbd>).</li>
+      <li><strong>Zoom</strong> with <kbd>Ctrl</kbd>+mouse wheel, the buttons in the status bar, or the percentage between them, which offers 50%, 100%, 200% and 400%. <kbd>Ctrl</kbd>+<kbd>0</kbd> fits the page, <kbd>Ctrl</kbd>+<kbd>2</kbd> fits the width and <kbd>Ctrl</kbd>+<kbd>1</kbd> shows it at its actual size. You can zoom up to 800%.</li>
+      <li><strong>Page layout:</strong> <strong>Continuous scrolling</strong> or <strong>Single page</strong>, from the View menu or the status bar.</li>
+      <li><strong>Turn the view</strong> with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Plus</kbd> or <kbd>Minus</kbd> to read a sideways page. This changes only how you see it; to turn the page in the file itself, see <a href="#pages">Work with pages</a>.</li>
+      <li><strong>Find</strong> words with <kbd>Ctrl</kbd>+<kbd>F</kbd>. <kbd>Enter</kbd> or <kbd>F3</kbd> goes to the next match and <kbd>Shift</kbd>+<kbd>F3</kbd> to the one before. Its options include <strong>Match case</strong> and <strong>Whole word</strong>.</li>
+      <li><strong>Links:</strong> click one to follow it. A link to a website asks before it opens your browser. <kbd>Alt</kbd>+<kbd>Left</kbd> takes you back and <kbd>Alt</kbd>+<kbd>Right</kbd> forward again, and <strong>View &gt; Show links</strong> outlines every link on the page.</li>
+      <li><strong>Panels:</strong> <kbd>F4</kbd> shows every page as a small picture, and <kbd>F6</kbd> the document's bookmarks.</li>
+      <li><strong>Night mode</strong> shows pages dark, for reading in the evening. <strong>Full screen</strong> (<kbd>F11</kbd>) gives the page the whole screen, and <kbd>Esc</kbd> leaves it.</li>
+      <li><strong>Forms:</strong> when a document has a form, click a field to fill it in. The <strong>Show form fields</strong> button in the tool rail picks out every field.</li>
+    </ul>
+    <p>Ayaan PDF remembers the page you stopped at in each document, and opens there next time.</p>
+
+    <!-- ===================== Mark up ===================== -->
+    <h2 id="markup">4. Mark up a page</h2>
+    <p>Pick a tool in the rail, or press its letter. Its choices appear in the options bar above the page.</p>
+    <table>
+      <tr><th>Tool</th><th>What it does</th></tr>
+      <tr><td><strong>Highlight</strong> <kbd>U</kbd></td><td>Drag across words to <strong>Highlight</strong>, <strong>Underline</strong>, <strong>Strikeout</strong> or <strong>Squiggly</strong> them, in the colour you pick.</td></tr>
+      <tr><td><strong>Draw</strong> <kbd>D</kbd></td><td>Draw freehand with the mouse or a pen, in any colour and thickness.</td></tr>
+      <tr><td><strong>Shape</strong> <kbd>R</kbd></td><td>Drag out a <strong>Rectangle</strong>, <strong>Rounded rectangle</strong>, <strong>Ellipse</strong>, <strong>Line</strong> or <strong>Arrow</strong>, with an outline, a fill, opacity and, for rounded rectangles, the corner radius.</td></tr>
+      <tr><td><strong>Note</strong> <kbd>N</kbd></td><td>Click to pin a sticky note to the page.</td></tr>
+      <tr><td><strong>Stamp</strong> <kbd>S</kbd></td><td>Click to place a stamp: APPROVED, NOT APPROVED, DRAFT, FINAL, CONFIDENTIAL, REVIEWED, RECEIVED, VOID, URGENT, COPY, PAID or SIGN HERE, or a tick, cross, question mark, star or arrow. <strong>Add a PNG stamp</strong> makes a stamp from your own picture.</td></tr>
+      <tr><td><strong>Select</strong> <kbd>V</kbd></td><td>Select text to copy it with <kbd>Ctrl</kbd>+<kbd>C</kbd>. In Edit, it also picks up marks and objects.</td></tr>
+    </table>
+
+    <h3>Effects for shapes</h3>
+    <figure>
+      <img src="https://github.com/user-attachments/assets/e7e5c9c7-40f8-4580-9a6f-36232761bd53" alt="A rounded rectangle with a soft shadow, and the shape options with colours, line widths and Effects" loading="lazy">
+      <figcaption>Rounded corners and a soft shadow, saved into the PDF itself.</figcaption>
+    </figure>
+    <p>With a shape, <strong>Effects</strong> in the options bar adds:</p>
+    <ul>
+      <li><strong>A gradient fill:</strong> two colours, the direction, and how long the change from one to the other is. It opens in a small panel you can move, so the shape stays in view while you set it.</li>
+      <li><strong>A shadow:</strong> pick where the light comes from, then the distance, blur and opacity.</li>
+      <li><strong>A glow:</strong> its colour, blur and opacity.</li>
+    </ul>
+    <p>Effects are saved into the PDF, so they look the same in every PDF reader, not just this one.</p>
+
+    <h3>Change a mark later</h3>
+    <p>Switch to <strong>Edit</strong> and click the mark to pick it up. Then drag it, resize it by its handles, or press <kbd>Delete</kbd>. With several selected, the options bar lines them up (<strong>Align</strong>, and <strong>Distribute</strong> for three or more), and the right-click menu offers <strong>Group</strong> (<kbd>Ctrl</kbd>+<kbd>G</kbd>), <strong>Bring forward</strong>, <strong>Send backward</strong> and more. <kbd>Ctrl</kbd>+<kbd>D</kbd> duplicates.</p>
+    <p>Made a mistake? <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes it, and <kbd>Ctrl</kbd>+<kbd>Y</kbd> brings it back.</p>
+
+    <!-- ===================== Edit ===================== -->
+    <h2 id="edit">5. Change the words on the page</h2>
+    <p>This is what makes Ayaan PDF different: you change the document's own text, not a box on top of it.</p>
+    <ol>
+      <li><strong>Switch to Edit</strong> with the page-and-pencil button at the top of the tool rail. The first time, a tip offers to do it for you.</li>
+      <li><strong>Click a line of text.</strong> A frame appears round it, and the status bar shows what you picked.</li>
+      <li><strong>Click again</strong> where you want to type. A caret appears right in the page.</li>
+      <li><strong>Type.</strong> <kbd>Enter</kbd> finishes the edit and <kbd>Esc</kbd> cancels it.</li>
+    </ol>
+    <p>What you type stays real text, so it can be searched, selected and copied. When you finish a line, the rest of its paragraph reflows to fit. <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes the edit.</p>
+    <ul>
+      <li><strong>Move text:</strong> drag a framed line to a new place.</li>
+      <li><strong>One word at a time:</strong> some lines can't be changed as a whole, such as a justified line in body text. Click one and Ayaan PDF frames the word under the pointer instead, so you can still fix a typo.</li>
+      <li><strong>When something can't be changed</strong>, the status bar says why when you click it, for example a line that is rotated, or set in more than one font or size.</li>
+    </ul>
+
+    <h3>Hindi and Myanmar</h3>
+    <p>Hindi and Myanmar (Burmese) are shaped as you type, so vowel signs, conjuncts and stacked consonants land where they belong. Type with the keyboard you already use, KeyMagic for Burmese and Hindi Phonetic included.</p>
+    <ul>
+      <li>For Myanmar, editing works on text set in <strong>Myanmar Text</strong> or <strong>Pyidaungsu</strong>. Myanmar Text comes with Windows, and Ayaan PDF carries the common versions of Pyidaungsu itself, so a document made with one of them can be edited even on a PC that doesn't have the font.</li>
+      <li>The first time you edit Burmese in a document, Ayaan PDF reads the page's text through first, and a card at the top says <strong>Preparing Myanmar text for editing</strong>. It takes a few seconds; then click the line again.</li>
+    </ul>
+
+    <!-- ===================== Text boxes and links ===================== -->
+    <h2 id="textbox">6. Text boxes and links</h2>
+    <p>These two tools appear in Edit, because they change the document.</p>
+    <h3>Text boxes <kbd>T</kbd></h3>
+    <ul>
+      <li>Click where the text should go and type. Hindi, Myanmar and English are shaped properly.</li>
+      <li>The options bar sets the <strong>Font</strong> (any font on your PC), its size, <strong>Bold</strong>, <strong>Italic</strong>, underline and <strong>Strikethrough</strong>, the alignment, and the text colour, fill and outline.</li>
+      <li>The font goes inside the PDF, so the text looks the same wherever the file goes, and it's saved as real text.</li>
+      <li>Resize the box and the words re-wrap. The box can be rotated, and a double-click opens it for typing again.</li>
+    </ul>
+    <h3>Links <kbd>L</kbd></h3>
+    <ul>
+      <li>Drag a box over the words that should be clickable, then type a web or email address.</li>
+      <li>Right-click a link to <strong>Open link</strong>, <strong>Edit link...</strong> or <strong>Remove link</strong>.</li>
+    </ul>
+
+    <!-- ===================== Sign ===================== -->
+    <h2 id="sign">7. Sign a document</h2>
+    <p>Draw your signature once, and place it on any document after that.</p>
+    <ol>
+      <li>Switch to <strong>Edit</strong>, pick <strong>Draw</strong> (<kbd>D</kbd>) and sign on the page with the mouse or a pen.</li>
+      <li>Pick <strong>Select</strong> (<kbd>V</kbd>) and click your signature.</li>
+      <li>Choose <strong>Edit &gt; Signature &gt; Save selection as signature...</strong> and give it a name.</li>
+    </ol>
+    <p>From then on, in Edit, choose <strong>Edit &gt; Signature</strong> and your signature's name, then click where it should go. <strong>Open signatures folder</strong> in the same menu shows where they're kept.</p>
+
+    <!-- ===================== OCR ===================== -->
+    <h2 id="ocr">8. Turn scans into text</h2>
+    <p>A scanned page is a picture: you can't search it or copy from it. <strong>Page &gt; Recognize text...</strong> reads its words and adds them as invisible text over the picture, so the page looks exactly the same but can be searched, selected and copied.</p>
+    <ol>
+      <li>Choose the <strong>Pages</strong>: all of them, the current page, or the ones chosen in the page thumbnails.</li>
+      <li>Tick the <strong>Languages on the pages</strong>: English, Hindi and Myanmar are included.</li>
+      <li>Choose the <strong>Quality</strong>: <strong>Accurate</strong>, best for scans and phone photos, or <strong>Fast</strong>, for English only, several times quicker but with more mistakes on blurry pages.</li>
+      <li>Click <strong>Recognize</strong>.</li>
+    </ol>
+    <p><strong>More languages...</strong> downloads any of 112 more languages, once each, and every download is checked before it's kept. You'll find the same list in <strong>Settings &gt; Recognition languages...</strong>. Chinese, Japanese and Korean aren't available yet.</p>
+    <h3>Rescue old documents</h3>
+    <p>Pages typed in old fonts like Kruti Dev, Zawgyi or Win Innwa look right but hold scrambled text underneath. Open <strong>File &gt; Document properties...</strong> and click <strong>Check pages</strong>: Ayaan PDF finds those pages, and pages with no text at all, and offers to <strong>Recognize text</strong> on them, turning them into proper, searchable Unicode text.</p>
+
+    <!-- ===================== Define ===================== -->
+    <h2 id="define">9. Look up a word</h2>
+    <figure>
+      <img src="https://github.com/user-attachments/assets/142e3702-7717-4524-8aff-9d8047971cad" alt="The Define popup over a page, with an English meaning and the Myanmar and Hindi meanings underneath" loading="lazy">
+      <figcaption>Right-click, Define: English, Myanmar and Hindi, all offline.</figcaption>
+    </figure>
+    <p><strong>Right-click an English word</strong> and choose <strong>Define</strong>. You get its meanings from WordNet, with the <strong>Myanmar</strong> and <strong>Hindi</strong> meanings right underneath. No internet is needed. To show only one of the two languages, or neither, use <strong>Settings &gt; Define</strong>.</p>
+
+    <!-- ===================== Pages ===================== -->
+    <h2 id="pages">10. Work with pages</h2>
+    <p>Press <kbd>F4</kbd> for the <strong>Pages</strong> panel, with every page as a small picture.</p>
+    <ul>
+      <li><strong>Reorder</strong> pages by dragging them. <kbd>Ctrl</kbd>+click or <kbd>Shift</kbd>+click picks several at once.</li>
+      <li><strong>Right-click a page</strong> to <strong>Rotate 90°</strong>, <strong>Duplicate</strong>, <strong>Insert blank page after</strong>, <strong>Extract page...</strong>, <strong>Move up</strong>, <strong>Move down</strong> or <strong>Delete page</strong>.</li>
+    </ul>
+    <p>The <strong>Page</strong> menu has the same and more:</p>
+    <ul>
+      <li><strong>Insert &gt; From file...</strong> brings in pages from another PDF: pick exactly which pages, and where they go. <strong>Insert &gt; A blank page</strong> adds an empty one.</li>
+      <li><strong>Extract pages...</strong> saves chosen pages as a new PDF, or each as a file of its own.</li>
+      <li><strong>Rotate page 90</strong> and <strong>Rotate pages...</strong> turn pages in the file itself, and <strong>Delete page</strong> removes one.</li>
+    </ul>
+    <figure style="max-width:687px">
+      <img src="https://github.com/user-attachments/assets/478e92e1-aa7a-4d8b-9abe-a8f17d5ded91" alt="The Insert pages window with page thumbnails and a choice of where to put them" loading="lazy">
+      <figcaption>Insert from file: choose the pages, and where to put them.</figcaption>
+    </figure>
+    <h3>Merge files</h3>
+    <p><strong>File &gt; Merge files...</strong> joins PDFs and pictures into one new document. Add files or drop them in, drag them into order, and choose which pages of each to keep. It can add a bookmark for each file, keep each file's own bookmarks, and fit pictures to A4 or Letter. Then click <strong>Merge and save...</strong>. Your original files aren't changed.</p>
+
+    <!-- ===================== Bookmarks ===================== -->
+    <h2 id="bookmarks">11. Bookmarks</h2>
+    <p>Press <kbd>F6</kbd> for the <strong>Bookmarks</strong> panel, and click a bookmark to jump to it. The two buttons at the top of the panel add bookmarks.</p>
+    <ul>
+      <li><strong>Add one:</strong> select a heading on the page and press <kbd>Ctrl</kbd>+<kbd>B</kbd>, or click the first button. The bookmark is named after the words you selected.</li>
+      <li><strong>Rename or delete one:</strong> right-click it in the panel.</li>
+      <li><strong>Build them all at once:</strong> the second button, <strong>Create bookmarks from the document's headings</strong>, finds the headings <strong>By how they look</strong> (their font, size and colour) or <strong>By what they say</strong> (such as "1.2" or "Chapter"). It shows the bookmarks it will make before anything is written. They replace any bookmarks the document already has, and the file is saved as part of this.</li>
+    </ul>
+    <figure style="max-width:591px">
+      <img src="https://github.com/user-attachments/assets/8389f7e1-875e-4dfb-a207-f86ca6eb471f" alt="The Create bookmarks window" loading="lazy">
+      <figcaption>Create bookmarks: every heading style in the document, each at the level you choose.</figcaption>
+    </figure>
+
+    <!-- ===================== Save ===================== -->
+    <h2 id="save">12. Save, print and document details</h2>
+    <ul>
+      <li><strong>Save</strong> (<kbd>Ctrl</kbd>+<kbd>S</kbd>) and <strong>Save As...</strong> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>) work in the background, so you can keep going while a big file is written.</li>
+      <li><strong>Print...</strong> (<kbd>Ctrl</kbd>+<kbd>P</kbd>) sends the document to your printer.</li>
+      <li><strong>Flatten and save a copy...</strong> saves a copy with your marks pressed into the pages, so nobody can move or remove them. The document you have open stays as it is.</li>
+    </ul>
+    <h3>Document properties</h3>
+    <p><strong>File &gt; Document properties...</strong> (<kbd>Alt</kbd>+<kbd>Enter</kbd>) shows and changes:</p>
+    <ul>
+      <li>The <strong>title, author, subject, keywords</strong> and <strong>language</strong>.</li>
+      <li>How the file <strong>opens</strong> in any PDF reader: at which page and zoom, with which panel and layout, and whether the title shows instead of the file name.</li>
+      <li><strong>Remove personal info when saving</strong>, and if you like the created and modified dates and attached files too.</li>
+      <li><strong>Attached files:</strong> see them, save them to your PC, or remove them.</li>
+      <li><strong>Show fonts</strong> lists the fonts the document uses, and <strong>Check pages</strong> looks for <a href="#ocr">old fonts and pages without text</a>.</li>
+    </ul>
+    <h3>If something goes wrong</h3>
+    <p>Ayaan PDF keeps a copy of your unsaved work as you go. If it ever closes unexpectedly, the next time it starts it offers <strong>Recover unsaved work</strong>: choose <strong>Recover</strong> to get it back.</p>
+
+    <!-- ===================== Settings ===================== -->
+    <h2 id="settings">13. Make it yours</h2>
+    <p>Open <strong>Settings</strong> from the foot of the tool rail or <strong>File &gt; Settings...</strong>:</p>
+    <ul>
+      <li><strong>Theme:</strong> Light, Dark, Sepia, Midnight blue, or the same as Windows, with <strong>Color intensity</strong> for how strong its colours are.</li>
+      <li><strong>When a document opens:</strong> fit the whole page, fit the width, or actual size, and whether to <strong>Remember where I stopped reading</strong>.</li>
+      <li><strong>Rulers in Edit mode</strong>, and their units. With the rulers on, drag from a ruler to make a guide, and the <strong>View &gt; Guides</strong> menu adds margin and column guides.</li>
+      <li><strong>Define:</strong> show the Myanmar meanings, the Hindi meanings, or both.</li>
+      <li><strong>Text recognition:</strong> the languages it reads, and <strong>Recognition languages...</strong> to download more.</li>
+    </ul>
+
+    <!-- ===================== Keys ===================== -->
+    <h2 id="keys">14. Handy keys</h2>
+    <p><kbd>F1</kbd> in the app lists every key. The ones you'll use most:</p>
+    <h3>Files and editing</h3>
+    <table>
+      <tr><th>Keys</th><th>What they do</th></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>O</kbd>, <kbd>Ctrl</kbd>+<kbd>N</kbd></td><td>Open a document, or start a new one</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd></td><td>Save, or save as</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Print</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>Enter</kbd></td><td>Document properties</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>W</kbd>, <kbd>Ctrl</kbd>+<kbd>Tab</kbd></td><td>Close the document, or go to the next tab</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd>, <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Undo, or redo</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd>, <kbd>Ctrl</kbd>+<kbd>X</kbd>, <kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>Copy, cut and paste</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>Duplicate what's selected</td></tr>
+      <tr><td><kbd>Delete</kbd></td><td>Delete what's selected</td></tr>
+      <tr><td>Arrow keys, <kbd>Shift</kbd>+arrows</td><td>Move what's selected a little, or further</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>G</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd></td><td>Group, or ungroup</td></tr>
+      <tr><td><kbd>Enter</kbd>, <kbd>Esc</kbd></td><td>While typing in the page: finish the edit, or cancel it</td></tr>
+    </table>
+    <h3>Reading and moving around</h3>
+    <table>
+      <tr><th>Keys</th><th>What they do</th></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd>, <kbd>F3</kbd>, <kbd>Shift</kbd>+<kbd>F3</kbd></td><td>Find, the next match, and the one before</td></tr>
+      <tr><td><kbd>Page Down</kbd>, <kbd>Page Up</kbd></td><td>Next or previous page</td></tr>
+      <tr><td><kbd>Home</kbd>, <kbd>End</kbd></td><td>First or last page</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></td><td>Go to a page number</td></tr>
+      <tr><td><kbd>Alt</kbd>+<kbd>Left</kbd>, <kbd>Alt</kbd>+<kbd>Right</kbd></td><td>Back after following a link, and forward again</td></tr>
+      <tr><td><kbd>Space</kbd></td><td>Hold to pan with the hand</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+mouse wheel</td><td>Zoom</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>0</kbd>, <kbd>1</kbd>, <kbd>2</kbd></td><td>Fit the page, actual size, fit the width</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Plus</kbd>, <kbd>Minus</kbd></td><td>Turn the view clockwise, or anticlockwise</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Bookmark this page</td></tr>
+      <tr><td><kbd>F4</kbd>, <kbd>F6</kbd></td><td>Pages panel, Bookmarks panel</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>R</kbd></td><td>Show or hide the rulers</td></tr>
+      <tr><td><kbd>F11</kbd></td><td>Full screen, and <kbd>Esc</kbd> leaves it</td></tr>
+    </table>
+    <h3>Tools</h3>
+    <table>
+      <tr><th>Key</th><th>Tool</th></tr>
+      <tr><td><kbd>H</kbd>, <kbd>V</kbd></td><td>Hand, Select</td></tr>
+      <tr><td><kbd>U</kbd>, <kbd>D</kbd>, <kbd>R</kbd></td><td>Highlight, Draw, Shape</td></tr>
+      <tr><td><kbd>N</kbd>, <kbd>S</kbd></td><td>Note, Stamp</td></tr>
+      <tr><td><kbd>T</kbd>, <kbd>L</kbd></td><td>Text, Link (in Edit)</td></tr>
+    </table>
+
+    <!-- ===================== FAQ ===================== -->
+    <h2 id="faq">15. Questions</h2>
+    <h3>Does Ayaan PDF change my file?</h3>
+    <p>Only when you save. Until then everything you do lives in Ayaan PDF, and <kbd>Ctrl</kbd>+<kbd>Z</kbd> takes it back. Closing a document with unsaved changes asks you first. The one exception is <a href="#bookmarks">Create bookmarks</a>, which saves the file as it writes them.</p>
+    <h3>Does it need the internet?</h3>
+    <p>No. Reading, editing, word meanings, text recognition in English, Hindi and Myanmar, and everything else work offline. When it starts, Ayaan PDF asks GitHub whether a newer version is out and, if one is, tells you in a small bubble you can dismiss; it never downloads or installs anything by itself. Otherwise it goes online only when you download a recognition language or open a web link. There is no account and no tracking.</p>
+    <h3>I can't click the text to change it</h3>
+    <p>Check that you're in <strong>Edit</strong>: the page-and-pencil button at the top of the tool rail. In Reading, a click on text selects it for copying instead.</p>
+    <h3>A line says it can't be changed</h3>
+    <p>The status bar says why. A justified line can't be retyped as a whole, because its spacing would change and the right margin would stop lining up, but every word in it can: click the word. A scanned page has no text to change until you <a href="#ocr">recognise it</a>.</p>
+    <h3>Burmese text won't edit</h3>
+    <p>Editing Burmese works on text set in Myanmar Text or Pyidaungsu. Wait until the <strong>Preparing Myanmar text for editing</strong> card has gone, then click the line again. Text in an old font like Zawgyi or Win Innwa has to be <a href="#ocr">recognised</a> first.</p>
+    <h3>Can I sign a PDF with a digital certificate?</h3>
+    <p>Not yet. A signature in Ayaan PDF is a picture of your handwriting, placed on the page.</p>
+    <h3>Something else went wrong</h3>
+    <p>Choose <strong>Help &gt; Report a problem</strong>, which opens a new issue on GitHub, and describe what happened. Ayaan PDF keeps a log, <code>diag.log</code>, in the folder it's installed in (<code>%LOCALAPPDATA%\Programs\Ayaan PDF</code>), and attaching it helps.</p>
+
+    <div class="feature-grid" style="margin-top:40px">
+      <a class="feature" href="https://github.com/aungkokomm/AyaanPDF/releases/latest" target="_blank" rel="noopener" style="color:inherit">
+        <h4>⬇ Download Ayaan PDF</h4>
+        <p>The latest installer, for Windows 10 and 11.</p>
+      </a>
+      <a class="feature" href="../" style="color:inherit">
+        <h4>📄 About Ayaan PDF</h4>
+        <p>What it can do, at a glance.</p>
+      </a>
+      <a class="feature" href="https://github.com/aungkokomm/AyaanPDF" target="_blank" rel="noopener" style="color:inherit">
+        <h4>💻 Source code</h4>
+        <p>Free and open source under the MIT licence.</p>
+      </a>
+    </div>
+
+  </article>
+</div>
+</div>
+
+<footer class="site">
+  <div class="container">
+    <div>© 2026 Aung Ko Ko · MIT licensed</div>
+    <div><a href="https://github.com/aungkokomm/AyaanPDF" target="_blank" rel="noopener">github.com/aungkokomm/AyaanPDF</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
