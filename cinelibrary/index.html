@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CineLibrary: Movie catalog for Windows</title>
-<meta name="description" content="Native Windows movie catalog for MediaElch-scraped collections. Browse, search, and play across multiple external drives.">
+<meta name="description" content="A fast, native Windows app to browse, manage and play your movies and TV shows across any number of external drives.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -25,12 +25,12 @@
     <div class="icon">🎬</div>
     <h1>CineLibrary</h1>
     <p class="tagline">
-      Native Windows catalog for your <strong>MediaElch-scraped</strong> movies <strong>and TV shows</strong>.
-      Browse, search, filter, and play across any number of external drives. Fast, offline, portable.
+      A fast, native Windows app for your <strong>movies and TV shows</strong>, now with <strong>its own player</strong>.
+      Browse, manage and play across any number of external drives. Fast, offline, portable.
     </p>
     <div class="actions">
       <a class="btn btn-primary" data-dl data-repo="aungkokomm/CineLibraryCS" href="https://github.com/aungkokomm/CineLibraryCS/releases/latest" target="_blank" rel="noopener">
-        ⬇ Download v4.9.0
+        ⬇ Download v5.0.0
       </a>
       <a class="btn btn-ghost" href="https://github.com/aungkokomm/CineLibraryCS/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener">
         📖 User Guide
@@ -45,7 +45,7 @@
     <div class="meta-row">
       <span>WinUI 3 · .NET 10 · x64</span>
       <span>·</span>
-      <span data-dl-size>Portable installer (~45 MB)</span>
+      <span data-dl-size>Portable installer (~84 MB)</span>
       <span>·</span>
       <span>MIT licensed</span>
     </div>
@@ -68,8 +68,20 @@
 
 <section class="section">
   <div class="container">
-    <h2>What's new in v4.9: more from a TV show card 📺</h2>
-    <p style="opacity:0.8;margin-bottom:1rem">Right-click a show, mark a whole show watched, and keep the shows you've finished and deleted as records in Watched &amp; Gone.</p>
+    <h2>What's new in v5: the biggest release yet 🎬</h2>
+    <p style="opacity:0.8;margin-bottom:1rem">A long list of roadmap features in one release, led by the one that changes how you use the app: CineLibrary now plays your films and episodes itself.</p>
+
+    <h3 style="margin-top:1.5rem">▶ v5.0.0: a player of its own</h3>
+    <ul class="checklist">
+      <li><strong>Press Play and your film starts right over the window you were in,</strong> on VLC's engine, so it plays the formats VLC plays.</li>
+      <li><strong>It remembers:</strong> it starts where you stopped, keeps your audio and subtitles for each film or show, and offers the next episode when one ends.</li>
+      <li><strong>See-through controls</strong> over the picture, and pausing brings up the poster, plot and cast.</li>
+      <li><strong>Prefer your own player?</strong> One switch in Settings brings it back.</li>
+      <li><strong>Continue Watching, rebuilt:</strong> it now sits with your library, right under All TV Shows, with films and shows together in This week, This month and Earlier, and each one shows how much is left.</li>
+      <li><strong>A tidier app:</strong> the sidebar is rearranged, About is new, the movie page fits smaller windows better, and the Watched filters now cover TV shows too.</li>
+      <li><strong>Steadier:</strong> we fixed the problem that could close the app by itself, including while typing in the search box.</li>
+      <li><strong>Your backups</strong> and the state files on your drives now keep where you stopped and your track choices.</li>
+    </ul>
 
     <h3 style="margin-top:1.5rem">📺 v4.9.0: more from a TV show card</h3>
     <ul class="checklist">
@@ -258,7 +270,7 @@
     <h3 style="margin-top:1.5rem">✨ Also recent: fill the gaps with TMDb (v3.4)</h3>
     <ul class="checklist">
       <li><strong>Add watched movie.</strong> In Watched &amp; Gone, record a film you saw <em>somewhere else</em>: at the cinema, on a streaming service, or a friend's copy. Search TMDb, pick the match, and it's saved as a record with poster, top-billed cast, plot and details, plus your note, tags and the date you watched it.</li>
-      <li><strong>Fetch missing info from TMDB.</strong> A button on every movie's detail window fills <em>only the blanks</em> (poster, fanart, plot, cast, year, …). Matches by the movie's TMDb id, or a quick pick-from-list. Fill-only: your existing MediaElch data is never overwritten.</li>
+      <li><strong>Fetch missing info from TMDB.</strong> A button on every movie's detail window fills <em>only the blanks</em> (poster, fanart, plot, cast, year, …). Matches by the movie's TMDb id, or a quick pick-from-list. Fill-only: your existing data is never overwritten.</li>
       <li><strong>Sync to drive (state + fetched art).</strong> Write your personal state <em>and</em> any fetched poster, fanart and cast photos back into the movie folders, with the rest recorded in a tiny sidecar. It <strong>never rewrites your <code>.nfo</code></strong>, so the drive stays the source of truth and a rescan can't lose your fill-ins.</li>
       <li><strong>Background material (Mica): Off / Subtle / Strong.</strong> Pick how much wallpaper tint shows behind the sidebar. The poster grid always stays solid for smooth scrolling.</li>
     </ul>
@@ -297,8 +309,8 @@
         <p>Index a USB drive, unplug it, and its movies fade to "offline" instead of vanishing. Plug it back in and they wake up via WM_DEVICECHANGE.</p>
       </div>
       <div class="feature">
-        <h4>📦 MediaElch-friendly</h4>
-        <p>Reads .nfo + poster/fanart files alongside your videos. No re-scraping, no duplicate metadata.</p>
+        <h4>📦 Made for CineLibrary Essentials</h4>
+        <p>Reads .nfo + poster/fanart files alongside your videos, the way <a href="../cinelibraryessentials/">CineLibrary Essentials</a> writes them. No re-scraping, no duplicate metadata.</p>
       </div>
       <div class="feature">
         <h4>🔌 Portable, offline</h4>
@@ -329,7 +341,7 @@
       <li>Update IMDb ratings for your whole library in one click</li>
       <li>Toggle watched / favorite / watchlist with one click</li>
       <li>Export catalog as CSV or HTML</li>
-      <li>Play in your own video player (VLC, MPC-HC, PotPlayer, mpv) or the Windows default</li>
+      <li>Play in CineLibrary's own player, or in yours (VLC, MPC-HC, PotPlayer, mpv) or the Windows default</li>
       <li>Keyboard shortcuts: Ctrl+F search, Ctrl+B sidebar, Ctrl+Q quit, Ctrl+Shift+/ help</li>
     </ul>
   </div>
