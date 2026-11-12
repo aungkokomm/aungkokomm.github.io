@@ -424,13 +424,22 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
       <tr><td><span class="pill pill-failed">Failed</span></td><td>Hover the warning, error is in the row</td></tr>
     </table>
     <p>If a folder was already scraped (it has both an <code>.nfo</code> and a <code>-poster.jpg</code>), the app <strong>detects this on load</strong> and pre-unchecks it, so a bulk <em>Scrape Selected</em> only redoes it if you check it.</p>
+    <p>The <strong>Sort</strong> box next to Mode puts the cards in order:</p>
+    <table>
+      <tr><th>Sort</th><th>Order</th></tr>
+      <tr><td><strong>Name</strong> (default)</td><td>A to Z</td></tr>
+      <tr><td><strong>Collection</strong></td><td>A collection's films together, oldest first, filed under the collection's name among the other titles</td></tr>
+      <tr><td><strong>Year</strong></td><td>Newest first</td></tr>
+      <tr><td><strong>Needs work first</strong></td><td>Folders missing an NFO, poster, fanart or cast photos at the top</td></tr>
+    </table>
+    <p>Your choice is remembered. Cards keep their place while you scrape, so nothing jumps around under the mouse; they're put in order again when you add folders or pick a sort.</p>
 
     <h3>Per-movie scrape</h3>
     <p>Click <strong>Scrape</strong> on any card → the same TMDb search dialog as Step 1 opens, pre-filled with the title and year. Pick a result → app downloads everything. The card flips to green and the poster appears.</p>
 
     <h3>Bulk auto-scrape</h3>
     <p>Click <strong>Scrape Selected (auto)</strong> at the top → every checked card is processed sequentially using the <strong>first TMDb match</strong> (movie or TV show, depending on the card). Fast for batch processing, less precise than per-card.</p>
-    <p>Checked cards that are already <strong>Complete</strong> are scraped again, for example to get the full cast of a TV show or to add episode titles to file names. An already-scraped movie or show keeps the TMDb match in its NFO and its poster and fanart (only missing pictures are added), and protected edits stay as they are. To scrape only what's missing, use <strong>Fill gaps only</strong>.</p>
+    <p>Checked cards that are already <strong>Complete</strong> are scraped again, for example to get the full cast of a TV show or to add episode titles to file names. An already-scraped movie or show keeps the TMDb match in its NFO and its poster and fanart (only missing pictures are added), and protected edits stay as they are. Whatever is scraped again keeps your own rating, play count, Watched, last played date and note from its old <code>.nfo</code>. To scrape only what's missing, use <strong>Fill gaps only</strong>.</p>
     <p>The <strong>Select all</strong> box ticks every card (or clears them all), and a progress bar at the bottom shows <em>"Scraping 3 of 12: Title"</em> while a batch runs.</p>
 
     <h3>Fill gaps only (verify a library)</h3>
@@ -475,7 +484,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
       <tr><td><strong>Details</strong></td><td>Title, original title, sort title, year, premiered date, runtime, certification, tagline, plot (overview), outline, for movies the collection and edition, and for TV shows the status (Returning Series, Ended, Canceled...)</td></tr>
       <tr><td><strong>Genres and tags</strong></td><td>Genres, tags (your own labels like <em>4K</em> or <em>Watched</em>), studios, countries</td></tr>
       <tr><td><strong>Cast and crew</strong></td><td>Director, writers (creators for TV), and the cast: add, remove, rename, change roles and photos, and drag rows (or use the arrows) to change the billing order</td></tr>
-      <tr><td><strong>Ratings and IDs</strong></td><td>See the IMDb and TMDb ratings, refresh the IMDb one, give your own rating (0 to 10 stars), set the play count, write your own note, and edit the IMDb id, TMDb id and trailer link (each with an Open button). The note is saved as <code>&lt;user_note&gt;</code>, the way tinyMediaManager writes it, and CineLibrary shows it when you haven't written a note there</td></tr>
+      <tr><td><strong>Ratings and IDs</strong></td><td>See the IMDb and TMDb ratings, refresh the IMDb one, give your own rating (0 to 10 stars), set the play count, tick <strong>Watched</strong> (movies: players count a title with plays as watched, so ticking it gives a title with none 1 play, and unticking it sets 0; CineLibrary marks it watched too), write your own note, and edit the IMDb id, TMDb id and trailer link (each with an Open button). The note is saved as <code>&lt;user_note&gt;</code>, the way tinyMediaManager writes it, and CineLibrary shows it when you haven't written a note there</td></tr>
       <tr><td><strong>Artwork</strong></td><td>Poster, fanart, clear logo, landscape and banner. Pick <strong>From TMDb</strong> to browse every picture TMDb has for the title (filter by language or <em>Without text</em>), or <strong>From file...</strong></td></tr>
       <tr><td><strong>Episodes</strong> (TV)</td><td>Every episode's title, air date, plot and thumbnail</td></tr>
       <tr><td><strong>NFO source</strong></td><td>The file itself, read-only, with <strong>Copy</strong> and <strong>Open folder</strong></td></tr>
