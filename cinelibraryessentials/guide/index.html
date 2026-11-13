@@ -374,6 +374,9 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
     <p>Undo reverses every rename in the batch (files first, folders last) so you're back to where you started.</p>
     <blockquote><strong>Tip:</strong> even though we have undo, you should still review carefully before committing. If you close the toast or wait too long, you'll have to fix any mistakes manually.</blockquote>
 
+    <h3 id="all-three">Clean, organize and scrape</h3>
+    <p>All three steps in one go: <strong>Clean, organize and scrape</strong> (next to <strong>Rename Selected</strong>) takes the checked rows, gives each its clean name and its own folder as Step 2 does, then scrapes them with the first TMDb match as <strong>Scrape Selected (auto)</strong> does. Rows with a ⚠ are left out and unticked, for you to check. Step 2's <strong>Undo</strong> works for 30 seconds as usual. Best when you trust the names in the list; for tricky ones, pick the match with 🔍 first.</p>
+
     <!-- ===================== Step 2 ===================== -->
     <h2 id="step2">4. Step 2 - Organize</h2>
     <img src="https://github.com/user-attachments/assets/7f262903-9bba-4182-8acf-08f6fd257b66" alt="Step 2 - Organize">
@@ -400,6 +403,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
       <li>Advances to Step 3 automatically on success.</li>
     </ol>
     <p><strong>Folder merging:</strong> if a destination folder already exists, files are merged into it instead of erroring. Existing files are never overwritten.</p>
+    <p><strong>Undo:</strong> for 30 seconds after the move, a message offers <strong>Undo</strong>. It puts every file and <code>Subs</code> folder back where it was and removes the new folders. A folder that has other files by then (Step 3's NFO and pictures, say) is kept, and a file you've moved or renamed since stays where it is. You're taken back to Step 2 to try again.</p>
 
     <!-- ===================== Step 3 ===================== -->
     <h2 id="step3">5. Step 3 - Scrape</h2>
@@ -433,6 +437,18 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
       <tr><td><strong>Needs work first</strong></td><td>Folders missing an NFO, poster, fanart or cast photos at the top</td></tr>
     </table>
     <p>Your choice is remembered. Cards keep their place while you scrape, so nothing jumps around under the mouse; they're put in order again when you add folders or pick a sort.</p>
+    <p>A card matched to the same TMDb title as another card gets an orange <strong>Duplicate</strong> tag; hover it to see where the other one is.</p>
+
+    <h3 id="search-keys">Search and keys</h3>
+    <p>Type in <strong>Search</strong> (or press <code>Ctrl+F</code>) to show only the cards whose title, year or collection has that text, such as <em>indiana</em>, <em>2023</em> or <em>marvel</em>. <code>Esc</code> clears it. Click a card's poster, then:</p>
+    <table>
+      <tr><th>Key</th><th>What it does</th></tr>
+      <tr><td><code>Enter</code></td><td>Opens the details window (or the TMDb search, for a card that isn't scraped yet), like a double-click</td></tr>
+      <tr><td><code>F2</code></td><td>Opens <strong>Edit NFO</strong></td></tr>
+      <tr><td><code>Space</code></td><td>Ticks or unticks the card</td></tr>
+      <tr><td><code>Delete</code></td><td>Takes the card off the list (the files stay as they are)</td></tr>
+      <tr><td>Arrows</td><td>Move to the card beside, above or below</td></tr>
+    </table>
 
     <h3>Per-movie scrape</h3>
     <p>Click <strong>Scrape</strong> on any card → the same TMDb search dialog as Step 1 opens, pre-filled with the title and year. Pick a result → app downloads everything. The card flips to green and the poster appears.</p>
@@ -440,7 +456,10 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
     <h3>Bulk auto-scrape</h3>
     <p>Click <strong>Scrape Selected (auto)</strong> at the top → every checked card is processed sequentially using the <strong>first TMDb match</strong> (movie or TV show, depending on the card). Fast for batch processing, less precise than per-card.</p>
     <p>Checked cards that are already <strong>Complete</strong> are scraped again, for example to get the full cast of a TV show or to add episode titles to file names. An already-scraped movie or show keeps the TMDb match in its NFO and its poster and fanart (only missing pictures are added), and protected edits stay as they are. Whatever is scraped again keeps your own rating, play count, Watched, last played date and note from its old <code>.nfo</code>. To scrape only what's missing, use <strong>Fill gaps only</strong>.</p>
-    <p>The <strong>Select all</strong> box ticks every card (or clears them all), and a progress bar at the bottom shows <em>"Scraping 3 of 12: Title"</em> while a batch runs.</p>
+    <p>The <strong>Select all</strong> box ticks every card (or clears them all), and a progress bar at the bottom shows <em>"Scraping 3 of 12: Title"</em> while a batch runs. When some fail (no internet for a moment, say), the bottom says how many, with <strong>Retry failed</strong> to scrape just those again. If you're in another app when a batch ends, a Windows notification says how it went; click it to come back.</p>
+
+    <h3 id="scan-in-cinelibrary">Scan in CineLibrary</h3>
+    <p>After a batch, a message offers <strong>Scan in CineLibrary</strong>, and it's in <strong>⋯</strong> any time (the checked cards, or all of them when none are checked). CineLibrary reads just those folders and shows them right away, without a Rescan; it opens first when it isn't running. It needs CineLibrary 5.4.1 or newer, and only folders inside the ones you added to CineLibrary are read (it says which aren't). Nothing is registered in Windows: Essentials leaves a small list of folders in CineLibrary's own <code>CineLibrary-Data</code> folder, which CineLibrary reads and deletes.</p>
 
     <h3>Fill gaps only (verify a library)</h3>
     <p>Click <strong>Fill gaps only</strong> → the app sweeps <strong>every</strong> folder and scrapes only the ones missing something (NFO, poster, fanart, or actor photos). Complete folders are skipped, so it's safe to re-run on an existing library - it just patches the holes. Each card's status shows exactly what's missing, e.g. <em>"Missing: poster · fanart"</em> or <em>"Complete"</em>.</p>
@@ -463,7 +482,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
 
     <h3>Other things you can do</h3>
     <ul>
-      <li><strong>+ Add Folder</strong> - add a movie folder that wasn't part of Steps 1 or 2. Accepts both single movie folders and parent folders containing many movie folders.</li>
+      <li><strong>+ Add Folder</strong> - add a movie folder that wasn't part of Steps 1 or 2. Accepts both single movie folders and parent folders containing many movie folders. Click <strong>▾</strong> beside it for the last 10 folders you added, as in Step 1.</li>
       <li><strong>Drag-drop</strong> - same as above.</li>
       <li><strong>Double-tap a card that has an NFO</strong> - opens the <strong>Movie Details</strong> window (hero fanart, floating poster, plot, IMDb and TMDb rating chips, color-coded crew / studio / country / genres / IDs / file info, scrollable cast strip with photos, plus Play / Open Folder / Edit / Trailer buttons). ESC closes it. Resizable and maximizable, and it opens where and how big you last left it. For a TV show it also lists the <a href="#episodes">episodes</a>.</li>
       <li><strong>Double-tap a card without an NFO</strong> - opens the resizable TMDb search dialog so you can pick the right match.</li>
@@ -476,6 +495,9 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
     <h3 id="episodes">Episodes and missing episodes</h3>
     <p>The details window of a TV show has an <strong>Episodes</strong> section, grouped by season (specials last). Each episode shows its thumbnail, title and air date, read from the files Step 3 wrote. Double-click an episode to play it.</p>
     <p>While you look, the app asks TMDb which <strong>aired</strong> episodes aren't in your library and adds them to the list with an orange <strong>Missing</strong> tag. A season you don't have at all shows as one line ("All 10 aired episodes"). Episodes that haven't aired yet and specials are never reported as missing. This needs an internet connection; without one the list simply shows what's on disk.</p>
+
+    <h3 id="collection">Films missing from a collection</h3>
+    <p>For a movie in a TMDb collection, such as the <em>Indiana Jones Collection</em>, the details window lists the collection's films, oldest first: a check mark for the ones in Step 3's list, an orange <strong>Missing</strong> tag for released ones that aren't, and a grey <strong>Not out yet</strong> tag for the rest. It compares with the cards in Step 3, so add your whole movie library there to see what you really have. This needs an internet connection.</p>
 
     <h3 id="edit-nfo">Edit NFO</h3>
     <p>Scraped the right title but want to fix something? Right-click a card → <strong>Edit NFO...</strong>, or click <strong>Edit</strong> in the details window. The editor is its own window: resize it, maximize it, keep it open next to the app. It opens where and how big you last left it. Sections on the left:</p>
@@ -492,6 +514,7 @@ Show.S01E01.mkv        "Show - S01E01.mkv"         Show/Season 01/          tvsh
     <ul>
       <li><strong>Chips</strong> for lists: type a genre, studio or name and press <code>Enter</code>; click × (or press <code>Backspace</code> in the empty box) to remove one. While you type, it suggests values already used in your library, so "Sci-Fi" and "Science Fiction" don't both creep in.</li>
       <li><strong>Fetch from TMDb</strong> (the download-arrow button next to title, tagline, plot and outline) fills in just that field from TMDb, in a language you pick.</li>
+      <li><strong>Previous / Next</strong> (the arrows at the top, or <code>Alt+Left</code> / <code>Alt+Right</code>) save your changes and open the card before or after this one in Step 3, in the order shown there (sorted and searched), on the same section. Good for a run of titles, like a whole collection.</li>
       <li><strong>Nothing is written until you Save</strong> (<code>Ctrl+S</code>). The header counts your unsaved changes; <strong>Revert</strong> throws them away, and closing the window asks first.</li>
       <li><strong>Only what you change is written.</strong> Everything else in the NFO, like file info and tags added by other tools, stays exactly as it was.</li>
       <li><strong>Restore previous version</strong> puts back the files exactly as they were before your last save: the NFO and any picture, actor photo or episode file that save replaced. Backups are kept in the app's own folder, not next to your movies.</li>
